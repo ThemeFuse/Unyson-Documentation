@@ -1,0 +1,86 @@
+{% if READTHEDOCS %}
+<div class="versions">
+    <div class="current-version" >
+        <span>{{ current_version }} version</span>
+        <div class="other-versions hidden">
+            <dl>
+                <dt>Versions:</dt>
+                {% for slug, url in versions %}
+                <dd><a href="{{ url }}">{{ slug }}</a></dd>
+                {% endfor %}
+            </dl>
+            <dl>
+                <dt>Downloads:</dt>
+                {% for type, url in downloads %}
+                <dd><a href="{{ url }}">{{ type }}</a></dd>
+                {% endfor %}
+            </dl>
+            <dl>
+                <dt>On Read the Docs:</dt>
+                <dd>
+                    <a href="//{{ PRODUCTION_DOMAIN }}/projects/{{ slug }}/?fromdocs={{ slug }}">Project Home</a>,
+                </dd>
+                <dd>
+                    <a href="//{{ PRODUCTION_DOMAIN }}/builds/{{ slug }}/?fromdocs={{ slug }}">Builds</a>
+                </dd>
+            </dl>
+            <div class="sign">Hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.</div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="versions">
+    <div class="current-version">
+        <span>latest version</span>
+        <div class="other-versions hidden">
+            <dl>
+                <dt>Versions:</dt>
+                <dd><a href="/en/latest/">Latest</a>,</dd>
+                <dd><a href="/en/latest/">0.6.1</a></dd>
+            </dl>
+            <dl>
+                <dt>Downloads:</dt>
+                <dd><a href="https://media.readthedocs.org/pdf/generity/latest/generity.pdf">PDF</a>,</dd>
+                <dd><a href="https://media.readthedocs.org/htmlzip/generity/latest/generity.zip">HTML</a>,</dd>
+                <dd><a href="https://media.readthedocs.org/epub/generity/latest/generity.epub">Epub</a></dd>
+            </dl>
+            <dl>
+                <dt>On Read the Docs:</dt>
+                <dd>
+                    <a href="//readthedocs.org/projects/generity/?fromdocs=generity">Project Home</a>,
+                </dd>
+                <dd>
+                    <a href="//readthedocs.org/builds/generity/?fromdocs=generity">Builds</a>
+                </dd>
+            </dl>
+            <div class="sign">Hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.</div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<script type="text/javascript">
+    jQuery(function($){
+        $(".current-version").hover(function(){
+            var $this = $(this),
+                dropdown = $this.children(".other-versions");
+
+            dropdown.removeClass('hidden animated fadeOutUpSmall fadeInDownSmall');
+
+            var menuItemWidth = $this.outerWidth(),
+                submenuItemWidth = dropdown.outerWidth();
+
+            dropdown.css('left' , (menuItemWidth-submenuItemWidth)/2);
+
+            dropdown.addClass('animated fadeInDownSmall').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                dropdown.removeClass('animated fadeInDownSmall');
+            });
+        }, function(){
+            var $this = $(this),
+                dropdown = $this.children(".other-versions");
+
+            dropdown.addClass('animated fadeOutUpSmall').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                $(this).removeClass('animated fadeOutUpSmall').addClass('hidden');
+            });
+        });
+    });
+</script>

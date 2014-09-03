@@ -1,0 +1,54 @@
+Template Extension
+==================
+
+What it offers? (Features/Architecture)
+
+-----
+
+.. contents::
+    :local:
+    :backlinks: top
+
+Customize
+---------
+
+What configurations has and what can be customized.
+
+Helpers
+-------
+
+List and describe helper functions/classes (if has)
+
+Filters
+-------
+
+List and describe filters (if has)
+
+Actions
+-------
+
+List and describe actions (if has)
+
+Option Types
+------------
+
+List and describe option types (if has)
+
+Create Sub-Extension
+--------------------
+
+Describe how to create sub extension and API that is available to it. (if can)
+
+Advanced Sub-Sections
+---------------------
+
+(if has)
+
+*If above sections (Helpers, Filters, etc.) contains a lot of text or are complicated,
+maybe is better to move them in advanced sub-sections.*
+
+.. toctree::
+   :numbered:
+
+   subsection1
+   subsection2

@@ -1,0 +1,10 @@
+{% if next or prev %}
+    <div class="pagination clearfix">
+        {% if prev %}
+            <a href="{{ prev.link|e }}" class="prev" ><i class="icon-arrow-left"></i> <span>{{ prev.title|striptags|e }}</span></a>
+        {% endif %}
+        {% if next %}
+            <a href="{{ next.link|e }}" class="next" ><span>{{ next.title|striptags|e }}</span> <i class="icon-arrow-right"></i></a>
+        {% endif %}
+    </div>
+{% endif %}

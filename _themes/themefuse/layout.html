@@ -1,0 +1,197 @@
+{# TEMPLATE VAR SETTINGS #}
+{%- set url_root = pathto('', 1) %}
+{%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
+{%- if not embedded and docstitle %}
+  {%- set titlesuffix = " &mdash; "|safe + docstitle|e %}
+{%- else %}
+  {%- set titlesuffix = "" %}
+{%- endif -%}
+{%- set is_front_page = not prev and next -%}
+
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html lang="en" class="no-js oldie"><![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block htmltitle %}<title>{{ title|striptags|e }}{{ titlesuffix }}</title>{% endblock %}
+
+    {% if favicon %}<link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}"/>{% endif %}
+
+    {% if not embedded and use_opensearch %}
+        <link rel="search" type="application/opensearchdescription+xml" title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}" href="{{ pathto('_static/opensearch.xml', 1) }}"/>
+    {% endif %}
+
+    {%
+        set css_files = [
+            '_static/css/bootstrap.min.css'
+        ] + css_files + [
+            '_static/css/pygments.theme.css',
+            '_static/css/animate.css'
+        ]
+    %}
+    {% for cssfile in css_files %}
+        <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
+    {% endfor %}
+
+    {% if not READTHEDOCS %}
+    {# this css contains fontawesome for ".fa .fa-*" classes #}
+    <!--<link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />-->
+    {% endif %}
+
+    <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+
+    {%- block linktags %}
+        {%- if hasdoc('about') %}
+            <link rel="author" title="{{ _('About these documents') }}" href="{{ pathto('about') }}"/>
+        {%- endif %}
+        {%- if hasdoc('genindex') %}
+            <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}"/>
+        {%- endif %}
+        {%- if hasdoc('search') %}
+            <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}"/>
+        {%- endif %}
+        {%- if hasdoc('copyright') %}
+            <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}"/>
+        {%- endif %}
+        <link rel="top" title="{{ docstitle|e }}" href="{{ pathto('index') }}"/>
+        {%- if parents %}
+            <link rel="up" title="{{ parents[-1].title|striptags|e }}" href="{{ parents[-1].link|e }}"/>
+        {%- endif %}
+        {%- if next %}
+            <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}"/>
+        {%- endif %}
+        {%- if prev %}
+            <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}"/>
+        {%- endif %}
+    {%- endblock %}
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT: '{{ url_root }}',
+            VERSION: '{{ release|e }}',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '{{ "" if no_search_suffix else file_suffix }}',
+            HAS_SOURCE: '{{ has_source|lower }}'
+        };
+    </script>
+
+    <!--[if lt IE 9]><script src="{{ pathto('_static/js/respond.min.js', 1) }}"></script><![endif]-->
+
+    <script type="text/javascript">
+        var tfVars = {
+            'logo_src': "{{ pathto('_static/img/logo.png', 1) }}",
+            'header_bg_src': "{{ pathto('_static/img/header-bg.jpg', 1) }}"
+        };
+    </script>
+
+    {%
+        set script_files = [
+            '_static/js/modernizr.min.js'
+        ] + script_files + [
+            '_static/js/bootstrap.min.js',
+            '_static/js/jquery.slicknav.min.js',
+            '_static/js/scripts.js'
+        ]
+    %}
+    {%- for scriptfile in script_files %}
+        <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
+    {%- endfor %}
+
+    {%- if theme_typekit_id %}
+        <script type="text/javascript" src="//use.typekit.net/{{ theme_typekit_id }}.js"></script>
+        <script type="text/javascript">try{ Typekit.load(); }catch(e){}</script>
+    {% endif -%}
+
+    {%- block extrahead %} {% endblock %}
+</head>
+
+<body>
+    {% include "header.html" %}
+
+    <div id="content-anchor">
+        <a name="content"></a>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-lg-offset-2">
+                <div class="row" id="before-content">
+                    <div class="col-sm-12">
+                        <nav class="clearfix">
+                            <ol id="breadcrumbs">
+                                <li><a href="{{ url_root }}index.html">{% trans %}Unyson Framework{% endtrans %}</a></li>
+
+                                {% for doc in parents %}
+                                <li><a href="{{ doc.link|e }}">{{ doc.title }}</a></li>
+                                {% endfor %}
+
+                                <li>{{ title }}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="col-sm-4">
+                        {% include "versions.html" %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="body">
+                            {% block body %}{% endblock %}
+                        </div>
+
+                        {% include "pagination.html" %}
+                    </div>
+                    <div class="col-sm-4">
+                        <div id="menu-wrapper">
+                            <h3 class="menu-title">{% trans %}Developer Manual{% endtrans %}</h3>
+                            <div id="menu">
+
+                                <ul class="{% if is_front_page %} current{% endif %}" id="custom-menu-top">
+                                    <li class="toctree-l1{% if is_front_page %} current{% endif %}"><a class="reference internal" href="{{ url_root }}index.html">Unyson Framework</a>
+                                        <ul class="current">
+                                            <li class="toctree-l2{% if is_front_page %} current{% endif %}">
+                                                <a class="{% if is_front_page %}current{% endif %} reference internal" href="{{ url_root }}index.html">Getting Started</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                {% set toctree = toctree(maxdepth=2, collapse=False, includehidden=True) %}
+                                {% if toctree %}
+                                    {{ toctree }}
+                                {% else %}
+                                    <div class="local-toc">{{ toc }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+
+    {% if theme_analytics_id %}
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '{{ theme_analytics_id }}']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+    {% endif %}
+
+    {%- block footer %} {% endblock %}
+</body>
+</html>

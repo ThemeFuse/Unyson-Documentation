@@ -1,0 +1,84 @@
+.highlight pre .hll { background-color: #49483e }
+.highlight pre {
+    font-family: "source-code-pro", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #595959;
+    line-height: 1.66;
+    padding: 27px;
+    background: #f5f5f5;
+    border-radius: 0;
+    margin: 32px 0;
+    overflow-x: auto;
+    word-wrap: normal;
+}
+.pre {
+    font-family: "source-code-pro", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+    display: inline-block;
+    background-color: #f5f5f5;
+    line-height: 21px;
+    padding: 0 3px;
+}
+.highlight pre .c { color: #a1a1a1 } /* Comment */
+.highlight pre .err { color: #f00; background-color: #333; } /* Error */
+.highlight pre .k { color: #595959 } /* Keyword */
+.highlight pre .l { color: #800 } /* Literal */
+.highlight pre .n { color: #458 } /* Name */
+.highlight pre .o { color: #d14 } /* Operator */
+.highlight pre .p { color: #458 } /* Punctuation */
+.highlight pre .cm { color: #a1a1a1 } /* Comment.Multiline */
+.highlight pre .cp { color: #a1a1a1 } /* Comment.Preproc */
+.highlight pre .c1 { color: #a1a1a1 } /* Comment.Single */                    
+.highlight pre .cs { color: #a1a1a1 } /* Comment.Special */
+.highlight pre .ge { font-style: italic } /* Generic.Emph */
+.highlight pre .gs { font-weight: bold } /* Generic.Strong */
+.highlight pre .kc { color: #595959 } /* Keyword.Constant */
+.highlight pre .kd { color: #595959 } /* Keyword.Declaration */
+.highlight pre .kn { color: #d14 } /* Keyword.Namespace */
+.highlight pre .kp { color: #595959 } /* Keyword.Pseudo */
+.highlight pre .kr { color: #595959 } /* Keyword.Reserved */
+.highlight pre .kt { color: #595959 } /* Keyword.Type */
+.highlight pre .ld { color: #0086b3 } /* Literal.Date */
+.highlight pre .m { color: #800 } /* Literal.Number */
+.highlight pre .s { color: #0086b3 } /* Literal.String */
+.highlight pre .na { color: #900 } /* Name.Attribute */
+.highlight pre .nb { color: #458 } /* Name.Builtin */
+.highlight pre .nc { color: #900 } /* Name.Class */
+.highlight pre .no { color: #595959 } /* Name.Constant */
+.highlight pre .nd { color: #900 } /* Name.Decorator */
+.highlight pre .ni { color: #458 } /* Name.Entity */
+.highlight pre .ne { color: #900 } /* Name.Exception */
+.highlight pre .nf { color: #900 } /* Name.Function */
+.highlight pre .nl { color: #458 } /* Name.Label */
+.highlight pre .nn { color: #458 } /* Name.Namespace */
+.highlight pre .nx { color: #900 } /* Name.Other */
+.highlight pre .py { color: #458 } /* Name.Property */
+.highlight pre .nt { color: #d14 } /* Name.Tag */
+.highlight pre .nv { color: #458 } /* Name.Variable */
+.highlight pre .ow { color: #d14 } /* Operator.Word */
+.highlight pre .w { color: #458 } /* Text.Whitespace */
+.highlight pre .mf { color: #800 } /* Literal.Number.Float */
+.highlight pre .mh { color: #800 } /* Literal.Number.Hex */
+.highlight pre .mi { color: #800 } /* Literal.Number.Integer */
+.highlight pre .mo { color: #800 } /* Literal.Number.Oct */
+.highlight pre .sb { color: #0086b3 } /* Literal.String.Backtick */
+.highlight pre .sc { color: #0086b3 } /* Literal.String.Char */
+.highlight pre .sd { color: #a1a1a1 } /* Literal.String.Doc */
+.highlight pre .s2 { color: #0086b3 } /* Literal.String.Double */
+.highlight pre .se { color: #800 } /* Literal.String.Escape */
+.highlight pre .sh { color: #0086b3 } /* Literal.String.Heredoc */
+.highlight pre .si { color: #0086b3 } /* Literal.String.Interpol */
+.highlight pre .sx { color: #0086b3 } /* Literal.String.Other */
+.highlight pre .sr { color: #0086b3 } /* Literal.String.Regex */
+.highlight pre .s1 { color: #0086b3 } /* Literal.String.Single */
+.highlight pre .ss { color: #0086b3 } /* Literal.String.Symbol */
+.highlight pre .bp { color: #458 } /* Name.Builtin.Pseudo */
+.highlight pre .vc { color: #458 } /* Name.Variable.Class */
+.highlight pre .vg { color: #458 } /* Name.Variable.Global */
+.highlight pre .vi { color: #458 } /* Name.Variable.Instance */
+.highlight pre .il { color: #800 } /* Literal.Number.Integer.Long */
