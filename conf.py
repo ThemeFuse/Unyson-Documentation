@@ -13,9 +13,9 @@ copyright = `date.today().year` + ' ThemeFuse | Premium WordPress Themes and Wor
 #release = ''
 #exclude_patterns = []
 
+html_favicon = 'favicon.ico'
 html_theme_path = ["_themes"]
 html_theme = 'themefuse'
-html_favicon = 'favicon.ico'
 
 man_pages = [
     ('index', 1)

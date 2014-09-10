@@ -141,7 +141,10 @@ p {
     margin-bottom: 23px;
 }
 /*li p, dl p {margin-bottom: 10px;}*/
-p a {color: #ff7105;}
+p a,
+a.external {
+	color: #ff7105;
+}
 p.rubric {
     font-weight: normal;
     font-size: 21px;
