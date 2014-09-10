@@ -12,8 +12,8 @@ Getting Started
 Installation
 ------------
 
-Install only framework
-^^^^^^^^^^^^^^^^^^^^^^
+Install only the framework
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you already started to create a theme and want to include the Unyson framework in it:
 
@@ -27,8 +27,8 @@ If you already started to create a theme and want to include the Unyson framewor
 
         require_once TEMPLATEPATH .'/framework/bootstrap.php';
 
-Install framework with the default theme
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install the framework with the default theme
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you want to start creating a theme based on the Unyson default theme:
 
