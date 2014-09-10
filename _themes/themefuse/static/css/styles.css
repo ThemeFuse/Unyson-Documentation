@@ -142,7 +142,7 @@ p {
 }
 /*li p, dl p {margin-bottom: 10px;}*/
 p a,
-a.external {
+a.reference.external {
 	color: #ff7105;
 }
 p.rubric {
@@ -883,8 +883,8 @@ a.reference,
 a.reference em {
     font-style: normal;
 }
-li > a.reference,
-li > a.reference em {
+li > a.reference.internal,
+li > a.reference.internal em {
     font-weight: 600;
 }
 
