@@ -88,7 +88,8 @@ Modal with :doc:`options </options/introduction>`. Display html generated from a
         values: {
             'test_1': 'Default 1',
             'test_2': 'Default 2'
-        }
+        },
+        size: 'small' // 'medium', 'large'
     });
 
     // listen for values change
