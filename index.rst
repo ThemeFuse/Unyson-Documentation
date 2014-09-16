@@ -34,7 +34,7 @@ If you already started to create a theme and want to include the Unyson framewor
 
     .. code-block:: php
 
-        require_once TEMPLATEPATH .'/framework/bootstrap.php';
+        require_once get_template_directory() .'/framework/bootstrap.php';
 
 License
 -------
