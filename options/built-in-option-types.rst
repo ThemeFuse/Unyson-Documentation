@@ -605,6 +605,43 @@ Addable box with options.
 
 
 
+Addable Popup
+-------------
+
+Addable popup with options.
+
+.. code-block:: php
+
+    array(
+        'type' => 'addable-popup',
+        'label' => __('Addable Popup', 'fw'),
+        'desc'  => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
+        'template' => '{{=demo_text}}',
+        'popup-options' => array(
+            'demo_text' => array(
+                'label' => __('Text', 'fw'),
+                'type' => 'text',
+                'value' => 'Demo text value',
+                'desc' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
+                'help' => sprintf("%s \n\n'\"<br/><br/>\n\n <b>%s</b>",
+                    __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
+                    __('Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium', 'fw')
+                ),
+            ),
+            'demo_textarea' => array(
+                'label' => __('Textarea', 'fw'),
+                'type' => 'textarea',
+                'value' => 'Demo textarea value',
+                'desc' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
+                'help' => sprintf("%s \n\n'\"<br/><br/>\n\n <b>%s</b>",
+                    __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
+                    __('Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium', 'fw')
+                ),
+            ),
+        ),
+    )
+
+
 Typography
 ----------
 
