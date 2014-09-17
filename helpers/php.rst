@@ -342,10 +342,6 @@ General PHP helpers:
 
         // FW_Hello_World
 
-.. _fw-try-make-writable:
-
-* ``fw_try_make_writable($path)`` - try make writable a directory or a file.
-
 .. _fw-fix-path:
 
 * ``fw_fix_path($path)`` - make sure a path is in unix style, with ``/`` directory separators.
