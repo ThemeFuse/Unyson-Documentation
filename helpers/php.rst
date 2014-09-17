@@ -350,6 +350,30 @@ General PHP helpers:
 
 * ``fw_fix_path($path)`` - make sure a path is in unix style, with ``/`` directory separators.
 
+.. _fw-get-stylesheet-customizations-directory:
+
+* ``fw_get_stylesheet_customizations_directory()`` - Full path to the child-theme/framework-customizations directory.
+
+.. _fw-get-stylesheet-customizations-directory-uri:
+
+* ``fw_get_stylesheet_customizations_directory_uri()`` - URI to the child-theme/framework-customizations directory.
+
+.. _fw-get-template-customizations-directory:
+
+* ``fw_get_template_customizations_directory()`` - Full path to the parent-theme/framework-customizations directory.
+
+.. _fw-get-template-customizations-directory-uri:
+
+* ``fw_get_template_customizations_directory_uri()`` - URI to the parent-theme/framework-customizations directory.
+
+.. _fw-get-framework-directory:
+
+* ``fw_get_framework_directory()`` - Full path to the parent-theme/framework directory.
+
+.. _fw-get-framework-directory-uri:
+
+* ``fw_get_framework_directory_uri()`` - URI to the parent-theme/framework directory
+
 .. _cache:
 
 Cache
