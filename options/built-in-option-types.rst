@@ -249,6 +249,57 @@ Select with multiple values.
 
 
 
+Multi-Select
+------------
+
+Select multiple choices from different sources: posts, taxonomies, users or a custom array.
+
+.. code-block:: php
+
+    array(
+        'type'  => 'multi-select',
+        'value' => array( 'choice-1', 'choice-3' ),
+        'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+        'label' => __('Label', 'fw'),
+        'desc'  => __('Description', 'fw'),
+        'help'  => __('Help tip', 'fw'),
+        /**
+         * Set population method
+         * Are available: 'posts', 'taxonomy', 'users', 'array'
+         */
+        'population' => 'array',
+        /**
+         * Set post types, taxonomies, user roles to search for
+         *
+         * 'population' => 'posts'
+         * 'source' => 'page',
+         *
+         * 'population' => 'taxonomy'
+         * 'source' => 'category',
+         *
+         * 'population' => 'users'
+         * 'source' => array( 'editor', 'subscriber', 'author' ),
+         *
+         * 'population' => 'array'
+         * 'source' => '' // will populate with 'choices' array
+         */
+        'source' => '',
+        /**
+         * An array with the available choices
+         * Used only when 'population' => 'array'
+         */
+        'choices' => array(
+            'choice-1' => __('Choice 1', 'fw'),
+            'choice-2' => __('Choice 2', 'fw'),
+            'choice-3' => __('Choice 3', 'fw'),
+        ),
+        /**
+         * Set maximum items number that can be selected
+         */
+        'limit' => 100,
+    )
+
+
 Multi
 -----
 
