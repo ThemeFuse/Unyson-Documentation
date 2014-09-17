@@ -48,7 +48,6 @@ The licenses for most software are designed to take away your freedom to share a
     :hidden:
 
     convention/index
-    constants/index
     options/index
     extensions/index
     components/index
