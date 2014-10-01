@@ -168,7 +168,7 @@ all ``js`` files from ``{your-shortcode}/static/js/`` directories in alphabetica
 
 .. attention::
 
-    All of the above is valid only in the case that the ``handle_shortcode()`` method from the :ref:`class file <class-file>` was not overriden.
+    All of the above is valid only in the case that the ``render`` method from the :ref:`class file <class-file>` was not overriden.
 
 .. _class-file:
 
@@ -211,7 +211,7 @@ The new class inherits some usefull methods like:
 The methods that are most prone to be overriden are:
 
 * ``_init()`` - is called when the ``FW_Shortcode`` instance for the shortcode is created. Useful for loading other php files (custom :doc:`option types </options/introduction>`, libraries, etc.).
-* ``handle_shortcode($atts, $content, $tag)`` - returns the html that will be displayed when the shortcode will be executed by WordPress. Useful for changing the default behavior with a custom one.
+* ``render($atts, $content, $tag)`` - returns the html that will be displayed when the shortcode will be executed by WordPress. Useful for changing the default behavior with a custom one.
 
 .. tip::
 
