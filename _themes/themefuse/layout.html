@@ -123,7 +123,7 @@
                     <div class="col-sm-12">
                         <nav class="clearfix">
                             <ol id="breadcrumbs">
-                                <li><a href="{{ url_root }}index.html">{% trans %}Unyson Framework{% endtrans %}</a></li>
+                                <li><a href="{{ url_root }}index.html">{% trans %}{{ project }}{% endtrans %}</a></li>
 
                                 {% for doc in parents %}
                                 <li><a href="{{ doc.link|e }}">{{ doc.title }}</a></li>
@@ -151,10 +151,10 @@
                             <div id="menu">
 
                                 <ul class="{% if is_front_page %} current{% endif %}" id="custom-menu-top">
-                                    <li class="toctree-l1{% if is_front_page %} current{% endif %}"><a class="reference internal" href="{{ url_root }}index.html">Unyson Framework</a>
+                                    <li class="toctree-l1{% if is_front_page %} current{% endif %}"><a class="reference internal" href="{{ url_root }}index.html">{{ project }}</a>
                                         <ul class="current">
                                             <li class="toctree-l2{% if is_front_page %} current{% endif %}">
-                                                <a class="{% if is_front_page %}current{% endif %} reference internal" href="{{ url_root }}index.html">Getting Started</a>
+                                                <a class="{% if is_front_page %}current{% endif %} reference internal" href="{{ url_root }}index.html">{% trans %}Getting Started{% endtrans %}</a>
                                             </li>
                                         </ul>
                                     </li>
