@@ -618,6 +618,10 @@ Create a list of options.
         'option' => array( 'type' => 'text' ),
     )
 
+.. rubric:: Custom Events
+
+``fw:option-type:addable-option:option:init`` - New option was added and initialized.
+
 
 
 Addable Box
