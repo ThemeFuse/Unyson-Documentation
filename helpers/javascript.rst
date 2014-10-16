@@ -18,9 +18,9 @@ General
 
 General javaScript helpers:
 
-* ``fw.FW_URI`` - constant containing URI to framework directory. Same as ``FW_URI`` php constant.
+* ``fw.FW_URI`` - URI to the framework directory.
 
-* ``fw.SITE_URI`` - constant containing URI to site root directory.
+* ``fw.SITE_URI`` - URI to the site root directory.
 
 * ``fw.intval(value)`` - alternative to php `intval() <http://php.net/manual/en/function.intval.php>`_. Returns ``0`` on failure, instead of ``NaN`` like `parseInt() <http://www.w3schools.com/jsref/jsref_parseint.asp>`_ does.
 
@@ -107,11 +107,11 @@ Modal with :doc:`options </options/introduction>`. Display html generated from a
 
 .. note::
 
-    Make sure to enqueue scripts and styles for the options you use in modal. Usually it is done before page is displayed, just render the options and they will enqueue all the files needed:
+    Make sure to enqueue scripts and styles for the options you use in modal. Usually it is done before page is displayed.
 
     .. code-block:: php
 
-        fw()->backend->render_options($modal_options);
+        fw()->backend->enqueue_options_static($modal_options);
 
 Events
 ------

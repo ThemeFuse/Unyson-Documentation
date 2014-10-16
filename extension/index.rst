@@ -13,5 +13,4 @@ Built-in Extensions
     breadcrumbs/index
     seo/index
     blog/index
-    backup/index
     portfolio/index

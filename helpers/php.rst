@@ -167,7 +167,10 @@ General PHP helpers:
 
             if (fw_current_screen_match($only)) {
                 // enqueue this script only on dashboard page
-                wp_enqueue_script('demo-dashboard', FW_CT_URI .'/js/demo-only.js');
+                wp_enqueue_script(
+                    'demo-dashboard',
+                    fw_get_stylesheet_customizations_directory_uri('/js/demo-only.js')
+                );
             }
 
             $exclude = array(
@@ -180,7 +183,10 @@ General PHP helpers:
             if (fw_current_screen_match($exclude)) {
                 // enqueue this script on all admin pages
                 // except dashboard page and all pages from posts menu (add, edit, categories, tags)
-                wp_enqueue_script('demo-dashboard', FW_CT_URI .'/js/demo-excluded.js');
+                wp_enqueue_script(
+                    'demo-dashboard',
+                    fw_get_stylesheet_customizations_directory_uri('/js/demo-excluded.js')
+                );
             }
         }
         add_action('admin_enqueue_scripts', '_action_enqueue_demo_admin_scripts');
@@ -217,7 +223,10 @@ General PHP helpers:
 
         $private = 'Top Secret';
 
-        echo fw_render_view(FW_CT_DIR .'/demo-view.php', array('message' => 'Hello'));
+        echo fw_render_view(
+            get_stylesheet_directory() .'/demo-view.php',
+            array('message' => 'Hello')
+        );
 
         /* demo-view.php
         <?php if (!defined('FW')) die('Forbidden');
@@ -236,7 +245,7 @@ General PHP helpers:
     .. code-block:: php
 
         $variables = fw_get_variables_from_file(
-            FW_CT_DIR .'/demo-variables.php',
+            get_stylesheet_directory() .'/demo-variables.php',
             array(
                 'message' => 'Hi',
                 'foo' => 'bar'
@@ -266,7 +275,7 @@ General PHP helpers:
 
         $private = 'Top Secret';
 
-        fw_include_file_isolated(FW_CT_DIR .'/demo-isolated.php');
+        fw_include_file_isolated(get_stylesheet_directory() .'/demo-isolated.php');
 
         /* demo-isolated.php
         <?php if (!defined('FW')) die('Forbidden');
