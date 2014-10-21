@@ -466,7 +466,7 @@ Pick an image.
 .. code-block:: php
 
     array(
-        'type'  => 'type',
+        'type'  => 'image-picker',
         'value' => 'image-2',
         'attr'  => array(
             'class'    => 'custom-class',
