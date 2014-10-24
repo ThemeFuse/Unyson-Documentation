@@ -872,11 +872,11 @@ Google maps location.
     array(
         'type'  => 'map',
         'value' => array(
-			'coordinates' => array(
-				'lat'   => -34,
-				'lng'   => 150,
-			)
-		),
+            'coordinates' => array(
+                'lat'   => -34,
+                'lng'   => 150,
+            )
+        ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
         'label' => __('Label', 'fw'),
         'desc'  => __('Description', 'fw'),
