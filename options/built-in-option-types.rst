@@ -861,3 +861,24 @@ The ``picker`` parameter holds a valid option type with choices. Supported optio
          */
         'show_borders' => false,
     )
+
+Map
+---
+
+Google maps location.
+
+.. code-block:: php
+
+    array(
+        'type'  => 'map',
+        'value' => array(
+			'coordinates' => array(
+				'lat'   => -34,
+				'lng'   => 150,
+			)
+		),
+        'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+        'label' => __('Label', 'fw'),
+        'desc'  => __('Description', 'fw'),
+        'help'  => __('Help tip', 'fw'),
+    )
