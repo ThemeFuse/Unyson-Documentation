@@ -299,9 +299,9 @@ General PHP helpers:
 
 * ``fw_is_real_post_save()`` - used in 'save_post' action to detect if it's a real post save, not a revision, auto save or something else.
 
-.. _fw-current-page-url:
+.. _fw-current-url:
 
-* ``fw_current_page_url()`` - generate current page url from ``$_SERVER`` data.
+* ``fw_current_url()`` - generate current page url from ``$_SERVER`` data.
 
 .. _fw-is-valid-domain-name:
 
