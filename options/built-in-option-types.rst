@@ -732,6 +732,36 @@ Textarea with the WordPress Editor like the one you use on the blog posts edit p
         'label' => __('Label', 'fw'),
         'desc'  => __('Description', 'fw'),
         'help'  => __('Help tip', 'fw'),
+        /**
+         * Load TinyMCE, can be used to pass settings directly to TinyMCE using an array
+         * bool|array
+         */
+        'tinymce' => true,
+        /**
+         * Whether to display media insert/upload buttons
+         * boolean
+         */
+        'media_buttons' => true,
+        /**
+         * Whether to output the minimal editor configuration used in PressThis
+         * boolean
+         */
+        'teeny' => false,
+        /**
+         * Whether to use wpautop for adding in paragraphs
+         * boolean
+         */
+        'wpautop' => true,
+        /**
+         * Additional CSS styling applied for both visual and HTML editors buttons, needs to include <style> tags, can use "scoped"
+         * string
+         */
+        'editor_css' => '',
+        /**
+         * If smething goes wrong try set to true
+         * boolean
+         */
+        'reinit' => false,
     )
 
 
