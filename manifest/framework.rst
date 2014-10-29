@@ -24,6 +24,6 @@ It supports the following parameters:
     $manifest['requirements'] = array(
         'wordpress' => array(
             'min_version' => '4.0',
-            /*'max_version' => '1000.0.0'*/
+            /*'max_version' => '4.99.9'*/
         ),
     );
