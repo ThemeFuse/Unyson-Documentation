@@ -313,7 +313,14 @@ Option with another options in it.
             'option-1' => 'value 1',
             'option-2' => 'value 2',
         ),
-        'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+        'attr'  => array(
+            'class' => 'custom-class',
+            'data-foo' => 'bar',
+            /*
+            // Add this class to display inner options separators
+            'class' => 'fw-option-type-multi-show-borders',
+            */
+        ),
         'label' => __('Label', 'fw'),
         'desc'  => __('Description', 'fw'),
         'help'  => __('Help tip', 'fw'),
