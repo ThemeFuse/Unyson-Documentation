@@ -657,6 +657,7 @@ Addable box with options.
         'box-controls' => array( // buttons next to (x) remove box button
             'control-id' => '<small class="dashicons dashicons-smiley"></small>',
         ),
+        'limit' => 0, // limit the number of boxes that can be added
     )
 
 .. rubric:: Custom Events
