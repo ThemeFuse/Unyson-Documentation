@@ -642,8 +642,8 @@ Addable box with options.
         'type'  => 'addable-box',
         'value' => array(
             array(
-                'option-1' => 'value 1',
-                'option-2' => 'value 2',
+                'option_1' => 'value 1',
+                'option_2' => 'value 2',
             )
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
