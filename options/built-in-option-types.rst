@@ -651,9 +651,10 @@ Addable box with options.
         'desc'  => __('Description', 'fw'),
         'help'  => __('Help tip', 'fw'),
         'box-options' => array(
-            'option-1' => array( 'type' => 'text' ),
-            'option-2' => array( 'type' => 'textarea' ),
+            'option_1' => array( 'type' => 'text' ),
+            'option_2' => array( 'type' => 'textarea' ),
         ),
+        'template' => 'Hello {{=option_1}}', // box title
         'box-controls' => array( // buttons next to (x) remove box button
             'control-id' => '<small class="dashicons dashicons-smiley"></small>',
         ),
