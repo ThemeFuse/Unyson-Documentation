@@ -654,7 +654,7 @@ Addable box with options.
             'option_1' => array( 'type' => 'text' ),
             'option_2' => array( 'type' => 'textarea' ),
         ),
-        'template' => 'Hello {{=option_1}}', // box title
+        'template' => 'Hello {{- option_1 }}', // box title
         'box-controls' => array( // buttons next to (x) remove box button
             'control-id' => '<small class="dashicons dashicons-smiley"></small>',
         ),
@@ -680,7 +680,7 @@ Addable popup with options.
         'type' => 'addable-popup',
         'label' => __('Addable Popup', 'fw'),
         'desc'  => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
-        'template' => '{{=demo_text}}',
+        'template' => '{{- demo_text }}',
         'popup-options' => array(
             'demo_text' => array(
                 'label' => __('Text', 'fw'),
