@@ -7,7 +7,6 @@ We've organized the files and folders in order to be easy to understand and use.
 
     themes/
     ├-parent-theme/
-    │ ├-framework/
     │ └-framework-customizations/
     │   ├-extensions/
     │   │ ├─extension-name/
@@ -20,14 +19,14 @@ We've organized the files and folders in order to be easy to understand and use.
     │     ├-hooks.php      # add_filter() and add_action()
     │     ├-helpers.php    # Helper functions and classes
     │     ├-manifest.php   # Theme details: title, description, version, dependencies, etc.
-    │     ├─options/       # Files containing options
-    │     │ ├─settings.php # Contains framework settings options
-    │     │ ├─posts/       # Files containing post types options
+    │     ├─options/
+    │     │ ├─settings.php # Theme settings options
+    │     │ ├─posts/       # Post types options
     │     │ │ ├─post.php
     │     │ │ ├─testimonial.php
     │     │ │ ├─{post-type}.php
     │     │ │ └─...
-    │     │ └─taxonomies/  # Files containing taxonomy terms options
+    │     │ └─taxonomies/  # Taxonomy terms options
     │     │   ├─category.php
     │     │   ├─post_tag.php
     │     │   ├─{taxonomy}.php
@@ -44,18 +43,12 @@ We've organized the files and folders in order to be easy to understand and use.
     │       └─...
     └-child-theme/
       └-framework-customizations/
-        └-... # same as in parent theme, but here you can overwrite specific files from parent theme
+        └-... # same as in then parent theme, but here you can overwrite specific files from the parent theme
 
 Let's take a closer look to each directory and file, and understand how it works.
 
-* ``framework/`` - In this directory you'll find the framework.
-  Do not change anything in it, because all the files from that directory will be replaces on a framework update and you'll lose all the changes.
-
-* ``framework-customizations/`` - Contains everything related to your theme.
-  You are free to change everything you want in this directory.
-
 * ``framework-customizations/extension/`` - Contains customizations for the framework extensions.
-  You can overwrite options, views and configuration files of the extensions located in the framework directory.
+  You can overwrite options, views and configuration files of the extensions located in the framework.
   You can also store there theme extensions and create sub-extensions for extensions located in the framework.
 
 * ``framework-customizations/theme/`` - Contains options, views, helpers, and all bunch of theme stuff, we'll take a closer look at every file below.
@@ -79,7 +72,7 @@ Let's take a closer look to each directory and file, and understand how it works
 * ``framework-customizations/theme/manifest.php`` - Contains an array with information about theme.
 
 * ``framework-customizations/theme/options/`` - A directory containing option files only: post types options, taxonomy options, settings page options and
-  you can also add custom options files in it. Check out the available :doc:`methods to retrieve the theme options </components/theme>`.
+  you can also add custom options files in it.
 
 * ``framework-customizations/theme/widgets/`` - Contains theme widgets organized into directories.
   Widget class files are included automatically on ``widgets_init`` action.
@@ -87,6 +80,6 @@ Let's take a closer look to each directory and file, and understand how it works
 * ``framework-customizations/theme/includes/`` - Contains any ``.php`` file that you want to be included automatically.
 
 You can also create a ``framework-customizations/`` directory in the child theme.
-There you can do the same things as in parent theme, and also you can overwrite some files from parent theme, like options and configuration files.
+There you can do the same things as in parent theme, and also you can overwrite some files from the parent theme, like options and configuration files.
 Keep in mind that some files from the child theme are included before the parent theme files (or the other way around, it depends on the case)
 to give you the ability to customize some parent theme behavior.

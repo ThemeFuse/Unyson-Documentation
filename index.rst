@@ -12,29 +12,7 @@ Getting Started
 Installation
 ------------
 
-Install the framework with the default theme
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you want to start creating a theme based on the Unyson default theme:
-
-1. `Download <https://github.com/ThemeFuse/Unyson/releases/latest>`__ the archive from the Unyson GitHub repository.
-
-2. Extract the zip in the ``wp-content/themes`` directory.
-
-Install only the framework
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you already started to create a theme and want to include the Unyson framework in it:
-
-1. `Download <https://github.com/ThemeFuse/Unyson-Framework/releases/latest>`__ the archive from the framework's GitHub repository.
-
-2. Extract it to your parent theme directory. After this you must have ``framework/`` directory in parent theme. It's mandatory to have this exact same folder structure otherwise it will not work.
-
-3. Include the Unyson framework by adding this line in your theme's ``functions.php``:
-
-    .. code-block:: php
-
-        require dirname(__FILE__) .'/framework/bootstrap.php';
+???
 
 License
 -------

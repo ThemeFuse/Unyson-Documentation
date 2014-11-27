@@ -15,11 +15,4 @@ and to provide an easier way for developers to work together. Here are some star
 
         ``(?<=^\s*) {4}`` replace with ``\t``
 
-* First line in all php files should be:
-
-    .. code-block:: php
-
-        <?php if (!defined('FW')) die('Forbidden');
-
-
 .. include:: /links.rst.inc
