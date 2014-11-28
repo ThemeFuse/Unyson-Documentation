@@ -45,7 +45,7 @@ We've organized the files and folders in order to be easy to understand and use.
       └-framework-customizations/
         └-... # same as in then parent theme, but here you can overwrite specific files from the parent theme
 
-Let's take a closer look to each directory and file, and understand how it works.
+Let's take a closer look at each directory and file, and understand how it works.
 
 * ``framework-customizations/theme/`` - Contains options, views, helpers, and all bunch of theme stuff, we'll take a closer look at every file below.
 
@@ -66,15 +66,17 @@ Let's take a closer look to each directory and file, and understand how it works
 * ``framework-customizations/theme/helpers.php`` - Add all helper functions and classes used all over your theme to this file.
 
 * ``framework-customizations/theme/manifest.php`` - Contains an array with information about theme, accessible through ``fw()->theme->manifest->get('key');``.
+  More details about the :doc:`theme manifest </manifest/theme>`.
 
-* ``framework-customizations/theme/options/`` - A directory containing option files only: post types options, taxonomy options, settings page options and
-  you can also add custom options files in it: for e.g. ``framework-customizations/theme/options/my-options.php`` and access them through ``fw()->theme->get_options('my-options')``.
+* ``framework-customizations/theme/options/`` - A directory containing option files: post types, taxonomies and theme settings page options.
+  The framework will automatically pick them, display in admin pages and save the values in the database.
+  Also you can add custom options files in it, for e.g. ``framework-customizations/theme/options/my-options.php`` and access them through ``fw()->theme->get_options('my-options')``.
   Use the ``fw_get_db_..._option()`` functions to get the settings, posts and taxonomies options values from the database.
 
 * ``framework-customizations/theme/widgets/`` - Contains theme widgets organized into directories.
   Widget class files are included automatically on the ``widgets_init`` action.
 
-* ``framework-customizations/theme/includes/`` - Contains any ``.php`` file that you want to be included automatically.
+* ``framework-customizations/theme/includes/`` - All ``.php`` files within this directory will be included automatically.
 
 * ``framework-customizations/extension/`` - Contains customizations for the framework extensions.
   You can overwrite options, views and configuration files of the extensions located in the framework.

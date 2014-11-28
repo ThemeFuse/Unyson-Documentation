@@ -10,4 +10,5 @@ They can be placed in the flowing directories:
 
 .. note::
 
-   Every extension has everything it needs in its own folder: settings, options, scripts, styles, etc. In this way, extensions can be easy added or removed.
+   Every extension has everything it needs in its own folder: settings, options, scripts, styles, etc.
+   In this way, extensions can be easy added or removed without affecting other files.

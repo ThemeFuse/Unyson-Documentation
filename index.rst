@@ -39,25 +39,25 @@ The ``framework/`` can be placed in any directory you want, just include the ``b
 
 .. note::
 
-	You can include the ``bootstrap.php`` file multiple times,
-	however only the first included version will be active,
-	all other includes will be ignored/inactive.
+    You can include the ``bootstrap.php`` file multiple times,
+    however only the first included version will be active,
+    all other includes will be ignored/inactive.
 
 The only thing you will have to configure is the framework directory uri, for the static files to be enqueued properly:
 
 .. code-block:: php
 
-	if (defined('FW')):
-		// the framework was already included in another place, so this version will be inactive/ignored
-	else:
-		/** @internal */
-		function _filter_fw_framework_plugin_directory_uri() {
-		    return 'https://.../uri/to/this/directory' . '/framework';
-		}
-		add_filter('fw_framework_directory_uri', '_filter_fw_framework_plugin_directory_uri');
-	endif;
+    if (defined('FW')):
+        // the framework was already included in another place, so this version will be inactive/ignored
+    else:
+        /** @internal */
+        function _filter_fw_framework_plugin_directory_uri() {
+            return 'https://.../uri/to/this/directory' . '/framework';
+        }
+        add_filter('fw_framework_directory_uri', '_filter_fw_framework_plugin_directory_uri');
+    endif;
 
-	require dirname(__FILE__) .'/framework/bootstrap.php';
+    require dirname(__FILE__) .'/framework/bootstrap.php';
 
 License
 -------
