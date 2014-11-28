@@ -5,7 +5,6 @@ Getting Started
 This framework was created from the ground up by the team behind `ThemeFuse`_
 from the desire to empower developers to build outstanding WordPress themes fast and easy.
 
-
 .. note::
 
     This documentation assumes you have a working knowledge of WordPress.
@@ -64,7 +63,6 @@ License
 -------
 
 The licenses for most software are designed to take away your freedom to share and change it. By contrast, the GNU General Public License is intended to guarantee your freedom to share and change free software. Unyson inherits the `General Public License`_ (GPL) from WordPress.
-
 
 .. include:: /links.rst.inc
 
