@@ -1,7 +1,9 @@
 Getting Started
 ===============
 
-`Unyson`_ is a framework for `WordPress`_ that facilitates development of a theme. This framework was created from the ground up by the team behind `ThemeFuse`_ from the desire to empower developers to build outstanding WordPress themes fast and easy.
+`Unyson`_ is a framework for `WordPress`_ that facilitates development of a theme.
+This framework was created from the ground up by the team behind `ThemeFuse`_
+from the desire to empower developers to build outstanding WordPress themes fast and easy.
 
 
 .. note::
@@ -9,10 +11,54 @@ Getting Started
     This documentation assumes you have a working knowledge of WordPress.
     If you haven't, please start by reading `WordPress Documentation`_.
 
+Minimum Requirements
+--------------------
+
+* WordPress 4.0 or greater
+* PHP version 5.2.4 or greater
+* MySQL version 5.0 or greater
+
 Installation
 ------------
 
-???
+Install as plugin
+^^^^^^^^^^^^^^^^^
+
+The easiest (recommended) way to install the framework, is through the 'Plugins' menu:
+Search for plugin named ``Unyson`` and click the Install button.
+
+Or you can install `the plugin <https://wordpress.org/plugins/unyson/>`__ manually:
+
+1. Upload the ``unyson`` folder to the ``/wp-content/plugins/`` directory
+2. Activate the Unyson plugin through the 'Plugins' menu
+3. Configure the plugin by going to the Unyson menu
+
+Install anywhere
+^^^^^^^^^^^^^^^^
+
+The ``framework/`` can be placed in any directory you want, just include the ``bootstrap.php`` file.
+
+.. note::
+
+	You can include the ``bootstrap.php`` file multiple times,
+	however only the first included version will be active,
+	all other includes will be ignored/inactive.
+
+The only thing you will have to configure is the framework directory uri, for the static files to be enqueued properly:
+
+.. code-block:: php
+
+	if (defined('FW')):
+		// the framework was already included in another place, so this version will be inactive/ignored
+	else:
+		/** @internal */
+		function _filter_fw_framework_plugin_directory_uri() {
+		    return 'https://.../uri/to/this/directory' . '/framework';
+		}
+		add_filter('fw_framework_directory_uri', '_filter_fw_framework_plugin_directory_uri');
+	endif;
+
+	require dirname(__FILE__) .'/framework/bootstrap.php';
 
 License
 -------
