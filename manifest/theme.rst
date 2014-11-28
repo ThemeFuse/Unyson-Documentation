@@ -39,6 +39,10 @@ It supports the following parameters:
             ),*/
         )
     );
+    /**
+     * Extensions compatible with the theme
+     * After plugin activation, the user will be redirected to a page to install these extensions
+     */
     $manifest['supported_extensions'] = array(
         /*
         'extension_name' => array(),
