@@ -15,26 +15,29 @@ To define a new option type, create a class that extends the base option type cl
         /**
          * @internal
          */
+        protected function _enqueue_static($id, $option, $data)
+        {
+            wp_enqueue_style(
+                'fw-option-'. $this->get_type(),
+                fw_get_stylesheet_customizations_directory_uri(
+                    '/includes/options-types/'. $this->get_type() .'/static/css/styles.css'
+                )
+            );
+
+            wp_enqueue_script(
+                'fw-option-'. $this->get_type(),
+                fw_get_stylesheet_customizations_directory_uri(
+                    '/includes/options-types/'. $this->get_type() .'/static/js/scripts.js'
+                ),
+                array('fw-events', 'jquery')
+            );
+        }
+
+        /**
+         * @internal
+         */
         protected function _render($id, $option, $data)
         {
-            /**
-             * If this option has any js or css, use wp_enqueue_...() right here in this method.
-             */
-            {
-                wp_enqueue_style(
-                    'fw-option-'. $this->get_type(),
-                    FW_CT_THEME_URI .'/includes/options-types/'. $this->get_type()
-                        .'/static/css/styles.css'
-                );
-
-                wp_enqueue_script(
-                    'fw-option-'. $this->get_type(),
-                    FW_CT_THEME_URI .'/includes/options-types/'. $this->get_type()
-                        .'/static/js/scripts.js',
-                    array('fw-events', 'jquery')
-                );
-            }
-
             /**
              * $data['value'] contains value that should be used.
              * We decide if it's correct and how to use it in html

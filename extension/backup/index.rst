@@ -1,207 +1,94 @@
 Backup
 ======
 
-The extension makes a .zip file with all of the files from ``ABSPATH``
-and a special file ``database.sql`` containing database dump.  Then it
-sends it to the storage layer (e.g. Local directory).
+The Backup extension was designed to achieve the following tasks:
 
-.. contents::
-    :local:
-    :backlinks: top
+1. **Backup**: Make a Full or Database only copy of the site
+   periodically or on demand.
 
-Architecture
-------------
+2. **Restore**: Do a restore from a previously made backup.
 
-The extension encapsulates its task into two so-called processes:
-:ref:`backup` and :ref:`restore`.
+3. **Demo Install**: Make an archive of the currently selected theme with
+   all of its settings (database plus uploads directory).
 
-.. _backup:
+   Auto Install: Gives the ability to use these settings at the
+   time the theme was activated.
 
-Backup
-^^^^^^
+4. **Migration**: Move a WordPress site from one place to another.
 
-The Backup process is responsible for making a backup copy of a site
-and send it to the storage layer:
+Backup and Restore
+------------------
 
-1. Export File System
-2. Export Database
-3. Send .zip file to a Storage Layer
+These two are the basic features of the **Backup** extension.
 
-.. _restore:
+The backup process works the following way:
 
-Restore
-^^^^^^^
+1. All the necessary data is collected and stored in a zip archive.
+   For **Full Backup** this is the database content and all of the
+   files under the ``ABSPATH`` directory. For **Database Backup** this is
+   the database content only.
 
-The Restore process is responsible for fetching the .zip file, extracting
-it and replacing the database contents:
+2. The backup archive is moved from a temporary location into a persistent one.
+   By default in the ``uploads/backup`` directory. But it can be anywhere,
+   for e.g. Dropbox or Amazon S3.
 
-1. **Restore File System**
+3. Information about this archive is registered in the database, so next
+   time the Backup page will display it in the **Backup Archive** list.
 
-    1. Fetch .zip file from Storage Layer
-    2. Extract .zip file to a temporary directory
-    3. Move all files from root directory to a backup directory
-    4. Move new files from temporary directory to root directory
+The restore process works in the following way:
 
-2. **Restore Database**
+1. The archive is fetched from a persistent location and extracted to a
+   temporary directory.
 
-    1. Save backup settings
-    2. Drop all database tables
-    3. Import database.sql
-    4. Restore backup settings
+2. If it contains a database dump, then the current database
+   will be cleared and restored from the dump file. If there are WordPress files in it,
+   the whole directory under ``ABSPATH`` will be removed and restored from the archive.
 
-API
----
-
-The extension provides the following API for those who want to build a
-sub extension:
-
-Exceptions
-^^^^^^^^^^
-
-For error handling the extension relies on the following exception
-hierarchy:
-
-* ``FW_Backup_Exception``
-
-    * ``FW_Backup_Exception_Curl``
-    * ``FW_Backup_Exception_Cancelled``
-    * ``FW_Backup_Exception_Invalid_Argument``
-    * ``FW_Backup_Exception_Not_Implemented``
-    * ``FW_Backup_Exception_Parameter_Not_Found``
-    * ``FW_Backup_Exception_Service``
-
-        * ``FW_Backup_Exception_Service_Not_Found``
-        * ``FW_Backup_Exception_Service_Invalid_Interface``
-
-Services
-^^^^^^^^
-
-Generally speaking the Backup extension was build around the idea that any
-complex task (such as backup and restore) can be represented as a set
-of smaller tasks which then can be encapsulated in classes.
-
-These classes instantiated at runtime are called services. Services can
-depend on other services and some values (called parameters).
-
-* ``param($key)`` - yield a value of a parameter. Allowed parameter names are:
-
-    * ``wordpress_dir`` - absolute path to the wordpress directory
-    * ``backup_dir`` - absolute path to the backup directory (used by Local Storage)
-
-        .. note::
-
-            The actual directory may not exists. Take a look at ``get_backup_dir()`` API in order to create it.
-
-    * ``backup_rel`` - relative to wordpress_dir path to the backup directory (used by Local Storage)
-
-        .. note::
-
-            The actual directory may not exists. Take a look at ``get_backup_dir()`` API in order to create it.
-
-* ``service($service_id, $instance_of = null)`` - yield a clone of a specified service or a direct instance of it if its name begins with "shared." prefix. In the latter case all service clients will have the same object.
-
-    Valid service names are:
-
-    * ``shared.post.meta`` - encapsulation of a meta information associated with a backup. Resides in FW_Backup_Service_Post_Meta class.
-
-    * ``shared.feedback`` - encapsulation of a feedback for a Backup process. Represented as FW_Backup_Interface_Feedback interface.
-
-    * ``post.meta`` - version of shared.post.meta
-
-    * ``db`` - generic functionality for the database. Encapsulated in class FW_Backup_Service_Database
-
-    * ``fs`` - generic functionality for the file system. Encapsulated in FW_Backup_Service_File_System
-
-    * ``ie.settings`` - Import/Export of the Backup Settings. Represented as FW_Backup_Interface_IE interface
-
-    * ``ie.history`` - Import/Export of all backups. Represented as FW_Backup_Interface_IE interface
-
-    * ``ie.db`` - Import/Export of the database. Represented as FW_Backup_Interface_IE interface
-
-    * ``ie.fs`` - Import/Export of the file system. Encapsulated in FW_Backup_IE_File_System class
-
-        .. note::
-
-            This service is not implement ``FW_Backup_Interface_IE`` interface
-
-    * ``process.backup-restore`` - encapsulation of Backup and Restore processes
-
-    * ``process.apply-age-limit`` - encapsulation of "Apply Age Limit" process
-
-    * ``cron.full`` - encapsulation of a periodic job for making Full backup. Represented as FW_Backup_Interface_Cron interface.
-
-    * ``cron.db`` - encapsulation of a periodic job for making the Database backup. Represented as FW_Backup_Interface_Cron interface.
-
-* ``service_list($instance_of)`` - yield a list of services implementing the specified interface
-
-Directories
-^^^^^^^^^^^
-
-* ``get_backup_dir($create = false)`` - yield a path to the directory where local backups will be stored.
-
-    .. note::
-
-        If ``$create`` is ``true`` but directory cannot be created ``false`` will be returned.
-
-Pages
-^^^^^
-
-* ``url_backup()`` - URL of a backup page
-
-* ``url_backup_progress($post_id)`` - URL of a page displaying the progress of a specified Backup process
-
-* ``url_backup_now($cron_id)`` - URL of a page starting Backup Now process
-
-* ``url_backup_cancel($post_id)`` - URL of a page cancelling Backup process
-
-* ``url_backup_download($post_id)`` - URL for downloading backup file
-
-* ``url_backup_restore($post_id)`` - URL of a page starting Restore process from specified backup copy
-
-* ``url_backup_trash($post_id)`` - URL of a page deleting a specified backup copy
-
-* ``url_backup_unschedule($cron_id)`` - URL of a page which unscheduled a specified Backup process
-
-Processes
-^^^^^^^^^
-
-* ``backup_now($cron_id)`` - initiate Backup process
-
-* ``backup_cancel($post_id)`` - cancel Backup process
-
-* ``backup_unschedule($cron_id)`` - unschedule specified backup
-
-* ``backup_render_progress($post_id)`` - yield a HTML with a specified backup progress
-
-* ``restore_now($post_id)`` - initiate Restore process from a specified backup copy
+The Backup extension can be extended in only one way, by writing a custom **Storage Layer**.
 
 Storage Layer
 ^^^^^^^^^^^^^
 
-The storage layer is encapsulated in FW_Backup_Interface_Storage interface:
+**Storage Layer** is a way for the **Backup Extension** to stores backup archives. 
+To create one, create a sub-extension that implements ``FW_Backup_Storage_Interface``.
 
-* ``get_title($context = null)`` - should yield a string representing a short description of a Storage Layer e.g. ``Dropbox``, ``Amazon S3`` or ``Local``. The ``$context`` parameter was introduced to show *Locally* in the notification bar:
+For an example of implementation take a look at the **backup-storage-local** extension.
 
-    .. code-block:: text
+Demo Install
+------------
 
-         Full Backup schedule active: Daily | Locally | Next Backup on 16.07.2014 11:22:33
-         Full Backup schedule active: Daily | on Dropbox | Next Backup on 16.07.2014 11:22:33
+**Demo Install** is the process of making an archive of the currently active theme, 
+packed with all of its settings (database plus uploads directory). 
+These settings are stored in the ``auto-install`` directory under the theme parent directory.
 
-    and *Local* in Backup Settings dialog. Currently it can take only two values: ``null`` and ``'on'``.
+.. warning::
 
-* ``ping()`` - should check the connection with the storage server. On any error a ``FW_Backup_Exception`` should be thrown.
+    This feature by default is turned off and is enabled only when the ``WP_DEBUG`` constant is defined and its value is true.
 
-    Designed to avoid situations when backup file was made (which takes time) but can't be stored since Storage Layer wasn't configured properly or doesn't have enough space on it.  Will be called just before Backup process will start.
+If it’s enabled, a **Create Demo Install** button should appear on Backup page.
 
-* ``move($file)`` - should upload a ``$file`` into a storage and remove it. As a result an instance of ``FW_Backup_Interface_File`` should be returned. This object will be passed as an argument to ``fetch()`` and ``remove()`` methods. On any error ``FW_Backup_Exception`` should be thrown.
+Auto Install
+------------
 
-* ``fetch(FW_Backup_Interface_File $backup_file)`` - should make a local copy of a ``$backup_file`` and return full path to it. On any error ``FW_Backup_Exception`` should be thrown.
+**Auto Install** is the reverse process of **Demo Install**.
 
-* ``remove(FW_Backup_Interface_File $backup_file)`` - should remove the ``$backup_file`` from the storage. This method will be called when Backup Extension was instructed to delete the associated backup. On any error ``FW_Backup_Exception`` should be thrown.
+This feature is enabled only when current theme contains the ``auto-install`` directory in it.
 
-Storage Extension
-^^^^^^^^^^^^^^^^^
+If it’s enabled, an **Auto Install** page will appear under the **Tools** menu. 
+That page displays a button **Import Demo Content** and
+by clicking on it, all tables from the database will be dropped and replaced by
+the ``auto-install/database.sql`` file. Also the ``uploads`` directory
+will be replaced with the ``auto-install/uploads`` directory.
 
-The storage Extension is any extension from the extensions directory implementing ``FW_Backup_Interface_Storage_Factory`` interface. The task of a Storage Extension is to introduce Storage Layer to the Backup extension.
+Migration
+---------
 
-For an example take a look at storage-local extension.
+Migration is a term representing moving a WordPress website from one location
+(e.g. ``http://localhost/site``) to another (e.g. ``http://site.com``).
+
+This is achieved by:
+
+1. Making a full backup copy of the site
+2. Moving it in the ``uploads/backup/`` directory on the new site
+
+After opening the Backup page a new archive will be displayed in the **Backup Archive** list.

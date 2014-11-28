@@ -6,7 +6,7 @@ from datetime import date
 
 source_suffix = '.rst'
 master_doc = 'index'
-project = 'Unyson'
+project = 'Unyson Framework'
 copyright = `date.today().year` + ' ThemeFuse | Premium WordPress Themes and WordPress Templates' + \
     '<br>Icons and GUI elements from our sister-site: <a href="http://pixelkit.com">PixelKit.com</a>'
 #version = ''

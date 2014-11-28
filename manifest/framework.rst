@@ -23,7 +23,7 @@ It supports the following parameters:
     $manifest['author_uri']   = 'http://themefuse.com/';
     $manifest['requirements'] = array(
         'wordpress' => array(
-            'min_version' => '3.9',
-            /*'max_version' => '1000.0.0'*/
+            'min_version' => '4.0',
+            /*'max_version' => '4.99.9'*/
         ),
     );

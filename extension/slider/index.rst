@@ -216,15 +216,15 @@ Frontend render
 
 There are two ways you can display a slider in frontend:
 
-    1. **Builder shortcode** - the main slider extension automatically creates a ``[slider]`` shortcode which is available in :doc:`builder </extension/shortcodes/index>` in the **Media Elements** tab.
+1. **Builder shortcode** - the main slider extension automatically creates a ``[slider]`` shortcode which is available in :doc:`builder </extension/shortcodes/index>` in the **Media Elements** tab.
 
-    2. **Render from code** - the slider extension has a public method that you can use to render a slider on frontend.
+2. **Render from code** - the slider extension has a public method that you can use to render a slider on frontend.
 
-        .. code-block:: php
+    .. code-block:: php
 
-            fw()->extensions->get('slider')->render(10, array(
-                'width'  => 300,
-                'height' => 200
-            ));
+        fw()->extensions->get('slider')->render_slider(10, array(
+            'width'  => 300,
+            'height' => 200
+        ));
 
 

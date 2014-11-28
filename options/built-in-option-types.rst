@@ -313,7 +313,14 @@ Option with another options in it.
             'option-1' => 'value 1',
             'option-2' => 'value 2',
         ),
-        'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+        'attr'  => array(
+            'class' => 'custom-class',
+            'data-foo' => 'bar',
+            /*
+            // Add this class to display inner options separators
+            'class' => 'fw-option-type-multi-show-borders',
+            */
+        ),
         'label' => __('Label', 'fw'),
         'desc'  => __('Description', 'fw'),
         'help'  => __('Help tip', 'fw'),
@@ -466,7 +473,7 @@ Pick an image.
 .. code-block:: php
 
     array(
-        'type'  => 'type',
+        'type'  => 'image-picker',
         'value' => 'image-2',
         'attr'  => array(
             'class'    => 'custom-class',
@@ -618,6 +625,10 @@ Create a list of options.
         'option' => array( 'type' => 'text' ),
     )
 
+.. rubric:: Custom Events
+
+``fw:option-type:addable-option:option:init`` - New option was added and initialized.
+
 
 
 Addable Box
@@ -631,8 +642,8 @@ Addable box with options.
         'type'  => 'addable-box',
         'value' => array(
             array(
-                'option-1' => 'value 1',
-                'option-2' => 'value 2',
+                'option_1' => 'value 1',
+                'option_2' => 'value 2',
             )
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
@@ -640,12 +651,14 @@ Addable box with options.
         'desc'  => __('Description', 'fw'),
         'help'  => __('Help tip', 'fw'),
         'box-options' => array(
-            'option-1' => array( 'type' => 'text' ),
-            'option-2' => array( 'type' => 'textarea' ),
+            'option_1' => array( 'type' => 'text' ),
+            'option_2' => array( 'type' => 'textarea' ),
         ),
+        'template' => 'Hello {{- option_1 }}', // box title
         'box-controls' => array( // buttons next to (x) remove box button
             'control-id' => '<small class="dashicons dashicons-smiley"></small>',
         ),
+        'limit' => 0, // limit the number of boxes that can be added
     )
 
 .. rubric:: Custom Events
@@ -667,7 +680,7 @@ Addable popup with options.
         'type' => 'addable-popup',
         'label' => __('Addable Popup', 'fw'),
         'desc'  => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
-        'template' => '{{=demo_text}}',
+        'template' => '{{- demo_text }}',
         'popup-options' => array(
             'demo_text' => array(
                 'label' => __('Text', 'fw'),
@@ -728,6 +741,36 @@ Textarea with the WordPress Editor like the one you use on the blog posts edit p
         'label' => __('Label', 'fw'),
         'desc'  => __('Description', 'fw'),
         'help'  => __('Help tip', 'fw'),
+        /**
+         * Load TinyMCE, can be used to pass settings directly to TinyMCE using an array
+         * bool|array
+         */
+        'tinymce' => true,
+        /**
+         * Whether to display media insert/upload buttons
+         * boolean
+         */
+        'media_buttons' => true,
+        /**
+         * Whether to output the minimal editor configuration used in PressThis
+         * boolean
+         */
+        'teeny' => false,
+        /**
+         * Whether to use wpautop for adding in paragraphs
+         * boolean
+         */
+        'wpautop' => true,
+        /**
+         * Additional CSS styling applied for both visual and HTML editors buttons, needs to include <style> tags, can use "scoped"
+         * string
+         */
+        'editor_css' => '',
+        /**
+         * If smething goes wrong try set to true
+         * boolean
+         */
+        'reinit' => false,
     )
 
 
@@ -856,4 +899,25 @@ The ``picker`` parameter holds a valid option type with choices. Supported optio
          * (optional) if is true, the borders between choice options will be shown
          */
         'show_borders' => false,
+    )
+
+Map
+---
+
+Google maps location.
+
+.. code-block:: php
+
+    array(
+        'type'  => 'map',
+        'value' => array(
+            'coordinates' => array(
+                'lat'   => -34,
+                'lng'   => 150,
+            )
+        ),
+        'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+        'label' => __('Label', 'fw'),
+        'desc'  => __('Description', 'fw'),
+        'help'  => __('Help tip', 'fw'),
     )

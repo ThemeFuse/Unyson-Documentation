@@ -15,3 +15,4 @@ Built-in Extensions
     blog/index
     backup/index
     portfolio/index
+    feedback/index

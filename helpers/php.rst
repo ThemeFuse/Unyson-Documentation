@@ -167,7 +167,10 @@ General PHP helpers:
 
             if (fw_current_screen_match($only)) {
                 // enqueue this script only on dashboard page
-                wp_enqueue_script('demo-dashboard', FW_CT_URI .'/js/demo-only.js');
+                wp_enqueue_script(
+                    'demo-dashboard',
+                    fw_get_stylesheet_customizations_directory_uri('/js/demo-only.js')
+                );
             }
 
             $exclude = array(
@@ -180,7 +183,10 @@ General PHP helpers:
             if (fw_current_screen_match($exclude)) {
                 // enqueue this script on all admin pages
                 // except dashboard page and all pages from posts menu (add, edit, categories, tags)
-                wp_enqueue_script('demo-dashboard', FW_CT_URI .'/js/demo-excluded.js');
+                wp_enqueue_script(
+                    'demo-dashboard',
+                    fw_get_stylesheet_customizations_directory_uri('/js/demo-excluded.js')
+                );
             }
         }
         add_action('admin_enqueue_scripts', '_action_enqueue_demo_admin_scripts');
@@ -217,7 +223,10 @@ General PHP helpers:
 
         $private = 'Top Secret';
 
-        echo fw_render_view(FW_CT_DIR .'/demo-view.php', array('message' => 'Hello'));
+        echo fw_render_view(
+            get_stylesheet_directory() .'/demo-view.php',
+            array('message' => 'Hello')
+        );
 
         /* demo-view.php
         <?php if (!defined('FW')) die('Forbidden');
@@ -236,7 +245,7 @@ General PHP helpers:
     .. code-block:: php
 
         $variables = fw_get_variables_from_file(
-            FW_CT_DIR .'/demo-variables.php',
+            get_stylesheet_directory() .'/demo-variables.php',
             array(
                 'message' => 'Hi',
                 'foo' => 'bar'
@@ -266,7 +275,7 @@ General PHP helpers:
 
         $private = 'Top Secret';
 
-        fw_include_file_isolated(FW_CT_DIR .'/demo-isolated.php');
+        fw_include_file_isolated(get_stylesheet_directory() .'/demo-isolated.php');
 
         /* demo-isolated.php
         <?php if (!defined('FW')) die('Forbidden');
@@ -290,9 +299,9 @@ General PHP helpers:
 
 * ``fw_is_real_post_save()`` - used in 'save_post' action to detect if it's a real post save, not a revision, auto save or something else.
 
-.. _fw-current-page-url:
+.. _fw-current-url:
 
-* ``fw_current_page_url()`` - generate current page url from ``$_SERVER`` data.
+* ``fw_current_url()`` - generate current page url from ``$_SERVER`` data.
 
 .. _fw-is-valid-domain-name:
 
@@ -523,27 +532,46 @@ Functions and classes for working with database:
 
 -----
 
-* ``fw_get_db_settings_option($option_id = null, $get_original_value = null)`` - get value from the database of an option from the framework's settings page.
+.. _fw-get-db-settings-option:
 
-* ``fw_set_db_settings_option($option_id = null, $value)`` - set a value in the database for an option from the framework's settings page.
+* ``fw_get_db_settings_option($option_id, $default_value = null)`` - get value from the database of an option from the framework's settings page.
+  Settings options are located in ``framework-customizations/theme/options/settings.php``.
 
------
+.. _fw-set-db-settings-option:
 
-* ``fw_get_db_post_option($post_id, $option_id = null, $get_original_value = null)`` - get a post option value from the database.
-
-* ``fw_set_db_post_option($post_id, $option_id = null, $value)`` - set a post option value in the database.
-
------
-
-* ``fw_get_db_term_option($term_id, $taxonomy, $option_id = null, $get_original_value = null)`` - get a term option value from the database.
-
-* ``fw_set_db_term_option($term_id, $taxonomy, $option_id = null, $value)`` - set a term option value in the database.
+* ``fw_set_db_settings_option($option_id, $value)`` - set a value in the database for an option from the framework's settings page.
 
 -----
 
-* ``fw_get_db_extension_data($extension_name, $multi_key = null, $get_original_value = null)`` - get a value from the database of some data stored by some extension.
+.. _fw-get-db-post-option:
 
-* ``fw_set_db_extension_data($extension_name, $multi_key = null, $value)`` - extensions uses this function to store custom values in the database.
+* ``fw_get_db_post_option($post_id, $option_id, $default_value = null)`` - get a post option value from the database.
+  Post options are located in ``framework-customizations/theme/options/posts/{post-type}.php``.
+
+.. _fw-set-db-post-option:
+
+* ``fw_set_db_post_option($post_id, $option_id, $value)`` - set a post option value in the database.
+
+-----
+
+.. _fw-get-db-term-option:
+
+* ``fw_get_db_term_option($term_id, $taxonomy, $option_id, $default_value = null)`` - get a term option value from the database.
+  Term options are located in ``framework-customizations/theme/options/taxonomies/{taxonomy}.php``.
+
+.. _fw-set-db-term-option:
+
+* ``fw_set_db_term_option($term_id, $taxonomy, $option_id, $value)`` - set a term option value in the database.
+
+-----
+
+.. _fw-get-db-extension-data:
+
+* ``fw_get_db_extension_data($extension_name, $key, $default_value = null)`` - get a value from the database of some data stored by some extension.
+
+.. _fw-set-db-extension-data:
+
+* ``fw_set_db_extension_data($extension_name, $key, $value)`` - extensions uses this function to store custom values in the database.
     
     .. important::
     
