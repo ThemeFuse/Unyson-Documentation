@@ -38,3 +38,19 @@ It supports the following parameters:
             ),*/
         )
     );
+    /**
+     * @type bool Display on the Extensions page or it's a hidden extension
+     */
+    $manifest['display'] = false;
+    /**
+     * @type bool If extension can exist alone
+     * false - There is no sense for it to exist alone, it exists only when is required by some other extension.
+     * true  - Can exist alone without bothering about other extensions.
+     */
+    $manifest['standalone'] = false;
+    /**
+     * @type string Thumbnail used on the Extensions page
+     * All framework extensions has thumbnails set in the available extensions list
+     * but if your extension is not in that list and id located in the theme, you can set the thumbnail via this parameter
+     */
+    $manifest['thumbnail'] = null;

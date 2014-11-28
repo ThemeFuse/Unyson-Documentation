@@ -39,3 +39,8 @@ It supports the following parameters:
             ),*/
         )
     );
+    $manifest['supported_extensions'] = array(
+        /*
+        'extension_name' => array(),
+        */
+    );
