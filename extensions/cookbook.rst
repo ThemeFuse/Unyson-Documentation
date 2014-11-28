@@ -8,19 +8,6 @@ that developers face in their day to day work.
     :local:
     :backlinks: top
 
-
-Disable Extension
------------------
-
-An extension can be disabled by adding it to the blacklist. Blacklist is an array in theme config:
-
-.. code-block:: php
-
-    // file: framework-customizations/theme/config.php
-
-    $cfg['extensions_blacklist'] = array('extension_name', 'another_extension_name');
-
-
 Disable Child Extensions
 ------------------------
 
