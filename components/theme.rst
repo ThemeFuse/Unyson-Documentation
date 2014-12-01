@@ -1,19 +1,7 @@
 Theme
 =====
 
- The Theme component makes the connection between the theme and the framework. The working directory is ``framework-customizations/theme/`` within child and parent themes.
-
- 
-.. _theme-locate-path:
-
-
-* ``locate_path($rel_path)`` - search full path of the file by a given relative path. Will search in the **child theme** then in the **parent theme**.
-
-    .. code-block:: php
-
-        echo fw()->theme->locate_path('/static.php');
-
-        // prints '/.../wp-content/themes/scratch-theme/framework-customizations/theme/static.php'
+The Theme component makes the connection between the theme and the framework. The working directory is ``framework-customizations/theme/`` within child and parent themes.
 
 .. _theme-get-options:
 
@@ -54,3 +42,13 @@ Theme
     .. code-block:: php
 
         $backlisted_extensions = fw()->theme->get_config('extensions_blacklist');
+
+.. _theme-locate-path:
+
+* ``locate_path($rel_path)`` - search full path of the file by a given relative path. Will search in the **child theme** then in the **parent theme**.
+
+    .. code-block:: php
+
+        echo fw()->theme->locate_path('/custom.php');
+
+        // prints '/.../wp-content/themes/scratch-theme/framework-customizations/theme/custom.php'

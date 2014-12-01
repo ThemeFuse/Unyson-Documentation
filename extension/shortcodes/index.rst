@@ -1,63 +1,116 @@
 Shortcodes
 ==========
 
-The shortcodes extension makes possible the easy creation of `WordPress Shortcodes <http://codex.wordpress.org/Shortcode_API>`_ and their integration with the framework's layout builder.
+The shortcodes extension makes possible the easy creation of `WordPress Shortcodes <http://codex.wordpress.org/Shortcode_API>`_ and their optional integration with the framework's page builder.
 
 .. contents::
     :local:
     :backlinks: top
 
-Directory structure
+Built-in shortcodes
 -------------------
+Unyson comes with a set of built-in shortcodes like ``accordion``, ``button``, ``map``, ``testimonials`` and others.
+All shortcodes are located in ``{some-extension}/shortcodes/`` but the vast majority of them are located in the shortcodes extension (``framework/extensions/shortcodes/shortcodes``).
+They can be modified by :ref:`overriding <overriding-framework-shortcodes>` or :ref:`disabled <disabling-framework-shortcodes>`
 
-A shortcode can be created in the following places:
+.. _overriding-shortcodes:
 
-* ``framework-customizations/theme/shortcodes/``
-* ``{some-extension}/shortcodes/``
+Overriding shortcodes
+---------------------
+Some shortcode files can be overridden (meaning that the files can be swapped). This permits shortcode customization.
+The files that can be overridden are :ref:`config file <config-file>`, :ref:`options file <options-file>`, :ref:`static file <static-file>` and :ref:`view file <view-file>`.
+
+There are three places where the shortcode files are searched until found: child theme (if active), parent theme and framework.
+
+* If the shortcode is built-in (declared in the framework) the files will be first looked up in the child theme (if active), after that in the parent theme, and in the end the framework will search in the shortcode's declared path
+* If the shortcode is declared in the parent theme the files will be first searched in the child theme (if active) and then in the parent theme (where it was declared)
+* If the shortcode is declared in the child theme the files will be searched only at it's declared path
+
+For a better understanding let's look at an example:
+Imagine that there is a shortcode ``demo`` located in the shortcodes extension (``framework/extensions/shortcodes/shortcodes/demo``).
+When the framework loads it's files (``options.php`` for this example) it will follow these simple steps:
+
+1. If a child theme is active it will first look in ``{your-child-theme}/framework-customizations/shortcodes/shortcodes/demo/options.php``
+2. If it did not find the file in the child theme it will search in ``{your-parent-theme}/framework-customizations/shortcodes/shortcodes/demo/options.php``
+3. If it did not find the file in the parent theme it will search at the shortcode's declared path ``framework/extensions/shortcodes/shortcodes/demo/options.php``
+
+.. _disabling-framework-shortcodes:
+
+Disabling shortcodes
+--------------------
+A shortcode can be disabled via the ``fw_ext_shortcodes_disable_shortcodes`` filter.
+A good place to put the code for the disabling would be in ``{your-theme}/framework-customizations/extensions/shortcodes/hooks.php``.
+It should look something like the following:
+
+.. code-block:: php
+
+    <?php if (!defined('FW')) die('Forbidden');
+
+    function disable_default_shortcodes($to_disable, $all_shortcodes)
+    {
+        $to_disable[] = 'accordion';
+        $to_disable[] = 'button';
+        return $to_disable;
+    }
+    add_filter('fw_ext_shortcodes_disable_shortcodes', 'disable_default_shortcodes', 10, 2);
+
+.. tip::
+
+    To know what are the shortcodes correct tag names inspect the second parameter of the filter (``$all_shortcodes`` in the example above).
+
+Creating a new shortcode
+------------------------
+If :ref:`overriding <overriding-shortcodes>` a built-in shortcode does not suit your needs then you might want to create a new shortcode.
+For that you will first have to decide where to place it:
+
+* If you are developing a :doc:`unyson extension </extensions/create-extension>` and you want to offer some functionality from the extension via a shortcode you should create the it at ``framework-customizations/extensions/{your-extension}/shortcodes/{your-shortcode}``.  One such example from the built-in extensions is the slider extension and it's shortcode.
+* If the shortcode that you want to create is not extension specific but more generalist (like the ``button``, ``tabs`` ones are) than you should place it the shortcodes extensions (``framework-customizations/extensions/shortcodes/shortcodes/{your-shortcodes}``).
+
+Directory structure
+^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: text
 
-    {shortcode-name}/
-    ├─class-fw-shortcode-{shortcode-name}.php # optional
-    ├─config.php
-    ├─options.php # optional
-    ├─static/ # optional
-    │ ├─css/
-    │ │ ├─auto-enqueued-style.css
-    │ │ └─...
-    │ ├─img/
-    │ │ ├─layout_builder.png
-    │ │ └─...
-    │ └─js/
-    │   ├─auto-enqueued-script.js
-    │   └─...
-    └─views/
-      ├─view.php
-      └─...
+    {shortcode-name}
+    ├───class-fw-shortcode-{shortcode-name}.php # optional
+    ├───config.php # optional
+    ├───options.php # optional
+    ├───static.php # optional
+    ├───static # optional
+    │   ├───css # you can put your css files here
+    │   ├───img
+    │   │   └───page_builder.png # used as the page builder icon
+    │   └───js # you can put your js files here
+    └───views
+        └───view.php
 
-The framework will register a new WordPress shortcode with its tag being the shortcode directory name,
-with hyphens replaced by underscores (``[shortcode_name]`` for the above example).
+A shortcode can be created in the following places:
+
+.. attention::
+
+    The directory name of the shortcode folder will become it's tag, hyphens will be replaced with underscores.
+    This means that if you name the shortcode ``demo-shortcode`` it will be transformed into ``[demo_shortcode]``.
 
 .. _config-file:
 
 Config File
------------
+^^^^^^^^^^^
 
 The shortcode configuration is a file named ``config.php`` placed inside the root directory of the shortcode.
-It contains an array that must be stored in a ``$cfg`` variable:
+It contains an array that must be stored in a ``$cfg`` variable and is typically used to provide configurations for the visual page builder.
 
 .. code-block:: php
 
     $cfg = array(
-        'layout_builder' => array(
-            'title'         => __('Demo Shortcode', 'fw'),
-            'description'   => __('Demo shortcode description', 'fw'),
-            'tab'           => __('Demo Elements', 'fw'),
-            'popup_size'    => 'small' // can be 'large', 'medium' or 'small'
-        )
+    	'page_builder' => array(
+    		'title'         => __('Demo Shortcode', 'fw'),
+    		'description'   => __('Demo shortcode description', 'fw'),
+    		'tab'           => __('Demo Elements', 'fw'),
+    		'popup_size'    => 'small' // can be large, medium or small
+    	)
     );
 
-For the shortcode to appear in the layout builder, the config array contains a special ``layout_builder`` key that holds an array with the following data:
+For the shortcode to appear in the page builder the config array contains a special ``page_builder`` key that holds an array with the following data:
 
 * ``title`` - the title that will appear in the shortcode box.
 
@@ -79,7 +132,7 @@ For the shortcode to appear in the layout builder, the config array contains a s
 
 * ``popup_size`` - the size of the popup in which the :ref:`shortcode options <options-file>` will be displayed.
 
-    Allowed values are ``large | medium | small``. This parameter is optional and the default is set to ``medium``.
+    Allowed values are ``large | medium | small``. This parameter is optional and the default is set to ``small``.
 
 .. class:: screenshot
 
@@ -88,7 +141,7 @@ For the shortcode to appear in the layout builder, the config array contains a s
 .. _builder-icon:
 
 Builder icon
-------------
+^^^^^^^^^^^^
 
 To set an icon for the shortcode box, put an image named ``layout_builder.png`` inside ``{your-shortcode}/static/img/`` directory.
 The image should have the size of 16x16 px.
@@ -100,7 +153,7 @@ The image should have the size of 16x16 px.
 .. _options-file:
 
 Options file
-------------
+^^^^^^^^^^^^
 
 The shortcode directory can contain a file named ``options.php`` with correctly formed :doc:`options </options/introduction>`:
 
@@ -138,12 +191,12 @@ When clicking either the edit icon or the shortcode itself, a modal window will 
 
     |shortcodes-modal-window|
 
-The saved options values will be passed into the :ref:`view file <default-view>`.
+The saved options values will be passed into the :ref:`view file <view-file>`.
 
-.. _default-view:
+.. _view-file:
 
 Default view file
------------------
+^^^^^^^^^^^^^^^^^
 
 By default, when WordPress wants to render a shortcode built into the framework, it will serve the html from the default view file located in ``{your-shortcode}/views/view.php``.
 **3 variables** are passes into the view file : ``$atts``, ``$content`` and ``$tag``. 
@@ -152,31 +205,40 @@ By default, when WordPress wants to render a shortcode built into the framework,
 
     More information can be found in the :ref:`cookbook section <cookbook>`.
 
+.. _static-file:
 
-Static files
-------------
+Static file
+^^^^^^^^^^^^
 
-When rendering the :ref:`default view <default-view>`, the framework will enqueue
-all ``css`` files from ``{your-shortcode}/static/css/`` and
-all ``js`` files from ``{your-shortcode}/static/js/`` directories in alphabetical order.
+A shortcode can have a ``static.php`` file that is required when the shortcode is rendered.
+It is meant for enqueuing static files. Here is an example of a basic `static.php` file:
 
-.. note::
+.. code-block:: php
 
-    Files from subdirectories inside both ``{your-shortcode}/static/css/`` and ``{your-shortcode}/static/js/`` will not be enqueued by default.
+    <?php if (!defined('FW')) die('Forbidden');
 
-    Check out the :ref:`cookbook section <cookbook>` for tips on how to do that.
+    // find the uri to the shortcode folder
+    $uri = fw_get_template_customizations_directory_uri('/extensions/shortcodes/shortcodes/demo-shortcode');
+    wp_enqueue_style(
+    	'fw-shortcode-demo-shortcode',
+    	$uri . '/static/css/styles.css'
+    );
+    wp_enqueue_script(
+    	'fw-shortcode-demo-shortcode',
+    	$uri . '/static/js/scripts.js'
+    );
 
 .. attention::
 
-    All of the above is valid only in the case that the ``handle_shortcode()`` method from the :ref:`class file <class-file>` was not overriden.
+    All of the above is valid only in the case that the ``_render`` method from the :ref:`class file <class-file>` was not overridden.
 
 .. _class-file:
 
 Class file
-----------
+^^^^^^^^^^
 
-When creating a shortcode folder with all the required files, the framework makes an instance of ``FW_Shortcode`` to ensure the correct default functionality.
-However, some of that default functionality can be overridden by creating a class in the shortcode directory that extends ``FW_Shortcode``.
+When creating a shortcode folder with all the required files, the framework makes an instance of ``FW_Shortcode`` to ensure the correct default functionality,
+some of which default functionality can be overridden by creating a class in the shortcode directory that extends ``FW_Shortcode``.
 
 .. note::
 
@@ -203,15 +265,17 @@ and within the file create a class that extends ``FW_Shortcode``:
 The new class inherits some usefull methods like:
 
 * ``get_tag()`` - returns the shortcode's tag.
-* ``get_path()`` - returns the path to the shortcode folder. Useful for loading views or checking if files exist.
-* ``get_uri()`` - returns the uri to the shortcode folder. Useful for enqueuing styles and scripts, or forming the ``src`` attribute of an ``<img>`` tag for an image from ``static/img/``.
-* ``get_config($key = null)`` - returns the shortcode's whole config array, or just a specified key value.
-* ``get_options()`` - returns the shortcode's options array, if there is any.
+* ``get_declared_path($rel_path = '')`` - returns the path to where the shortcode folder was declared.
+* ``get_declared_URI($rel_path = '')`` - returns the uri to where shortcode folder was declared.
+* ``locate_path($rel_path = '')`` - searches a rel path given as an argument first in child theme then in parent theme and last in framework. Returns the found path or false if not found. See :ref:`overriding <overriding-shortcodes>` for more details.
+* ``locate_URI($rel_path = '')`` - does the same as `locate_path` with uris.
+* ``get_config($key = null)`` - returns the shortcode's whole :ref:`overridden <overriding-shortcodes>` config array, or just a particular key of it's given as an argument.
+* ``get_options()`` - returns the shortcode's :ref:`overridden <overriding-shortcodes>` options array, if there is any.
 
 The methods that are most prone to be overriden are:
 
 * ``_init()`` - is called when the ``FW_Shortcode`` instance for the shortcode is created. Useful for loading other php files (custom :doc:`option types </options/introduction>`, libraries, etc.).
-* ``handle_shortcode($atts, $content, $tag)`` - returns the html that will be displayed when the shortcode will be executed by WordPress. Useful for changing the default behavior with a custom one.
+* ``_render($atts, $content, $tag)`` - returns the html that will be displayed when the shortcode will be executed by WordPress. Useful for changing the default behavior with a custom one.
 
 .. tip::
 
@@ -227,16 +291,16 @@ Creating a simple shortcode
 
 This example will go through creating the ``[hr]`` (horizontal ruler) shortcode in a few simple steps:
 
-1. Create a ``hr`` folder in ``framework-customizations/theme/shortcodes/``.
+1. Create a ``hr`` folder in ``framework-customizations/extensions/shortcodes/shortcodes/``.
 
-2. Create a :ref:`config file <config-file>` inside ``framework-customizations/theme/shortcodes/``:
+2. Create a :ref:`config file <config-file>` inside that folder:
 
     .. code-block:: php
 
         <?php if (!defined('FW')) die('Forbidden');
 
         $cfg = array(
-            'layout_builder' => array(
+            'page_builder' => array(
                 'title'       => __('Horizontal Ruler', 'fw'),
                 'description' => __('Creates a \'hr\' html tag', 'fw'),
                 'tab'         => __('Demo Elements', 'fw'),
@@ -255,7 +319,7 @@ This example will go through creating the ``[hr]`` (horizontal ruler) shortcode 
 
         To add an icon to the shortcode see the :ref:`icon section <builder-icon>`.
 
-3. Create the :ref:`view file <default-view>` in ``framework-customizations/theme/shortcodes/hr/views/``:
+3. Create a views folder and the :ref:`view file <view-file>` inside it:
 
     .. code-block:: php
 
@@ -280,16 +344,16 @@ Creating a shortcode with options
 
 This example will go through creating the ``[button]`` shortcode.
 
-1. Create a ``button`` folder in ``framework-customizations/theme/shortcodes/``
+1. Create a ``button`` folder in ``framework-customizations/extensions/shortcodes/shortcodes/``
 
-2. Create a :ref:`config file <config-file>` inside ``framework-customizations/theme/button/``:
+2. Create a :ref:`config file <config-file>` inside that folder:
 
     .. code-block:: php
 
         <?php if (!defined('FW')) die('Forbidden');
 
         $cfg = array(
-            'layout_builder' => array(
+            'page_builder' => array(
                 'title'         => __('Button', 'fw'),
                 'description'   => __('Creates a button with choosable label, size and style', 'fw'),
                 'tab'           => __('Demo Elements', 'fw'),
@@ -308,7 +372,7 @@ This example will go through creating the ``[button]`` shortcode.
 
         To add an icon to the shortcode see the :ref:`icon section <builder-icon>`.
 
-3. Create an :ref:`options file <options-file>` inside ``framework-customizations/theme/shortcodes/button/`` with the options for **label**, **size** and **style**:
+3. Create an :ref:`options file <options-file>` with the options for **label**, **size** and **style**:
 
     .. code-block:: php
 
@@ -349,7 +413,7 @@ This example will go through creating the ``[button]`` shortcode.
 
         |shortcodes-button-options-popup|
 
-4. Create the :ref:`view file <default-view>` in ``framework-customizations/theme/shortcodes/button/views/``. Make use of the ``$atts`` variable that is avaialble inside the view, it contains all the options values that the user has selected in the pop-up:
+4. Create a views folder and the :ref:`view file <view-file>` inside it. Make use of the ``$atts`` variable that is avaialble inside the view, it contains all the options values that the user has selected in the pop-up:
 
     .. code-block:: php
 
@@ -361,7 +425,7 @@ This example will go through creating the ``[button]`` shortcode.
 
     .. tip::
 
-        For more information about the view variables check out the :ref:`default view section <default-view>`.
+        For more information about the view variables check out the :ref:`default view section <view-file>`.
 
 The ``[button]`` shorcode is completed! The directory structure of the shortcode is as shown bellow:
 
@@ -381,16 +445,16 @@ Creating an advanced shortcode with a custom class
 
 This ex will go through creating a ``[table_builder]`` shortcode, it will make use of it's own custom option type:
 
-1. Create a ``table-builder`` folder in ``framework-customizations/theme/shortcodes/``.
+1. Create a ``table-builder`` folder in ``framework-customizations/extensions/shortcodes/shortcodes/``.
 
-2. Create :ref:`a config file <config-file>` inside ``framework-customizations/theme/table-builder/``:
+2. Create :ref:`a config file <config-file>` inside that folder:
 
     .. code-block:: php
 
         <?php if (!defined('FW')) die('Forbidden');
 
         $cfg = array(
-            'layout_builder' => array(
+            'page_builder' => array(
                 'title'       => __('Table Builder', 'fw'),
                 'description' => __('Creates custom tables', 'fw'),
                 'tab'         => __('Demo Elements', 'fw'),
@@ -410,9 +474,9 @@ This ex will go through creating a ``[table_builder]`` shortcode, it will make u
 
         To add an icon to the shortcode see the :ref:`icon section <builder-icon>`
 
-3. A custom :doc:`option type </options/introduction>` is needed for the shortcode to be created, because the ones that exist in the framework do not suit its needs.
+3. A custom :doc:`option type </options/introduction>` is needed for the shortcode to be created, because the ones that exist in the framework do not suit our needs.
 
-    1. Create a ``table-builder`` option type in ``framework-customizations/theme/shortcodes/table-builder/includes/fw-option-type-table-builder/``
+    1. Create an includes folder and a ``table-builder`` option type inside it.
 
     2. Create a :ref:`custom class <class-file>` for the shortcode and override the ``_init()`` method, to load the custom option type class file.
 
@@ -434,14 +498,14 @@ This ex will go through creating a ``[table_builder]`` shortcode, it will make u
 
                 private function load_option_type()
                 {
-                    require $this->get_path() . '/includes/fw-option-type-table-builder/class-fw-option-type-table-builder.php';
+                    require $this->locate_path('/includes/fw-option-type-table-builder/class-fw-option-type-table-builder.php');
                 }
 
                 // ...
 
             }
 
-    3. Create an :ref:`options file <options-file>` inside ``framework-customizations/theme/shortcodes/table-builder/`` with the custom option type:
+    3. Create an :ref:`options file <options-file>` with the custom option type:
 
         .. code-block:: php
 
@@ -463,7 +527,7 @@ This ex will go through creating a ``[table_builder]`` shortcode, it will make u
 
             |shortcodes-table-builder-options-popup|
 
-4. Create the :ref:`view file <default-view>` in ``framework-customizations/theme/shortcodes/table-builder/views/`` and make use of the custom option type value.
+4. Create the :ref:`view file <view-file>` and make use of the custom option type's value.
 
 The ``[table_builder]`` shorcode is completed! The directory structure of the shortcode is as shown bellow:
 
