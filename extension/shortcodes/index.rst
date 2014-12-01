@@ -46,17 +46,13 @@ It should look something like the following:
 
     <?php if (!defined('FW')) die('Forbidden');
 
-    function disable_default_shortcodes($to_disable, $all_shortcodes)
+    function disable_default_shortcodes($to_disable)
     {
         $to_disable[] = 'accordion';
         $to_disable[] = 'button';
         return $to_disable;
     }
-    add_filter('fw_ext_shortcodes_disable_shortcodes', 'disable_default_shortcodes', 10, 2);
-
-.. tip::
-
-    To know what are the shortcodes correct tag names inspect the second parameter of the filter (``$all_shortcodes`` in the example above).
+    add_filter('fw_ext_shortcodes_disable_shortcodes', 'disable_default_shortcodes');
 
 Creating a new shortcode
 ------------------------
