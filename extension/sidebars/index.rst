@@ -77,10 +77,11 @@ Helpers
 Filters
 -------
 
-* ``fw_ext_sidebars_post_types`` - use this filter to change/remove post types that are used in the extension.
+* ``fw_ext_sidebars_post_types`` - use this filter to change/remove post types that are used in extension.
 
     .. code-block:: php
 
+        /** @internal */
         function _filter_remove_post_type_from_sidebars($post_types_list) {
             unset($post_types_list['post_type_name']);
 
@@ -88,13 +89,34 @@ Filters
         }
         add_filter('fw_ext_sidebars_get_post_types', '_filter_remove_post_type_from_sidebars' );
 
-* ``fw_ext_sidebars_taxonomies`` - use this filter to change/remove taxonomies that are used in the extension.
+* ``fw_ext_sidebars_taxonomies`` - use this filter to change/remove taxonomies that are used in extension.
 
     .. code-block:: php
 
+        /** @internal */
         function _filter_remove_taxonomy_from_sidebars($taxonomy_list) {
             unset($taxonomy_list['taxonomy_name']);
 
             return $taxonomy_list;
         }
         add_filter('fw_ext_sidebars_get_taxonomies', '_filter_remove_taxonomy_from_sidebars');
+
+* ``fw_ext_sidebars_conditional_tags`` - use this filter to change/remove/add conditional tags that are used in extension.
+
+    .. code-block:: php
+
+        /** @internal */
+        function _filter_fw_ext_sidebars_add_conditional_tag($conditional_tags) {
+            $conditional_tags['is_archive_page_slug'] = array(
+                'order_option' => 2, // (optional: default is 1) position in the 'Others' lists in backend
+                'check_priority' => 'last', // (optional: default is last, can be changed to 'first') use it to change priority checking conditional tag
+                'name' => __('Portfolio archive', 'fw'), // conditional tag title
+                'conditional_tag' => array(
+                    'callback' => 'is_post_type_archive', // existing callback
+                    'params' => array('fw-portfolio') //parameters for callback
+                )
+            );
+
+            return $conditional_tags;
+        }
+        add_filter('fw_ext_sidebars_conditional_tags', '_filter_fw_ext_sidebars_add_conditional_tag' );
