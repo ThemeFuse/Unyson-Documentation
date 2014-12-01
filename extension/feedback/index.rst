@@ -4,20 +4,6 @@ Feedback
 The extension adds the possibility for users to leave feedback impressions about a post (product, article, etc).
 This system can be activated for some post types, and replaces the default comments system.
 
-Activation
-----------
-
-To activate the reviews for a particular post type, add this code to your ``framework-customizations/theme/hooks.php``:
-
-.. code-block:: php
-
-    if (!function_exists('_action_theme_activate_feedback')):
-        function _action_theme_activate_feedback() {
-            add_post_type_support($post_type, 'fw-feedback');
-        }
-    endif;
-    add_action('init', '_action_theme_activate_feedback');
-
 Stars Feedback
 --------------
 
