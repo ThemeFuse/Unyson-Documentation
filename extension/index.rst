@@ -16,3 +16,4 @@ Built-in Extensions
     backup/index
     portfolio/index
     feedback/index
+    events/index
