@@ -9,9 +9,10 @@ The shortcodes extension makes possible the easy creation of `WordPress Shortcod
 
 Built-in shortcodes
 -------------------
+
 Unyson comes with a set of built-in shortcodes like ``accordion``, ``button``, ``map``, ``testimonials`` and others.
 All shortcodes are located in ``{some-extension}/shortcodes/`` but the vast majority of them are located in the shortcodes extension (``framework/extensions/shortcodes/shortcodes``).
-They can be modified by :ref:`overriding <overriding-framework-shortcodes>` or :ref:`disabled <disabling-framework-shortcodes>`
+They can be modified by :ref:`overriding <overriding-shortcodes>` or :ref:`disabled <disabling-framework-shortcodes>`
 
 .. _overriding-shortcodes:
 

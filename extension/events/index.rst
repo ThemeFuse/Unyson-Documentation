@@ -146,4 +146,3 @@ Also it can be rendered from code - the shortcode ``[map]`` has public method ``
             )
         );
     }
-```
