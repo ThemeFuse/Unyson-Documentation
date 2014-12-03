@@ -80,8 +80,6 @@ Directory structure
     └───views
         └───view.php
 
-A shortcode can be created in the following places:
-
 .. attention::
 
     The directory name of the shortcode folder will become it's tag, hyphens will be replaced with underscores.
@@ -139,7 +137,7 @@ For the shortcode to appear in the page builder the config array contains a spec
 Builder icon
 ^^^^^^^^^^^^
 
-To set an icon for the shortcode box, put an image named ``layout_builder.png`` inside ``{your-shortcode}/static/img/`` directory.
+To set an icon for the shortcode box, put an image named ``page_builder.png`` inside ``{your-shortcode}/static/img/`` directory.
 The image should have the size of 16x16 px.
 
 .. class:: screenshot
