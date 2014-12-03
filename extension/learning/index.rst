@@ -1,7 +1,7 @@
 Learning
 ========
 
-Create courses and lessons ...
+This extension adds a Learning module to your theme. Using this extension you can add courses, lessons and tests for your users to take.
 
 Config
 ------
