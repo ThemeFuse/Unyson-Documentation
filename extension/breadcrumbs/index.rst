@@ -8,18 +8,29 @@ Breadcrumbs
 Helpers
 -------
 
-* ``fw_ext_breadcrumbs_render($separator = '>')`` - use this function to render breadcrumbs in your template
+* ``fw_ext_get_breadcrumbs($separator = '>')`` - use this function to return breadcrumbs HTML.
 
     .. code-block:: php
 
         <h3>My page</h3>
-        <?php echo fw_ext_breadcrumbs_render( '>>' ) ?>
+        <?php echo fw_ext_get_breadcrumbs( '>' ) ?>
         <!-- Home >> Books >> PHP For Beginners -->
 
     .. note::
 
         This function should be used only in the front-end area after WordPress ``wp`` action.
 
+* ``fw_ext_breadcrumbs($separator = '>')`` - use this function to render breadcrumbs in your template.
+
+    .. code-block:: php
+
+        <h3>My page</h3>
+        <?php fw_ext_breadcrumbs( '>' ) ?>
+        <!-- Home >> Books >> PHP For Beginners -->
+
+    .. note::
+
+        This function should be used only in the front-end area after WordPress ``wp`` action.
 View
 ----
 
