@@ -11,14 +11,14 @@ Built-in shortcodes
 -------------------
 Unyson comes with a set of built-in shortcodes like ``accordion``, ``button``, ``map``, ``testimonials`` and others.
 All shortcodes are located in ``{some-extension}/shortcodes/`` but the vast majority of them are located in the shortcodes extension (``framework/extensions/shortcodes/shortcodes``).
-They can be modified by :ref:`overriding <overriding-framework-shortcodes>` or :ref:`disabled <disabling-framework-shortcodes>`
+They can be modified by :ref:`overwriting <overwriting-shortcodes>` or :ref:`disabled <disabling-shortcodes>`
 
-.. _overriding-shortcodes:
+.. _overwriting-shortcodes:
 
-Overriding shortcodes
----------------------
-Some shortcode files can be overridden (meaning that the files can be swapped). This permits shortcode customization.
-The files that can be overridden are :ref:`config file <config-file>`, :ref:`options file <options-file>`, :ref:`static file <static-file>` and :ref:`view file <view-file>`.
+Overwriting shortcodes
+----------------------
+Some shortcode files can be overwritten (meaning that the files can be swapped). This permits shortcode customization.
+The files that can be overwritten are :ref:`config file <config-file>`, :ref:`options file <options-file>`, :ref:`static file <static-file>` and :ref:`view file <view-file>`.
 
 There are three places where the shortcode files are searched until found: child theme (if active), parent theme and framework.
 
@@ -34,7 +34,7 @@ When the framework loads it's files (``options.php`` for this example) it will f
 2. If it did not find the file in the child theme it will search in ``{your-parent-theme}/framework-customizations/shortcodes/shortcodes/demo/options.php``
 3. If it did not find the file in the parent theme it will search at the shortcode's declared path ``framework/extensions/shortcodes/shortcodes/demo/options.php``
 
-.. _disabling-framework-shortcodes:
+.. _disabling-shortcodes:
 
 Disabling shortcodes
 --------------------
@@ -56,7 +56,7 @@ It should look something like the following:
 
 Creating a new shortcode
 ------------------------
-If :ref:`overriding <overriding-shortcodes>` a built-in shortcode does not suit your needs then you might want to create a new shortcode.
+If :ref:`overwriting <overwriting-shortcodes>` a built-in shortcode does not suit your needs then you might want to create a new shortcode.
 For that you will first have to decide where to place it:
 
 * If you are developing a :doc:`unyson extension </extensions/create-extension>` and you want to offer some functionality from the extension via a shortcode you should create the it at ``framework-customizations/extensions/{your-extension}/shortcodes/{your-shortcode}``.  One such example from the built-in extensions is the slider extension and it's shortcode.
@@ -226,7 +226,7 @@ It is meant for enqueuing static files. Here is an example of a basic `static.ph
 
 .. attention::
 
-    All of the above is valid only in the case that the ``_render`` method from the :ref:`class file <class-file>` was not overridden.
+    All of the above is valid only in the case that the ``_render`` method from the :ref:`class file <class-file>` was not overwritten.
 
 .. _class-file:
 
@@ -234,7 +234,7 @@ Class file
 ^^^^^^^^^^
 
 When creating a shortcode folder with all the required files, the framework makes an instance of ``FW_Shortcode`` to ensure the correct default functionality,
-some of which default functionality can be overridden by creating a class in the shortcode directory that extends ``FW_Shortcode``.
+some of which default functionality can be overwritten by creating a class in the shortcode directory that extends ``FW_Shortcode``.
 
 .. note::
 
@@ -263,12 +263,12 @@ The new class inherits some usefull methods like:
 * ``get_tag()`` - returns the shortcode's tag.
 * ``get_declared_path($rel_path = '')`` - returns the path to where the shortcode folder was declared.
 * ``get_declared_URI($rel_path = '')`` - returns the uri to where shortcode folder was declared.
-* ``locate_path($rel_path = '')`` - searches a rel path given as an argument first in child theme then in parent theme and last in framework. Returns the found path or false if not found. See :ref:`overriding <overriding-shortcodes>` for more details.
+* ``locate_path($rel_path = '')`` - searches a rel path given as an argument first in child theme then in parent theme and last in framework. Returns the found path or false if not found. See :ref:`overwriting <overwriting-shortcodes>` for more details.
 * ``locate_URI($rel_path = '')`` - does the same as `locate_path` with uris.
-* ``get_config($key = null)`` - returns the shortcode's whole :ref:`overridden <overriding-shortcodes>` config array, or just a particular key of it's given as an argument.
-* ``get_options()`` - returns the shortcode's :ref:`overridden <overriding-shortcodes>` options array, if there is any.
+* ``get_config($key = null)`` - returns the shortcode's whole :ref:`overwritten <overwriting-shortcodes>` config array, or just a particular key of it's given as an argument.
+* ``get_options()`` - returns the shortcode's :ref:`overwritten <overwriting-shortcodes>` options array, if there is any.
 
-The methods that are most prone to be overriden are:
+The methods that are most prone to be overwritten are:
 
 * ``_init()`` - is called when the ``FW_Shortcode`` instance for the shortcode is created. Useful for loading other php files (custom :doc:`option types </options/introduction>`, libraries, etc.).
 * ``_render($atts, $content, $tag)`` - returns the html that will be displayed when the shortcode will be executed by WordPress. Useful for changing the default behavior with a custom one.
