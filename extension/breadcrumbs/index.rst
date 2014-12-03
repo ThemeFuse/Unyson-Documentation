@@ -5,26 +5,6 @@ Breadcrumbs
     :local:
     :backlinks: top
 
-Option Type
------------
-
-In order to configure the Breadcrumbs, an option type was created that contains all the necessary configuration options for this extension.
-
-.. note::
-
-    This option is for internal use only. Do not use it for posts/terms options as it will not affect breadcrumbs functionality.
-    It works only in the settings options, and should be used only once.
-
-Usage example:
-
-.. code-block:: php
-
-    'breadcrumbs-option' => array(
-        'type'  => 'breadcrumbs',
-        'label' => false,
-        'desc'  => false,
-    )
-
 Helpers
 -------
 
