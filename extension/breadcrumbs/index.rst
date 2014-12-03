@@ -5,41 +5,32 @@ Breadcrumbs
     :local:
     :backlinks: top
 
-Option Type
------------
-
-In order to configure the Breadcrumbs, an option type was created that contains all the necessary configuration options for this extension.
-
-.. note::
-
-    This option is for internal use only. Do not use it for posts/terms options as it will not affect breadcrumbs functionality.
-    It works only in the settings options, and should be used only once.
-
-Usage example:
-
-.. code-block:: php
-
-    'breadcrumbs-option' => array(
-        'type'  => 'breadcrumbs',
-        'label' => false,
-        'desc'  => false,
-    )
-
 Helpers
 -------
 
-* ``fw_ext_breadcrumbs_render($separator = '>')`` - use this function to render breadcrumbs in your template
+* ``fw_ext_get_breadcrumbs($separator = '>')`` - use this function to return breadcrumbs HTML.
 
     .. code-block:: php
 
         <h3>My page</h3>
-        <?php echo fw_ext_breadcrumbs_render( '>>' ) ?>
+        <?php echo fw_ext_get_breadcrumbs( '>' ) ?>
         <!-- Home >> Books >> PHP For Beginners -->
 
     .. note::
 
         This function should be used only in the front-end area after WordPress ``wp`` action.
 
+* ``fw_ext_breadcrumbs($separator = '>')`` - use this function to render breadcrumbs in your template.
+
+    .. code-block:: php
+
+        <h3>My page</h3>
+        <?php fw_ext_breadcrumbs( '>' ) ?>
+        <!-- Home >> Books >> PHP For Beginners -->
+
+    .. note::
+
+        This function should be used only in the front-end area after WordPress ``wp`` action.
 View
 ----
 

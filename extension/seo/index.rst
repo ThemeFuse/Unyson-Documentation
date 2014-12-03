@@ -23,9 +23,9 @@ Options Filters
 
 All the filters have the same functionality, the only differences is where they add options.
 
-* ``fw_ext_seo_admin_options`` - use to add your own tab in Settings Options **SEO** tab.
-* ``fw_ext_seo_general_tab_admin_options`` - use to add your own box in Settings Options **SEO > General** tab.
-* ``fw_ext_seo_general_setting_admin_options`` - use to add your own options in Settings Options **SEO > General > General Settings** box.
+* ``fw_ext_seo_settings_options`` - use to add your own tab in Settings Options **SEO** tab.
+* ``fw_ext_seo_general_settings`` - use to add your own box in Settings Options **SEO > General** tab.
+* ``fw_ext_seo_general_setting_options`` - use to add your own options in Settings Options **SEO > General > General Settings** box.
 * ``fw_ext_seo_post_type_options`` - add options in post options **SEO** box.
 * ``fw_ext_seo_taxonomy_options`` - add options in term options **SEO** section.
 
@@ -58,7 +58,7 @@ All the filters have the same functionality, the only differences is where they 
 
             return $options;
         }
-        add_filter( 'fw_ext_seo_admin_options', '_filter_set_my_framework_titles_metas_tab' );
+        add_filter( 'fw_ext_seo_settings_options', '_filter_set_my_framework_titles_metas_tab' );
 
 .. _tags:
 
