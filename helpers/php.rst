@@ -405,7 +405,7 @@ Use cache to store frequently accessed data. Cache is just a big array and has o
         }
     }
 
-.. warning::
+.. attention::
 
     Don't do this:
 
@@ -509,28 +509,6 @@ Functions for working with options:
 
 Database
 --------
-
-Functions and classes for working with database:
-
-* ``FW_WP_Option`` - alternative to WordPress **get_option()** and **update_option()** functions.
-        
-    .. note::
-              
-        Features:
-        
-        * Supports :ref:`multikeys <multikey>`
-        * The value is stored in two formats: original and prepared. Prepared is used for frontend because it is translated.
-
-* ``FW_WP_Post_Meta`` - alternative to WordPress **get_post_meta()** and **update_post_meta()**.
-    
-    .. note::
-    
-        Features:
-        
-        * Supports :ref:`multikeys <multikey>`
-        * The value is stored in two formats: original and prepared. Prepared is used for frontend because it is translated.
-
------
 
 .. _fw-get-db-settings-option:
 
