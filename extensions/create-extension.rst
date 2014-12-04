@@ -17,6 +17,6 @@ To create an extension:
             // ...
         }
 
-2. To make the extension visible on the Extensions list page *(by default it is hidden)* set the :doc:`manifest <manifest/extension>` ``display`` parameter to ``true``.
+2. To make the extension visible on the Extensions list page *(by default it is hidden)* set the :doc:`manifest </manifest/extension>` ``display`` parameter to ``true``.
 
-3. Make sure you understand what the :doc:`manifest <manifest/extension>` ``standalone`` parameter means.
+3. Make sure you understand what the :doc:`manifest </manifest/extension>` ``standalone`` parameter means.
