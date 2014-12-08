@@ -31,6 +31,7 @@ Helpers
     .. note::
 
         This function should be used only in the front-end area after WordPress ``wp`` action.
+
 View
 ----
 
