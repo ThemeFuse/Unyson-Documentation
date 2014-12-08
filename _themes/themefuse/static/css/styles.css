@@ -142,7 +142,7 @@ p {
 }
 /*li p, dl p {margin-bottom: 10px;}*/
 p a,
-a.reference.external {
+a.reference {
 	color: #ff7105;
 }
 p.rubric {
@@ -883,10 +883,10 @@ a.reference,
 a.reference em {
     font-style: normal;
 }
-li > a.reference.internal,
+/*li > a.reference.internal,
 li > a.reference.internal em {
     font-weight: 600;
-}
+}*/
 
 /* PermaLinks */
 .headerlink {display: none;}
@@ -1052,7 +1052,8 @@ dl.docutils dd {
 .contents li {
     margin-bottom: 6px;
 }
-.contents li a {
+.contents li a,
+.contents li a.reference {
     font-size: 14px;
     color: #ff7105;
     font-weight: normal;
