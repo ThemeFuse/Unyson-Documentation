@@ -14,4 +14,5 @@ The Unyson framework comes with the following built-in extensions:
 * :doc:`backup/index`
 * :doc:`portfolio/index`
 * :doc:`feedback/index`
-
+* :doc:`events/index`
+* :doc:`learning/index`
