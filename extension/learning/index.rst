@@ -31,7 +31,7 @@ Templates are located in the ``views/`` directory. Here is the list of templates
 * ``content-course.php`` - Default learning course single page template content. It is loaded if the ``framework-customizations/extensions/learning/views/single-course.php`` doesn't exist and is used ``single.php`` from the theme root directory.
   The content of this view is rendered using WordPress `the_content <http://codex.wordpress.org/Plugin_API/Filter_Reference/the_content>`__ filter, when the course single page is loaded.
 * ``content-lesson.php`` - Default learning lesson single page template content. It is loaded if the ``framework-customizations/extensions/learning/views/single-lesson.php`` doesn't exist and is used ``single.php`` from the theme root directory.
-    The content of this view is rendered using WordPress `the_content <http://codex.wordpress.org/Plugin_API/Filter_Reference/the_content>`__ filter, when the lesson single page is loaded.
+  The content of this view is rendered using WordPress `the_content <http://codex.wordpress.org/Plugin_API/Filter_Reference/the_content>`__ filter, when the lesson single page is loaded.
 
 Helpers
 -------
