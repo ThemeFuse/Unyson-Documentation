@@ -136,5 +136,5 @@ Helpers
 
 .. toctree::
 
-    sitemap
     titles-and-meta
+    sitemap
