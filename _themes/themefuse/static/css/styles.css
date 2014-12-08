@@ -1032,12 +1032,14 @@ dl.docutils dd {
 
 /* Contents */
 
-.contents {
+.contents,
+.toctree-wrapper {
     background-color: #f5f5f5;
     padding: 24px 30px 20px;
     margin: 27px 0;
 }
-.contents:before {
+.contents:before,
+.toctree-wrapper:before {
     display: block;
     content: 'In this article';
     font-size: 16px;
@@ -1045,18 +1047,25 @@ dl.docutils dd {
     color: #1a1a1a;
     margin-bottom: 10px;
 }
-.contents ul {
+.contents ul,
+.toctree-wrapper ul {
     color: #ff7105;
     margin: 6px 0 !important;
 }
-.contents li {
+.contents li,
+.toctree-wrapper li {
     margin-bottom: 6px;
 }
 .contents li a,
-.contents li a.reference {
+.contents li a.reference,
+.toctree-wrapper li a,
+.toctree-wrapper li a.reference {
     font-size: 14px;
     color: #ff7105;
     font-weight: normal;
+}
+.toctree-wrapper:before {
+    content: 'More in this article';
 }
 
 /* Tables */
