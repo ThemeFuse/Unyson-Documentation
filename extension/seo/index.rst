@@ -133,3 +133,7 @@ Helpers
     .. note::
 
         Use this function after ``fw_ext_seo_init_location`` action.
+
+.. toctree::
+
+    sitemap
