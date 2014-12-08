@@ -132,7 +132,7 @@ Helpers
 
     .. note::
 
-        Use this function after ``fw_ext_seo_init_location`` action.
+        Use this function after the ``fw_ext_seo_init_location`` action.
 
 .. toctree::
 
