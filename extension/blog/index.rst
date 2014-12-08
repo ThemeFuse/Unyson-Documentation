@@ -7,5 +7,5 @@ posts, we felt the name Posts doesn't explain exactly what the menu item means s
 
 .. note::
 
-    Users will be able to modify the titles from framework ``.pot`` file.
+    Users will be able to modify the titles from the framework ``.pot`` file.
 
