@@ -3,6 +3,10 @@ Learning
 
 This extension adds a Learning module to your theme. Using this extension you can add courses, lessons and tests for your users to take.
 
+.. contents::
+    :local:
+    :backlinks: top
+
 Config
 ------
 
@@ -21,12 +25,12 @@ Views
 
 Templates are located in the ``views/`` directory. Here is the list of templates that you can customize:
 
-* ``single-course.php`` - Learning course single post template. By default is used ``single.php`` from theme root directory, you can overwrite it by creating ``framework-customizations/extensions/learning/views/single-course.php``.
-* ``single-lesson.php`` - Learning lesson single post template. By default is used ``single.php`` from theme root directory, you can overwrite it by creating ``framework-customizations/extensions/learning/views/single-lesson.php``.
-* ``taxonomy.php`` - Learning category template. By default is used ``taxonomy.php`` from theme root directory, you can overwrite it by creating ``framework-customizations/extensions/learning/views/taxonomy.php``.
-* ``content-course.php`` - Default learning course single page template content. It is loaded if ``framework-customizations/extensions/learning/views/single-course.php`` doesn't exist and is used ``single.php`` from theme root directory.
+* ``single-course.php`` - Learning course single post template. By default is used ``single.php`` from the theme root directory, you can overwrite it by creating ``framework-customizations/extensions/learning/views/single-course.php``.
+* ``single-lesson.php`` - Learning lesson single post template. By default is used ``single.php`` from the theme root directory, you can overwrite it by creating ``framework-customizations/extensions/learning/views/single-lesson.php``.
+* ``taxonomy.php`` - Learning category template. By default is used ``taxonomy.php`` from the theme root directory, you can overwrite it by creating ``framework-customizations/extensions/learning/views/taxonomy.php``.
+* ``content-course.php`` - Default learning course single page template content. It is loaded if the ``framework-customizations/extensions/learning/views/single-course.php`` doesn't exist and is used ``single.php`` from the theme root directory.
   The content of this view is rendered using WordPress <a href="http://codex.wordpress.org/Plugin_API/Filter_Reference/the_content">the_content</a> filter, when the course single page is loaded.
-* ``content-lesson.php`` - Default learning lesson single page template content. It is loaded if ``framework-customizations/extensions/learning/views/single-lesson.php`` doesn't exist and is used ``single.php`` from theme root directory.
+* ``content-lesson.php`` - Default learning lesson single page template content. It is loaded if the ``framework-customizations/extensions/learning/views/single-lesson.php`` doesn't exist and is used ``single.php`` from the theme root directory.
     The content of this view is rendered using WordPress <a href="http://codex.wordpress.org/Plugin_API/Filter_Reference/the_content">the_content</a> filter, when the lesson single page is loaded.
 
 Helpers
@@ -175,3 +179,7 @@ Methods
     if( $learning->is_course( $post_id ) ) {
         ...
     }
+
+.. toctree::
+
+    quiz
