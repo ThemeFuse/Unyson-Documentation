@@ -16,6 +16,10 @@ The Backup extension was designed to achieve the following tasks:
 
 4. **Migration**: Move a WordPress site from one place to another.
 
+.. contents::
+    :local:
+    :backlinks: top
+
 Backup and Restore
 ------------------
 

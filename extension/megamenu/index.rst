@@ -3,6 +3,10 @@ Mega Menu
 
 The Mega Menu extension gives the end-user the ability to construct advanced navigation menus.
 
+.. contents::
+    :local:
+    :backlinks: top
+
 Overview
 --------
 

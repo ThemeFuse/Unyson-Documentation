@@ -3,6 +3,10 @@ Sitemap
 
 Generates the ``sitemap.xml`` file for search engines.
 
+.. contents::
+    :local:
+    :backlinks: top
+
 Configuration
 -------------
 

@@ -3,6 +3,10 @@ Titles and Meta
 
 A sub-extension of the SEO extension, used to setup the theme SEO title and meta keywords for search engines.
 
+.. contents::
+    :local:
+    :backlinks: top
+
 Configuration
 -------------
 

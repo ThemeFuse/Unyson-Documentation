@@ -4,6 +4,10 @@ Feedback
 The extension adds the possibility for users to leave feedback impressions about a post (product, article, etc).
 This system can be activated for some post types, and replaces the default comments system.
 
+.. contents::
+    :local:
+    :backlinks: top
+
 Helpers
 -------
 

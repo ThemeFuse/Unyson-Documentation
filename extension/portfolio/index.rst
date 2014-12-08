@@ -3,6 +3,10 @@ Portfolio
 
 The Portfolio extension allows you to create Portfolio section on your site.
 
+.. contents::
+    :local:
+    :backlinks: top
+
 Configuration
 -------------
 
@@ -121,7 +125,7 @@ Views
 Templates are located in the :doc:`views/ </extensions/directory-structure>` directory.
 Here is the list of templates that you can customize:
 
-* ``single.php`` - Portfolio course single post template. By default is used ``single.php`` from theme root directory, you can overwrite it by creating ``framework-customizations/extensions/portfolio/views/single.php``.
-* ``taxonomy.php`` - Portfolio category template. By default is used ``taxonomy.php`` from theme root directory, you can overwrite it by creating ``framework-customizations/extensions/portfolio/views/taxonomy.php``.
-* ``content.php`` - Default portfolio single page template content. It is loaded if ``framework-customizations/extensions/portfolio/views/single.php`` doesn't exist and is used ``single.php`` from theme root directory.
+* ``single.php`` - Portfolio course single post template. By default is used ``single.php`` from the theme root directory, you can overwrite it by creating ``framework-customizations/extensions/portfolio/views/single.php``.
+* ``taxonomy.php`` - Portfolio category template. By default is used ``taxonomy.php`` from the theme root directory, you can overwrite it by creating ``framework-customizations/extensions/portfolio/views/taxonomy.php``.
+* ``content.php`` - Default portfolio single page template content. It is loaded if the ``framework-customizations/extensions/portfolio/views/single.php`` doesn't exist and is used ``single.php`` from the theme root directory.
   The content of this view is rendered using worpdress `the_content <http://codex.wordpress.org/Plugin_API/Filter_Reference/the_content>`_ filter, when the course single page is loaded.
