@@ -14,8 +14,8 @@ Templates are located in the ``views/`` directory. Here is the list of templates
 
 * ``start-quiz.php`` - Quiz star button from the lesson page.
 * ``single.php`` - Learning quiz single post template. By default is used ``single.php`` from the theme root directory, you can overwrite it by creating ``framework-customizations/extensions/learning/extensions/learning-quiz/views/single.php``.
-*  ``content.php`` - Default learning quiz single page template content. It is loaded if the ``framework-customizations/extensions/learning/extensions/learning-quiz/views/single.php`` doesn't exist and is used ``single.php`` from the theme root directory.
-    The content of this view is rendered using WordPress `the_content <http://codex.wordpress.org/Plugin_API/Filter_Reference/the_content>`__ filter, when the lesson single page is loaded.
+* ``content.php`` - Default learning quiz single page template content. It is loaded if the ``framework-customizations/extensions/learning/extensions/learning-quiz/views/single.php`` doesn't exist and is used ``single.php`` from the theme root directory.
+  The content of this view is rendered using WordPress `the_content <http://codex.wordpress.org/Plugin_API/Filter_Reference/the_content>`__ filter, when the lesson single page is loaded.
 
 Helpers
 -------
