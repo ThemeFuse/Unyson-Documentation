@@ -17,7 +17,7 @@ Install the framework with the default theme
 
 If you want to start creating a theme based on the Unyson default theme:
 
-1. `Download <https://github.com/ThemeFuse/Unyson/releases/latest>`__ the archive from the Unyson GitHub repository.
+1. `Download <https://github.com/ThemeFuse/Unyson/releases/tag/v1.4.19>`__ the archive from the Unyson GitHub repository.
 
 2. Extract the zip in the ``wp-content/themes`` directory.
 
