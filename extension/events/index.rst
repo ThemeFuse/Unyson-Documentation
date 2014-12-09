@@ -1,7 +1,7 @@
 Events
 ======
 
-A way to manage your daily events.
+This extension adds a fully fledged Events module to your theme. It comes with built in pages that contain a calendar where events can be added.
 
 .. contents::
     :local:

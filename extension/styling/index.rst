@@ -1,7 +1,8 @@
 Styling
 =======
 
-A way to allow users to control the design of some front end elements. This extension creates a page in **Appearance > Styling** menu.
+This extension lets you control the website visual style. Starting from predefined styles to changing specific fonts and colors across the website.
+It creates a page in **Appearance > Styling** menu.
 
 .. contents::
     :local:

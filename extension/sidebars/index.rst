@@ -1,7 +1,7 @@
 Sidebars
 ========
 
-A way to customize WordPress pages with dynamic sidebars.
+Brings another layer of customization freedom to your website by letting you add more than one sidebar to a page, or different sidebars on different pages.
 
 .. contents::
     :local:

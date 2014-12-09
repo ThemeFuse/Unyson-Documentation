@@ -1,7 +1,8 @@
 SEO
 ===
 
-The SEO extension doesn't have any functionality that is reflected visually in the front end. It offers additional functionality for its sub-extensions, like :ref:`tags` module.
+This extension will enable you to have a fully optimized WordPress website by adding optimized meta titles, keywords and descriptions.
+It doesn't have any functionality that is reflected visually in the front end. It offers additional functionality for its sub-extensions, like :ref:`tags` module.
 
 .. contents::
     :local:

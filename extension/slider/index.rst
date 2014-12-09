@@ -1,7 +1,7 @@
 Slider
 ======
 
-The slider extension allows you to create all kinds of sliders for your website.
+Adds a sliders module to your website from where you'll be able to create different built in jQuery sliders for your homepage and rest of the pages.
 
 .. contents::
     :local:
