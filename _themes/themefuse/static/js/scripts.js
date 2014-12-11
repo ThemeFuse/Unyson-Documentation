@@ -218,3 +218,14 @@ jQuery(function($){
         $a.attr('href', href +'#content');
     });
 });
+
+/**
+ * Hide .toctree-wrapper that has no html (but has padding and :before, which are visible)
+ */
+jQuery(function($){
+    $('.toctree-wrapper').each(function(){
+        if (!$.trim($(this).html()).length) {
+            $(this).remove();
+        }
+    });
+});
