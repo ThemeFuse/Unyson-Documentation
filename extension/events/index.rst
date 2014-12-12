@@ -105,7 +105,7 @@ Views
 
 .. raw:: html
 
-	<iframe src="https://player.vimeo.com/video/105004388" width="100%" height="382" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	<iframe src="https://player.vimeo.com/video/114331181" width="100%" height="382" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 Templates are located in the ``views/`` directory. Here is the list of templates that you can customize:
 
