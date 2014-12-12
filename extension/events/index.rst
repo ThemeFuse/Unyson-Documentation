@@ -107,7 +107,7 @@ Views
 
 	<iframe src="https://player.vimeo.com/video/114331181?title=0&amp;byline=0&amp;portrait=0" width="100%" height="395" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 	
-	<br>
+	<br><br>
 
 Templates are located in the ``views/`` directory. Here is the list of templates that you can customize:
 
