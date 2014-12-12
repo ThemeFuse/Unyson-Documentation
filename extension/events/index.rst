@@ -103,6 +103,10 @@ A sub-extension which implements ``FW_Events_Interface_Tabs`` will be include op
 Views
 -----
 
+.. raw:: html
+
+	<iframe src="https://player.vimeo.com/video/105004388" width="100%" height="382" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 Templates are located in the ``views/`` directory. Here is the list of templates that you can customize:
 
 * ``single.php`` - Events single post template. By default is used ``single.php`` from the theme root directory, you can overwrite it by creating ``framework-customizations/extensions/events/views/single.php``.
