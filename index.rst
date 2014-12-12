@@ -21,13 +21,13 @@ Installation
 ------------
 
 Install as plugin
+^^^^^^^^^^^^^^^^^
 
 .. raw:: html
 
 	<iframe src="https://player.vimeo.com/video/113078377?title=0&amp;byline=0&amp;portrait=0" width="100%" height="395" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 	
 	<br><br>
-^^^^^^^^^^^^^^^^^
 
 The easiest (recommended) way to install the framework, is through the 'Plugins' menu:
 Search for plugin named ``Unyson`` and click the Install button.
