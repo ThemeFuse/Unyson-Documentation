@@ -121,14 +121,14 @@ As you can see, the box is empty. At least you've successfully created the build
 Create Items
 ------------
 
-To build lists you'll need: ``<ul>``, ``<ol>`` and ``<li>``.
-In builder they can be created as item types.
-The ``<ul>`` and ``<ol>`` (containers for ``<li>``) will created be as one item type, and ``<li>`` as another item type.
-To create an item type for a builder type you have to:
+To build lists you'll need the following elements: ``<ul>``, ``<ol>`` and ``<li>``.
+In builder these elements can be created as item types.
+The ``<ul>`` and ``<ol>`` (containers for ``<li>``) will be created as one item type (with sub types), and ``<li>`` as another item type.
+To create item types for a builder type you have to:
 
-1. Look what item types the builder accepts.
+1. Find out what item types the builder accepts.
 
-    That information can be found in the ``FW_Option_Type_Builder::item_type_is_valid()``.
+    That information can be found in the ``FW_Option_Type_Builder::item_type_is_valid()`` method.
     The builder you created above doesn't have a custom ``item_type_is_valid()`` method, so it is inherited from the extended class,
     and that method looks like this:
 
@@ -146,7 +146,7 @@ To create an item type for a builder type you have to:
 
 2. Register item types.
 
-    Create and register item type that will represent ``<ul>`` and ``<ol>``:
+    Create and register item type that will represent the ``<ul>`` and ``<ol>`` elements:
 
     .. code-block:: php
 
@@ -183,14 +183,14 @@ To create an item type for a builder type you have to:
                         'html' =>
                             '<div class="item-type-icon-title" data-sub-type="ul">'.
                             '    <div class="item-type-icon">&lt;ul&gt;</div>'.
-                            '    <div class="item-type-title">Unordered List</div>'.
+                            '    <div class="item-type-title">'. __('Unordered List', 'fw') .'</div>'.
                             '</div>',
                     ),
                     array(
                         'html' =>
                             '<div class="item-type-icon-title" data-sub-type="ol">'.
                             '    <div class="item-type-icon">&lt;ol&gt;</div>'.
-                            '    <div class="item-type-title">Ordered List</div>'.
+                            '    <div class="item-type-title">'. __('Ordered List', 'fw') .'</div>'.
                             '</div>',
                     ),
                 );
@@ -205,7 +205,7 @@ To create an item type for a builder type you have to:
         }
         FW_Option_Type_Builder::register_item_type('FW_Lists_Builder_Item_Type_OUl');
 
-    Create and register item type that will represent ``<li>``:
+    Create and register item type that will represent the ``<li>`` element:
 
     .. code-block:: php
 
@@ -242,9 +242,9 @@ To create an item type for a builder type you have to:
         }
         FW_Option_Type_Builder::register_item_type('FW_Lists_Builder_Item_Type_Li');
 
-3. Include created files.
+3. Include the created files.
 
-    At the end of the ``_action_include_demo_lists_builder()`` function created above, add:
+    At the end of the ``_action_include_demo_lists_builder()`` function (created above), add:
 
     .. code-block:: php
 
