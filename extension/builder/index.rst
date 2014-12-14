@@ -480,4 +480,62 @@ Customize the views and add some functionality to items to be able to build list
 
 Now the javascript side of the builder has the minimum functionality to be able to build lists.
 After you build a list and saved the post, the html of the list needs to be generated so you can display it on the page.
-To do that continue to the next step.
+To do that, continue to the next step.
+
+Generate Custom Value
+---------------------
+
+By default the builder saves its value as an array with one key ``json`` which stores the original value used in javascript.
+From the original value, you can generate any custom values and store them in custom keys.
+In the case with Lists Builder, you have to generate the lists html from that original json value to be able to display the list in html.
+This can achieved by overwriting the builder ``_get_value_from_input()`` method.
+
+.. code-block:: php
+
+    class FW_Option_Type_Lists_Builder extends FW_Option_Type_Builder
+    {
+        ...
+
+        /**
+         * Generate the html of the list
+         * {@inheritdoc}
+         */
+        protected function _get_value_from_input($option, $input_value)
+        {
+            $value = parent::_get_value_from_input($option, $input_value);
+
+            $html = '';
+            foreach (json_decode($value['json'], true) as $list) {
+                $html .= '<'. $list['list_type'] .'>';
+
+                foreach ($list['_items'] as $list_item) {
+                    $html .= '<li>'. $list_item['text'] .'</li>';
+                }
+
+                $html .= '</'. $list['list_type'] .'>';
+            }
+            $value['html'] = $html;
+
+            return $value;
+        }
+    }
+
+Now you can use the generated html in post template. Add to ``theme/single.php``:
+
+.. code-block:: php
+
+    ...
+
+    while ( have_posts() ) : the_post();
+
+        echo fw_get_db_post_option( null, 'lists-builder/html' );
+
+    ...
+
+Congratulations, now you can create new builders!
+
+There are many things that can be improved in the Lists Builder, but this article will become too big.
+You can inspect `the builder code <https://github.com/ThemeFuse/Unyson-Builder-Extension/tree/master/includes/option-types/builder>`__
+and other builders like `Page Builder <https://github.com/ThemeFuse/Unyson-PageBuilder-Extension/tree/master/includes/fw-option-type-page-builder>`__
+and `Learning Quiz Builder <https://github.com/ThemeFuse/Unyson-Learning-Extension/tree/master/extensions/learning-quiz/includes/option-types/quiz-builder>`__
+to find the answers for the questions that may appear while developing your own builder.
