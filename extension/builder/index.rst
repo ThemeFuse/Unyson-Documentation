@@ -260,3 +260,224 @@ To create item types for a builder type you have to:
 Refresh the page and you should see three boxes that can be dragged down.
 Unfortunately you will get an error in console saying that the item type is not registered.
 This happens because you also have to register the item type in javascript and define how it works and looks in builder.
+
+Register items in javascript
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Registering builder items can be done via the ``builderInstance.registerItemClass(ItemTypeClass)`` method.
+Because ``builderInstance`` is created somewhere in builder scripts and it's not a global variable,
+the only way to get it, is to listen special event ``fw-builder:{builder-type}:register-items``.
+
+1. Create the scripts file that registers the ``oul`` item type:
+
+    .. code-block:: javascript
+
+        // file:: theme/inc/includes/option-types/lists-builder/item-types/oul/static/scripts.js
+
+        fwEvents.one('fw-builder:'+ 'lists-builder' +':register-items', function(builder) {
+            var ItemClass = builder.classes.Item.extend({
+                defaults: {
+                    type: 'oul' // the item type is specified here
+                }
+            });
+
+            builder.registerItemClass(ItemClass);
+        });
+
+2. Enqueue the ``oul`` item type scripts file:
+
+    .. code-block:: php
+
+        class FW_Lists_Builder_Item_Type_OUl extends FW_Option_Type_Builder_Item
+        {
+            ...
+
+            public function enqueue_static()
+            {
+                wp_enqueue_script(
+                    'lists-builder-item-type-oul',
+                    get_template_directory_uri() .'/inc/includes/option-types/lists-builder/item-types/oul/static/scripts.js',
+                    array('fw-events')
+                );
+            }
+        }
+
+3. Create the scripts file that registers the ``li`` item type:
+
+    .. code-block:: javascript
+
+        // file:: theme/inc/includes/option-types/lists-builder/item-types/li/static/scripts.js
+
+        fwEvents.one('fw-builder:'+ 'lists-builder' +':register-items', function(builder) {
+            var ItemClass = builder.classes.Item.extend({
+                defaults: {
+                    type: 'li' // the item type is specified here
+                }
+            });
+
+            builder.registerItemClass(ItemClass);
+        });
+
+4. Enqueue the ``li`` item type scripts file:
+
+    .. code-block:: php
+
+        class FW_Lists_Builder_Item_Type_Li extends FW_Option_Type_Builder_Item
+        {
+            ...
+
+            public function enqueue_static()
+            {
+                wp_enqueue_script(
+                    'lists-builder-item-type-li',
+                    get_template_directory_uri() .'/inc/includes/option-types/lists-builder/item-types/li/static/scripts.js',
+                    array('fw-events')
+                );
+            }
+        }
+
+Refresh the page and try to click or drag down the boxes.
+The items should appear in the builder, but they are using the default view and doesn't have any concrete functionality.
+At this point, you have a working builder.
+If you add some items and save the post, after page refresh the builder will recover from the saved json value.
+Customize the views and add some functionality to items to be able to build lists with them:
+
+1. Replace the ``oul`` item type scripts with:
+
+    .. code-block:: javascript
+
+        // file: theme/inc/includes/option-types/lists-builder/item-types/oul/static/scripts.js
+
+        fwEvents.one('fw-builder:'+ 'lists-builder' +':register-items', function(builder) {
+            var ItemView = builder.classes.ItemView.extend({
+                template: _.template(
+                    '<div style="border: 1px solid #ccc; padding: 0 10px;">'+
+                        '<p>&lt;<span><%- type %></span>&gt; <a href="#" onclick="return false;" class="dashicons fw-x"></a></p>'+
+
+                        /**
+                         * Special element with 'builder-items' class
+                         * displays the items that are in the '_items' attribute of the model
+                         */
+                        '<div class="builder-items"><!-- list items --></div>'+
+                    '</div>'
+                ),
+                render: function() {
+                    // It is recommended to do the template render using this method
+                    this.defaultRender({
+                        type: this.model.get('list_type')
+                    });
+                }
+            });
+
+            var ItemClass = builder.classes.Item.extend({
+                defaults: {
+                    type: 'oul', // the item type is specified here
+                    list_type: 'ul'
+                },
+                initialize: function(atts, opts) {
+                    if (opts && opts.$thumb) {
+                        /**
+                         * When the item box is dragged down or clicked, opts.$thumb contains the box element
+                         * so you can extract the data-sub-type attribute set in html.
+                         *
+                         * Note: opts.$thumb doesn't exist when the item is created from code
+                         * for e.g. recovered from json after page refresh
+                         */
+                        this.set('list_type', opts.$thumb.find('[data-sub-type]').attr('data-sub-type'));
+                    }
+
+                    this.view = new ItemView({
+                        id: 'lists-builder-item-'+ this.cid,
+                        model: this
+                    });
+
+                    // it is recommended to call this method
+                    this.defaultInitialize();
+                },
+                /**
+                 * This method controls which item types are allowed to be added inside this item in the '_items' attribute
+                 * @param {String} type
+                 * @returns {boolean}
+                 */
+                allowIncomingType: function(type) {
+                    if (type == 'li') {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            });
+
+            builder.registerItemClass(ItemClass);
+        });
+
+2. Replace the ``li`` item type scripts with:
+
+    .. code-block:: javascript
+
+        // file: theme/inc/includes/option-types/lists-builder/item-types/li/static/scripts.js
+
+        fwEvents.one('fw-builder:'+ 'lists-builder' +':register-items', function(builder) {
+            var ItemView = builder.classes.ItemView.extend({
+                template: _.template(
+                    '<div style="border: 1px solid #ccc; padding: 0 10px;">'+
+                    '<p>'+
+                        '<span><%= text %></span> '+
+                        '<a href="#" onclick="return false;" class="dashicons dashicons-edit"></a>'+
+                        '<a href="#" onclick="return false;" class="dashicons fw-x"></a>'+
+                    '</p>'+
+                    '</div>'
+                ),
+                events: {
+                    'click a.dashicons.fw-x': 'defaultRemove',
+                    'click .dashicons-edit': 'openTextEdit'
+                },
+                render: function() {
+                    this.defaultRender({
+                        text: this.model.get('text')
+                    });
+                },
+                openTextEdit: function() {
+                    var text = prompt('Edit <li> text', this.model.get('text'));
+
+                    if (text === null) {
+                        return;
+                    }
+
+                    this.model.set('text', text);
+                }
+            });
+
+            var ItemClass = builder.classes.Item.extend({
+                defaults: {
+                    type: 'li', // the item type is specified here
+                    text: 'Hello World!' // <li>{text}</li>
+                },
+                initialize: function(atts, opts) {
+                    this.view = new ItemView({
+                        id: 'lists-builder-item-'+ this.cid,
+                        model: this
+                    });
+
+                    this.defaultInitialize();
+                },
+                /**
+                 * This method controls to which item types this item is allowed to be added/moved
+                 * @param {String} type
+                 * @returns {boolean}
+                 */
+                allowDestinationType: function(type) {
+                    if (type == 'oul') {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            });
+
+            builder.registerItemClass(ItemClass);
+        });
+
+Now the javascript side of the builder has the minimum functionality to be able to build lists.
+After you build a list and saved the post, the html of the list needs to be generated so you can display it on the page.
+To do that continue to the next step.
