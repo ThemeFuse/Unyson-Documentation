@@ -1,7 +1,7 @@
 Builder
 =======
 
-This extension provides the core builder functionality that you can extend to create you own builder.
+This extension provides the core builder functionality that you can extend to create new builders.
 
 .. contents::
     :local:
@@ -62,7 +62,7 @@ First, :doc:`create an option type </options/create-option-type>` that extends t
     }
     FW_Option_Type::register('FW_Option_Type_Lists_Builder');
 
-This is the minimum builder possible. Use it in your post options to see what it shows at this point.
+That's it, the new builder was created. Use it in your post options to see what it shows at this point.
 
 .. note::
 
