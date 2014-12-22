@@ -107,8 +107,6 @@ That's it, the new builder was created. Use it in your post options to see what 
 
                         // this will make it full width
                         'label' => false,
-                        // just turn off these things to focus only on builder
-                        'fullscreen' => false, 'template_saving' => false, 'history' => false,
                     ),
                 ),
             ),
