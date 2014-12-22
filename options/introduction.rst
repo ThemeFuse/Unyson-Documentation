@@ -1,6 +1,12 @@
 Introduction
 ============
 
+.. raw:: html
+
+	<iframe src="https://player.vimeo.com/video/115152971?title=0&amp;byline=0&amp;portrait=0" width="100%" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+	<br><br>
+
 **Options** are intended for creating form fields representing different kind of data e.g. rich and plain text, icons, media content, fonts and more. With options you can easily create tabs, boxes and form inputs for the admin pages.
 
 You just build an array and it will be transformed to html. On form submit, values will be saved into the database, and you will be able to access them anywhere you want. Here are the main places where options are used:

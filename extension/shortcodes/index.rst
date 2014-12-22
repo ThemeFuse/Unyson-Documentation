@@ -38,6 +38,13 @@ When the framework loads it's files (``options.php`` for this example) it will f
 
 Disabling shortcodes
 --------------------
+
+.. raw:: html
+
+	<iframe src="https://player.vimeo.com/video/115153179?title=0&amp;byline=0&amp;portrait=0" width="100%" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+	<br><br>
+
 A shortcode can be disabled via the ``fw_ext_shortcodes_disable_shortcodes`` filter.
 A good place to put the code for the disabling would be in ``{your-theme}/framework-customizations/extensions/shortcodes/hooks.php``.
 It should look something like the following:
@@ -56,6 +63,13 @@ It should look something like the following:
 
 Creating a new shortcode
 ------------------------
+
+.. raw:: html
+
+	<iframe src="https://player.vimeo.com/video/115153757?title=0&amp;byline=0&amp;portrait=0" width="100%" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+	<br><br>
+
 If :ref:`overwriting <overwriting-shortcodes>` a built-in shortcode does not suit your needs then you might want to create a new shortcode.
 For that you will first have to decide where to place it:
 
@@ -283,6 +297,12 @@ Cookbook
 Creating a simple shortcode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. raw:: html
+
+	<iframe src="https://player.vimeo.com/video/115153757?title=0&amp;byline=0&amp;portrait=0" width="100%" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+	<br><br>
+
 This example will go through creating the ``[hr]`` (horizontal ruler) shortcode in a few simple steps:
 
 1. Create a ``hr`` folder in ``framework-customizations/extensions/shortcodes/shortcodes/``.
@@ -335,6 +355,12 @@ The ``[hr]`` shorcode is completed! The directory structure of the shortcode is 
 
 Creating a shortcode with options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+	<iframe src="https://player.vimeo.com/video/115153757?title=0&amp;byline=0&amp;portrait=0" width="100%" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+	<br><br>
 
 This example will go through creating the ``[button]`` shortcode.
 
