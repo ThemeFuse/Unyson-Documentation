@@ -3,9 +3,9 @@ Built-in Option Types
 
 .. raw:: html
 
-	<iframe src="https://player.vimeo.com/video/105002864?title=0&amp;byline=0&amp;portrait=0" width="100%" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/105002864?title=0&amp;byline=0&amp;portrait=0" width="100%" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-	<br><br>
+        <br><br>
 
 Here is a complete list of all built-in option types with all available parameters for each option.
 
@@ -215,7 +215,7 @@ Regular select.
         ),
         /**
          * Allow not existing choices
-         * Used when select is used in another option types and populated dynamically
+         * Used when select is populated dynamically from js
          */
         'no-validate' => false,
     )
@@ -552,8 +552,12 @@ Single file upload.
     array(
         'type'  => 'upload',
         'value' => array(
-             'attachment_id' => '9',
-             'url' => '//site.com/wp-content/uploads/2014/02/whatever.jpg'
+            /*
+            'attachment_id' => '9',
+            'url' => '//site.com/wp-content/uploads/2014/02/whatever.jpg'
+            */
+            // if value is set in code, it is not considered and not used
+            // because there is no sense to set hardcode attachment_id
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
         'label' => __('Label', 'fw'),
@@ -584,14 +588,15 @@ Upload multiple files.
     array(
         'type'  => 'multi-upload',
         'value' => array(
+            /*
             array(
-                 'attachment_id' => '9',
-                 'url' => '//site.com/wp-content/uploads/2014/02/whatever.jpg'
+                'attachment_id' => '9',
+                'url' => '//site.com/wp-content/uploads/2014/02/whatever.jpg'
             ),
-            array(
-                 'attachment_id' => '10',
-                 'url' => '//site.com/wp-content/uploads/2014/02/random.jpg'
-            ),
+            ...
+            */
+            // if value is set in code, it is not considered and not used
+            // because there is no sense to set hardcode attachment_id
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
         'label' => __('Label', 'fw'),
