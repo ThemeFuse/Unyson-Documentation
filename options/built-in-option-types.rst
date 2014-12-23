@@ -214,8 +214,8 @@ Regular select.
             ),
         ),
         /**
-         * Allow not existing choices
-         * Used when select is populated dynamically from js
+         * Allow save not existing choices
+         * Useful when you use the select to populate it dynamically from js
          */
         'no-validate' => false,
     )
