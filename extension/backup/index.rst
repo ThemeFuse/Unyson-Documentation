@@ -23,6 +23,12 @@ The Backup extension was designed to achieve the following tasks:
 Backup and Restore
 ------------------
 
+.. raw:: html
+
+	<iframe src="https://player.vimeo.com/video/104998814?title=0&amp;byline=0&amp;portrait=0" width="100%" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+	<br><br>
+
 These two are the basic features of the **Backup** extension.
 
 The backup process works the following way:
@@ -60,6 +66,12 @@ For an example of implementation take a look at the **backup-storage-local** ext
 
 Demo Install
 ------------
+
+.. raw:: html
+
+	<iframe src="https://player.vimeo.com/video/110769350?title=0&amp;byline=0&amp;portrait=0" width="100%" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+	<br><br>
 
 **Demo Install** is the process of making an archive of the currently active theme, 
 packed with all of its settings (database plus uploads directory). 

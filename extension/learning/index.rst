@@ -23,6 +23,12 @@ From config file you can edit the lesson, course and course category taxonomy sl
 Views
 -----
 
+.. raw:: html
+
+	<iframe src="https://player.vimeo.com/video/115245839?title=0&amp;byline=0&amp;portrait=0" width="100%" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+	<br><br>
+
 Templates are located in the ``views/`` directory. Here is the list of templates that you can customize:
 
 * ``single-course.php`` - Learning course single post template. By default is used ``single.php`` from the theme root directory, you can overwrite it by creating ``framework-customizations/extensions/learning/views/single-course.php``.
