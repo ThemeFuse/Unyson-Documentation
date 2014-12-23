@@ -1,6 +1,12 @@
 Built-in Option Types
 =====================
 
+.. raw:: html
+
+	<iframe src="https://player.vimeo.com/video/105002864?title=0&amp;byline=0&amp;portrait=0" width="100%" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+	<br><br>
+
 Here is a complete list of all built-in option types with all available parameters for each option.
 
 .. contents::
