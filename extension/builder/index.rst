@@ -171,7 +171,7 @@ To create item types for a builder type you have to:
             }
 
             /**
-             * The boxes that appear on top and can be dragged down or clicked to create items
+             * The boxes that appear on top of the builder and can be dragged down or clicked to create items
              * @return array
              */
             public function get_thumbnails()

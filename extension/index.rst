@@ -10,6 +10,7 @@ Built-in Extensions
     megamenu/index
     sidebars/index
     styling/index
+    forms/index
     breadcrumbs/index
     seo/index
     blog/index
