@@ -389,6 +389,24 @@ Pick a color.
 
 
 
+RGBA Color Picker
+-----------------
+
+Pick a ``rgba()`` color.
+
+.. code-block:: php
+
+    array(
+        'type'  => 'rgba-color-picker',
+        'value' => 'rgba(255,0,0,0.5)',
+        'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+        'label' => __('Label', 'fw'),
+        'desc'  => __('Description', 'fw'),
+        'help'  => __('Help tip', 'fw'),
+    )
+
+
+
 Gradient
 --------
 
@@ -616,6 +634,58 @@ Upload multiple files.
 ``fw:option-type:multi-upload:clear`` - The value is cleared (all the selected items are removed).
 
 ``fw:option-type:multi-upload:remove`` - A thumb (selected item) is removed. Triggered only when ``images_only`` is set to ``true``.
+
+
+
+Slider
+------
+
+Drag the handle to select a numeric value.
+
+.. code-block:: php
+
+    array(
+        'type'  => 'slider',
+        'value' => 33,
+        'properties' => array(
+            /*
+            'min' => 0,
+            'max' => 100,
+            'sep' => 1,
+            */
+        ),
+        'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+        'label' => __('Label', 'fw'),
+        'desc'  => __('Description', 'fw'),
+        'help'  => __('Help tip', 'fw'),
+    )
+
+
+Range Slider
+------------
+
+Drag the handles to set a numeric value range.
+
+.. code-block:: php
+
+    array(
+        'type'  => 'range-slider',
+        'value' => array(
+            'from' => 10,
+            'to'   => 33,
+        ),
+        'properties' => array(
+            /*
+            'min' => 0,
+            'max' => 100,
+            'sep' => 1,
+            */
+        ),
+        'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+        'label' => __('Label', 'fw'),
+        'desc'  => __('Description', 'fw'),
+        'help'  => __('Help tip', 'fw'),
+    )
 
 
 
