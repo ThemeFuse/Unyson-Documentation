@@ -19,3 +19,4 @@ Built-in Extensions
     events/index
     learning/index
     builder/index
+    social/index
