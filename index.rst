@@ -61,9 +61,9 @@ The only thing you will have to configure is the framework directory uri, for th
             return 'https://.../uri/to/this/directory' . '/framework';
         }
         add_filter('fw_framework_directory_uri', '_filter_fw_framework_plugin_directory_uri');
-    endif;
 
-    require dirname(__FILE__) .'/framework/bootstrap.php';
+        require dirname(__FILE__) .'/framework/bootstrap.php';
+    endif;
 
 License
 -------
