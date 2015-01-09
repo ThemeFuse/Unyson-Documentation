@@ -169,7 +169,7 @@ General PHP helpers:
                 // enqueue this script only on dashboard page
                 wp_enqueue_script(
                     'demo-dashboard',
-                    fw_get_stylesheet_customizations_directory_uri('/js/demo-only.js')
+                    get_template_directory_uri() .'/js/demo-only.js'
                 );
             }
 
@@ -185,7 +185,7 @@ General PHP helpers:
                 // except dashboard page and all pages from posts menu (add, edit, categories, tags)
                 wp_enqueue_script(
                     'demo-dashboard',
-                    fw_get_stylesheet_customizations_directory_uri('/js/demo-excluded.js')
+                    get_template_directory_uri() .'/js/demo-excluded.js'
                 );
             }
         }
