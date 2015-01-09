@@ -3,6 +3,25 @@ Create Option Type
 
 To define a new option type, create a class that extends the base option type class and register it.
 
+.. note::
+
+    It doesn't matter where you place your new option type.
+    If you use the `Theme Includes <https://github.com/ThemeFuse/Theme-Includes>`__ directory structure,
+    place it in the ``{theme}/inc/includes/option-types/my-option/`` directory.
+    Also make sure it is included only when the framework is loaded and only on the admin page
+
+    .. code-block:: php
+
+        // file: {theme}/inc/includes/option-types.php
+
+        /** @internal */
+        function _action_theme_include_custom_option_types() {
+            if (is_admin()) {
+                require_once dirname(__FILE__) . '/option-types/new/class-fw-option-type-new.php';
+            }
+        }
+        add_action('fw_init', '_action_theme_include_custom_option_types');
+
 .. code-block:: php
 
     class FW_Option_Type_New extends FW_Option_Type
@@ -17,18 +36,16 @@ To define a new option type, create a class that extends the base option type cl
          */
         protected function _enqueue_static($id, $option, $data)
         {
+            $uri = get_template_directory_uri() .'/inc/includes/option-types/'. $this->get_type() .'/static';
+
             wp_enqueue_style(
                 'fw-option-'. $this->get_type(),
-                fw_get_stylesheet_customizations_directory_uri(
-                    '/includes/options-types/'. $this->get_type() .'/static/css/styles.css'
-                )
+                $uri .'/css/styles.css'
             );
 
             wp_enqueue_script(
                 'fw-option-'. $this->get_type(),
-                fw_get_stylesheet_customizations_directory_uri(
-                    '/includes/options-types/'. $this->get_type() .'/static/js/scripts.js'
-                ),
+                $uri .'/css/scripts.js',
                 array('fw-events', 'jquery')
             );
         }
