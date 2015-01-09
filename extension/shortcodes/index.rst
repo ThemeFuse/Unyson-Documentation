@@ -30,8 +30,8 @@ For a better understanding let's look at an example:
 Imagine that there is a shortcode ``demo`` located in the shortcodes extension (``framework/extensions/shortcodes/shortcodes/demo``).
 When the framework loads it's files (``options.php`` for this example) it will follow these simple steps:
 
-1. If a child theme is active it will first look in ``{your-child-theme}/framework-customizations/shortcodes/shortcodes/demo/options.php``
-2. If it did not find the file in the child theme it will search in ``{your-parent-theme}/framework-customizations/shortcodes/shortcodes/demo/options.php``
+1. If a child theme is active it will first look in ``{your-child-theme}/framework-customizations/extensions/shortcodes/shortcodes/demo/options.php``
+2. If it did not find the file in the child theme it will search in ``{your-parent-theme}/framework-customizations/extensions/shortcodes/shortcodes/demo/options.php``
 3. If it did not find the file in the parent theme it will search at the shortcode's declared path ``framework/extensions/shortcodes/shortcodes/demo/options.php``
 
 .. _disabling-shortcodes:
@@ -218,7 +218,7 @@ By default, when WordPress wants to render a shortcode built into the framework,
 Static file
 ^^^^^^^^^^^^
 
-A shortcode can have a ``static.php`` file that is required when the shortcode is rendered.
+A shortcode can have a ``static.php`` file that is included when the shortcode is rendered.
 It is meant for enqueuing static files. Here is an example of a basic `static.php` file:
 
 .. code-block:: php
@@ -235,6 +235,9 @@ It is meant for enqueuing static files. Here is an example of a basic `static.ph
     	'fw-shortcode-demo-shortcode',
     	$uri . '/static/js/scripts.js'
     );
+
+If you want to include custom styles and scripts for a existing shortcode, overwrite the ``static.php`` file 
+by creating ``framework-customizations/extensions/shortcodes/shortcodes/demo-shortcode/static.php``.
 
 .. attention::
 
