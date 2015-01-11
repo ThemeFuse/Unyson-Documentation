@@ -543,13 +543,21 @@ Database
 
 -----
 
+.. _fw-get-db-ext-settings-option:
+
+* ``fw_get_db_ext_settings_option($extension_name, $option_id, $default_value = null)`` - get extension settings option value from the database.
+
+.. _fw-set-db-ext-settings-option:
+
+* ``fw_set_db_ext_settings_option($extension_name, $option_id, $value)`` - update extension settings option value in the database.
+
 .. _fw-get-db-extension-data:
 
-* ``fw_get_db_extension_data($extension_name, $key, $default_value = null)`` - get a value from the database of some data stored by some extension.
+* ``fw_get_db_extension_data($extension_name, $key, $default_value = null)`` - get a value from the database of some private data stored by an extension.
 
 .. _fw-set-db-extension-data:
 
-* ``fw_set_db_extension_data($extension_name, $key, $value)`` - extensions uses this function to store custom values in the database.
+* ``fw_set_db_extension_data($extension_name, $key, $value)`` - extensions uses this function to store private values in the database.
     
     .. important::
     
