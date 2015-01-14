@@ -13,7 +13,7 @@ copyright = `date.today().year` + ' Unyson | Theming Fast & Easy ' + \
 #release = ''
 #exclude_patterns = []
 
-html_favicon = 'favicon.ico'
+html_favicon = 'fav.ico'
 html_theme_path = ["_themes"]
 html_theme = 'themefuse'
 
