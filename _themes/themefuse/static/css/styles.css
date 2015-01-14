@@ -1409,6 +1409,8 @@ table.docutils .row-odd td {background-color: #fbfbfb;}
     min-width: 42px;
     text-align: center;
 }
+
+.nav-menu ul .icon-matrix {font-size:34px; top: 22px; left: 0px;}
 .nav-menu ul .icon-login {top: 22px; left: 2px;}
 .nav-menu ul .icon-envelope {font-size: 35px; top: 24px;}
 .nav-menu ul .icon-wallet {font-size: 32px; top: 26px;}
