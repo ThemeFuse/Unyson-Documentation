@@ -41,7 +41,7 @@ Or you can install `the plugin <https://wordpress.org/plugins/unyson/>`__ manual
 Install anywhere
 ^^^^^^^^^^^^^^^^
 
-The ``framework/`` can be placed in any directory you want, just include the ``bootstrap.php`` file.
+The framework can be placed in any directory you want, just include the ``bootstrap.php`` file.
 
 .. note::
 
@@ -64,6 +64,7 @@ The only thing you will have to configure is the framework directory uri, for th
 
         require dirname(__FILE__) .'/framework/bootstrap.php';
     endif;
+
 
 License
 -------
