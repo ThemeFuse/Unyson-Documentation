@@ -7,8 +7,8 @@ from datetime import date
 source_suffix = '.rst'
 master_doc = 'index'
 project = 'Unyson Framework'
-copyright = `date.today().year` + ' ThemeFuse | Premium WordPress Themes and WordPress Templates' + \
-    '<br>Icons and GUI elements from our sister-site: <a href="http://pixelkit.com">PixelKit.com</a>'
+copyright = `date.today().year` + ' Unyson | Theming Fast & Easy ' + \
+    '<br>Developed by: <a target="_blank" href="http://themefuse.com">ThemeFuse</a>	Icons by: <a target="_blank" href="http://pixelkit.com">PixelKit</a>'
 #version = ''
 #release = ''
 #exclude_patterns = []
