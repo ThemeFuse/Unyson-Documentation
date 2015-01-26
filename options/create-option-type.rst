@@ -56,10 +56,8 @@ To define a new option type, create a class that extends the base option type cl
         protected function _render($id, $option, $data)
         {
             /**
-             * $data['value'] can contain:
-             * 1. Correct value previously saved in the database (returned by the _get_value_from_input() method)
-             * 2. Raw value from $_POST. This happens when the form was submitted but the validation failed.
-             * You decide if it's correct and how to use it in html
+             * $data['value'] contains correct value returned by the _get_value_from_input()
+             * You decide how to use it in html
              */
             $option['attr']['value'] = (string)$data['value'];
 
