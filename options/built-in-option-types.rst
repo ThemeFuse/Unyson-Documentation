@@ -891,7 +891,7 @@ The ``picker`` parameter holds a valid option type with choices. Supported optio
             // '<custom-key>' => option
             'gadget' => array(
                 'label'   => __('Choose device', 'fw'),
-                'type'    => 'select',
+                'type'    => 'select', // or 'short-select'
                 'choices' => array(
                     'phone'  => __('Phone', 'fw'),
                     'laptop' => __('Laptop', 'fw')
