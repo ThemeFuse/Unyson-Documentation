@@ -56,8 +56,10 @@ To define a new option type, create a class that extends the base option type cl
         protected function _render($id, $option, $data)
         {
             /**
-             * $data['value'] contains value that should be used.
-             * We decide if it's correct and how to use it in html
+             * $data['value'] can contain:
+             * 1. Correct value previously saved in the database (returned by the _get_value_from_input() method)
+             * 2. Raw value from $_POST. This happens when the form was submitted but the validation failed.
+             * You decide if it's correct and how to use it in html
              */
             $option['attr']['value'] = (string)$data['value'];
 
@@ -73,7 +75,7 @@ To define a new option type, create a class that extends the base option type cl
              *  1. use them all in main element (if option itself has no input elements)
              *  2. use them in input element (if option has input element that contains option value)
              *
-             * In this case we will use second option.
+             * In this case you will use second option.
              */
 
             $wrapper_attr = array(
@@ -100,11 +102,11 @@ To define a new option type, create a class that extends the base option type cl
         protected function _get_value_from_input($option, $input_value)
         {
             /**
-             * In this method we receive $input_value (from form submit or whatever)
-             * and we should return correct and safe value that will be stored in database.
+             * In this method you receive $input_value (from form submit or whatever)
+             * and must return correct and safe value that will be stored in database.
              *
              * $input_value can be null.
-             * In this case we should use default value from $option['value']
+             * In this case you should return default value from $option['value']
              */
 
             if (is_null($input_value)) {
@@ -162,14 +164,12 @@ To define a new option type, create a class that extends the base option type cl
              * data.$elements are jQuery selected elements
              * that contains options html that needs to be initialized
              *
-             * Find our uninitialized options by main class
+             * Find uninitialized options by main class
              */
             var $options = data.$elements.find(optionTypeClass +':not(.initialized)');
 
             /**
-             * Add some functionality to our options
-             *
-             * In this case, we will listen for button click and clear input value
+             * Listen for button click and clear input value
              */
             $options.on('click', 'button', function(){
                 $(this).closest(optionTypeClass).find('input').val('');
