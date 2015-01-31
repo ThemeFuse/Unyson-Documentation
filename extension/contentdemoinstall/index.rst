@@ -1,6 +1,13 @@
 Content Demo Install
 ======
 
+1. ** Content Demo Install**: Make an archive of the currently selected theme with
+   all of its settings (database plus uploads directory).
+
+2. **Auto Install**: Gives the ability to use these settings at the
+   time the theme was activated.
+
+
 .. raw:: html
 
 	<iframe src="https://player.vimeo.com/video/110769350?title=0&amp;byline=0&amp;portrait=0" width="100%" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

@@ -8,13 +8,7 @@ The Backup extension was designed to achieve the following tasks:
 
 2. **Restore**: Do a restore from a previously made backup.
 
-3. **Demo Install**: Make an archive of the currently selected theme with
-   all of its settings (database plus uploads directory).
-
-   Auto Install: Gives the ability to use these settings at the
-   time the theme was activated.
-
-4. **Migration**: Move a WordPress site from one place to another.
+3. **Migration**: Move a WordPress site from one place to another.
 
 .. contents::
     :local:
