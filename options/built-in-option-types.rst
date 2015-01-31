@@ -801,6 +801,11 @@ Choose font family, size, style and color.
             'size'   => 12,
             'style'  => '400',
             'color'  => '#000000'
+        ),
+       'components' => array(
+            'family' => true,
+            'size'   => true,
+            'color'  => true
         )
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
         'label' => __('Label', 'fw'),
