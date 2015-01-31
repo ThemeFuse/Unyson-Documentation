@@ -1,7 +1,7 @@
 Content Demo Install
 ======
 
-1. ** Content Demo Install**: Make an archive of the currently selected theme with
+1. **Content Demo Install**: Make an archive of the currently selected theme with
    all of its settings (database plus uploads directory).
 
 2. **Auto Install**: Gives the ability to use these settings at the
