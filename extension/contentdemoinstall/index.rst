@@ -14,7 +14,7 @@ Content Demo Install
 
 	<br><br>
 
-**Demo Install** is the process of making an archive of the currently active theme, 
+**Content Demo Install** is the process of making an archive of the currently active theme, 
 packed with all of its settings (database plus uploads directory). 
 These settings are stored in the ``auto-install`` directory under the theme parent directory.
 
@@ -27,7 +27,7 @@ If it’s enabled, a **Create Demo Install** button should appear on Backup page
 Auto Install
 ------------
 
-**Auto Install** is the reverse process of **Demo Install**.
+**Auto Install** is the reverse process of **Content Demo Install**.
 
 This feature is enabled only when current theme contains the ``auto-install`` directory in it.
 
