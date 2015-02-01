@@ -36,7 +36,7 @@ General PHP helpers:
 
             // <div id="foo" class="bar" ></div>
 
-.. _genera-fw-akg:
+.. _generfw-akg:
 
 * ``fw_akg($keys, &$array_or_object, $default_value = null, $keys_delimiter = '/')`` - get array multikey value.
 
