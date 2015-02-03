@@ -157,6 +157,8 @@ A list of checkboxes.
             'choice-2' => __('Choice 2', 'fw'),
             'choice-3' => __('Choice 3', 'fw'),
         ),
+        // Display choices inline instead of list
+        'inline' => false,
     )
 
 
@@ -180,6 +182,8 @@ A list of radio buttons.
             'choice-2' => __('Choice 2', 'fw'),
             'choice-3' => __('Choice 3', 'fw'),
         ),
+        // Display choices inline instead of list
+        'inline' => false,
     )
 
 
