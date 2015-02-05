@@ -806,7 +806,7 @@ Choose font family, size, style and color.
             'family' => true,
             'size'   => true,
             'color'  => true
-        )
+        ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
         'label' => __('Label', 'fw'),
         'desc'  => __('Description', 'fw'),
