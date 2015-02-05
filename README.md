@@ -1,4 +1,4 @@
-# [Unyson](http://unyson.themefuse.com/) [Documentation](http://unyson-docs.themefuse.com/)
+# [Unyson](http://unyson.io/) [Documentation](http://manual.unyson.io/)
 
 Unyson is a framework for [WordPress](http://wordpress.org/) that facilitates development of a theme.
 
