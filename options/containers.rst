@@ -53,6 +53,8 @@ A better customized container option will look like this:
 
 This will generate a box with a title and one option in it.
 
+.. _box-parameters-in-post-options:
+
 .. important::
 
      Used in **Post Options** on the first array level, the ``box`` container accepts additional parameters:
