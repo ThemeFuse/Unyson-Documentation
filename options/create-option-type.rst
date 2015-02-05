@@ -26,7 +26,7 @@ To define a new option type, create a class that extends the base option type cl
 
     class FW_Option_Type_New extends FW_Option_Type
     {
-        protected function get_type()
+        public function get_type()
         {
             return 'new';
         }
