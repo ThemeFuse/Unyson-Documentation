@@ -45,6 +45,7 @@ Let's take a closer look at each directory and file, and understand how it works
 * ``class-fw-extension-{extension-name}.php`` - If the extension has some advanced functionality,
   it can define a class that will be the instance of the extension returned by ``fw()->extensions->get('{extension-name}')``.
   By default an instance of default class will be created, which is an empty class that just extends the ``FW_Extension`` class.
+  This file can't be overwritten.
 
 * ``config.php`` - Configuration array, which is accessible through the ``$ext->get_config('key')`` method.
   Users can customize it by creating the same file in
