@@ -56,7 +56,7 @@ Helpers
 
     .. note::
 
-        If you are in The Loop, the global $post will bw used for $post_id
+        If you are in The Loop, the global $post will be used for $post_id
 
 Hooks
 -----

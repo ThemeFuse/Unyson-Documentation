@@ -1,7 +1,7 @@
 Cookbook
 ========
 
-The Cookbook ia a collection of specific recipes that explain how to correctly solve the most recurrent problems
+The Cookbook is a collection of specific recipes that explain how to correctly solve the most recurrent problems
 that developers face in their day to day work.
 
 .. contents::

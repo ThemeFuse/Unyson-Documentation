@@ -75,7 +75,7 @@ Hooks
 New options on the Event edit page
 ----------------------------------
 
-A sub-extension which implements ``FW_Events_Interface_Tabs`` will be include options announced in ``fw_get_tabs_options()`` method.
+A sub-extension which implements ``FW_Events_Interface_Tabs`` will include options announced in ``fw_get_tabs_options()`` method.
 
 .. code-block:: php
 

@@ -1,7 +1,7 @@
 Social
 ======
 
-This extension grouping in one place settings that need to be to work with social networks.
+This extension groups in one place all the settings that need to work with social networks.
 
 .. contents::
     :local:
@@ -34,7 +34,7 @@ Filters
 Helpers
 ^^^^^^^
 
-* ``fw_ext_social_twitter_get_connection`` - Returns a instance of TwitterOAuth (see: https://github.com/abraham/twitteroauth), based on keys inserted.(Requires completing the following fields: consumer key, consumer secret, access token and access token secret).
+* ``fw_ext_social_twitter_get_connection`` - Returns an instance of TwitterOAuth (see: https://github.com/abraham/twitteroauth), based on keys inserted.(Requires completing the following fields: consumer key, consumer secret, access token and access token secret).
 
 Facebook
 --------

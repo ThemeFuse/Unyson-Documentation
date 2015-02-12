@@ -57,7 +57,7 @@ Helpers
 
 .. attention::
 
-    Do not use the ``previous_post_link()`` function to get previous lesson link, you'll not get a the desired result.
+    Do not use the ``previous_post_link()`` function to get previous lesson link, you'll not get the desired result.
 
 .. code-block:: php
 

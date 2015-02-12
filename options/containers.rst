@@ -12,10 +12,10 @@ Options that have no value and contain other options in the ``options`` paramete
 There are only three types of containers:
 
 * ``box`` - WordPress metabox.
-* ``tab`` - one tab (Tabs from same array level will be collected and generated as multiple tabs).
+* ``tab`` - one tab (Tabs from the same array level will be collected and generated as multiple tabs).
 * ``group`` - group options into a wrapper div.
 
-These types are built into the framework and new types of container options can't be defined. The simplest container option array looks something like this and will generate an empty metabox without title:
+These types are built into the framework and new types of container options can't be defined. The simplest container option array Looks as in the below example and will generate an empty metabox without title:
 
 .. code-block:: php
 
