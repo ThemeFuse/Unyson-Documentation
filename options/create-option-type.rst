@@ -88,7 +88,7 @@ To define a new option type, create a class that extends the base option type cl
 
             $html  = '<div '. fw_attr_to_html($wrapper_attr) .'>';
             $html .= '<input '. fw_attr_to_html($option['attr']) .' type="text" />';
-            $html .= '<button type="button" class="button">'. __('Clear text', 'fw') .'<button/>';
+            $html .= '<button type="button" class="button">'. __('Clear text', 'fw') .'</button>';
             $html .= '</div>';
 
             return $html;
