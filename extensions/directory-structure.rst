@@ -55,8 +55,7 @@ Let's take a closer look at each directory and file, and understand how it works
 * ``static.php`` - Enqueue extension scripts and styles.
   It is included automatically on the ``wp_enqueue_scripts`` and ``admin_enqueue_scripts`` actions,
   so you can enqueue both admin and frontend scripts and styles from it, but you will have to use the ``is_admin()`` function.
-  If your extension has a class, you can enqueue there scripts and styles.
-  Users can overwrite this file (it will not be included) by creating
+  This file can be overwritten from theme by creating
   ``{theme-name}/framework-customizations/extension/{extension-name}/static.php``.
 
 * ``posts.php`` - Register theme post types and taxonomies in this file. It is included automatically on the ``init`` action.
