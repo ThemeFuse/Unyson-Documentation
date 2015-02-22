@@ -20,7 +20,7 @@ To define a new option type, create a class that extends the base option type cl
                 require_once dirname(__FILE__) . '/option-types/new/class-fw-option-type-new.php';
             }
         }
-        add_action('fw_init', '_action_theme_include_custom_option_types');
+        add_action('fw_init', '_action_theme_include_custom_option_types', 9);
 
 .. code-block:: php
 
