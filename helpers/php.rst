@@ -558,10 +558,6 @@ Database
 .. _fw-set-db-extension-data:
 
 * ``fw_set_db_extension_data($extension_name, $key, $value)`` - extensions uses this function to store private values in the database.
-    
-    .. important::
-    
-        All values are stored in one wp option. This prevents database spam with wp options for each extension.
 
 FW_Form
 -------
