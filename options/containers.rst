@@ -57,7 +57,7 @@ This will generate a box with a title and one option in it.
 
 .. attention::
 
-   The `attr` parameter is ignored for first level boxes used in **Post Options**
+   The ``attr`` parameter is ignored for first level boxes used in **Post Options**
    because the `add_meta_box()`_ function has no possibility to specify custom attributes.
 
 .. important::
