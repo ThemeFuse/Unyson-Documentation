@@ -31,11 +31,6 @@ Accepted parameters:
 * ``title`` *(string)* In ``box`` and ``tab`` this is used as title. In ``group`` it's not used
 * ``attr`` *(array)* HTML attributes
 
-.. attention::
-
-   These are all the parameters that the container options supports.
-
-
 A better customized container option will look like this:
 
 .. code-block:: php
@@ -55,11 +50,6 @@ This will generate a box with a title and one option in it.
 
 .. _box-parameters-in-post-options:
 
-.. attention::
-
-   The ``attr`` parameter is ignored for first level boxes used in **Post Options**
-   because the `add_meta_box()`_ function has no possibility to specify custom attributes.
-
 .. important::
 
      Used in **Post Options** on the first array level, the ``box`` container accepts additional parameters:
@@ -68,6 +58,21 @@ This will generate a box with a title and one option in it.
       * ``'priority' => 'default|high|core|low'``
 
       These parameters are sent to `add_meta_box()`_ function.
+
+Restrictions
+------------
+
+Here are some restrictions to keep in mind:
+
+* **Post Options** array on first level can have only ``box`` containers.
+* ``attr`` parameter from **Post Options** first level ``box`` containers, is not used.
+  Because boxes are added with `add_meta_box()`_ which has no parameter for specifying attributes.
+* **Taxonomy Options** array on first level cannot have containers.
+
+.. note::
+
+    There are no restrictions for what options are contained in the ``options`` parameter.
+    It's possible to create multi level options: boxes inside boxes, tabs inside boxes, tabs inside tabs, and so on.
 
 
 .. include:: /links.rst.inc
