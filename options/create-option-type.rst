@@ -179,3 +179,14 @@ To define a new option type, create a class that extends the base option type cl
             $options.addClass('initialized');
         });
     });
+
+Option Width
+------------
+
+There are three width types:
+
+* **auto** - dynamically adapted to the contents of the option.
+* **fixed** - fixed size (it doesn't matter what size, it's just fixed).
+* **full** - full available width (100%).
+
+Every option has its own width type specified in ``FW_Option_Type::_get_backend_width_type()``.
