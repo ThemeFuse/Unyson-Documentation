@@ -1,5 +1,5 @@
 Content Demo Install
-======
+====================
 
 The Content Demo Install is included in Backup extension:
 
@@ -14,7 +14,7 @@ The Content Demo Install is included in Backup extension:
     :backlinks: top
 
 Content Demo Install
-------------	
+--------------------
 	
 .. raw:: html
 
