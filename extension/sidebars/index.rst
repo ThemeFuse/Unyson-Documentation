@@ -45,6 +45,12 @@ Configuration
             'before_title'  => '<h3>',
             'after_title'   => '</h3>',
         ),
+        /**
+         * Render sidebar metabox in post types.
+         * By default is set to false.
+         * If you want to render sidebar in post types set it to true.
+         */
+         'show_in_post_types' => false
     );
 
 Helpers
