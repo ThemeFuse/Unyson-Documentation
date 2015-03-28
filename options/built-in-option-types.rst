@@ -1011,31 +1011,3 @@ Google maps location.
         'desc'  => __('Description', 'fw'),
         'help'  => __('Help tip', 'fw'),
     )
-
-Runnable
-----------
-
-Run a script on button click.
-
-.. code-block:: php
-
-    array(
-        'type'     => 'runnable',
-        'value'    => 'This script have no runs',
-        'label'    => __( 'Label', 'fw' ),
-        'desc'     => __( 'Description.', 'fw' ),
-        'help'     => __( 'Help tip', 'fw' ),
-        /**
-         * Button text
-         */
-        'content'  => __( 'Run this script' ),
-        /**
-         * Callback that will run, there are 3 types :
-         * function callback - array('callback_function'), ex: array('wp_list_categories'),
-         * unyson callback - array('extension_name', 'callback_function'), ex: array( 'seo-sitemap', 'update_sitemap' ),
-         * static class method array('class_name', 'callback_function')
-         * note that object method call don't work, wrap it in a function or write it in extension.
-         */
-        'callback' => array('wp_list_categories')
-    )
-
