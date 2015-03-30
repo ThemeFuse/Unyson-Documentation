@@ -112,7 +112,7 @@ If you want to display a custom piece of html, use this option type.
 
 .. note::
 
-    There are ``html-fixed`` and ``html-full`` option types as well. They are the same as ``html`` but has **fixed** and **full** :doc:`option width <option-width>`.
+    There are ``html-fixed`` and ``html-full`` option types as well. They are the same as ``html`` but has **fixed** and **full** :doc:`option width <create-option-type>`.
 
 
 
