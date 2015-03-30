@@ -598,7 +598,9 @@ A convenient way to create forms. You can create a form class instance and give 
     // this will output:
     // <form ... ><input type="text" name="demo" maxlength="10" value=""></form>
 
-.. rubric:: Customize errors display
+.. _fw-form-customize-errors:
+
+.. rubric:: Customize errors
 
 By default the errors are displayed right before the ``<form>`` tag.
 You can display the errors in your own way and cancel the default display.
@@ -628,6 +630,8 @@ Before the errors are displayed, an action is fired so you can use it:
         echo '</ul>';
     }
     add_action('fw_form_display_errors_frontend', '_action_theme_fw_form_errors_display');
+
+.. _fw-form-ajax-submit:
 
 .. rubric:: Ajax submit
 
