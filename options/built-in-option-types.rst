@@ -902,6 +902,11 @@ Textarea with the WordPress Editor like the one you use on the blog posts edit p
          * boolean
          */
         'reinit' => false,
+        /**
+         * Set the editor size: small - small box, large - full size
+         * boolean
+         */
+        'size' => 'small', // small | large
     )
 
 
