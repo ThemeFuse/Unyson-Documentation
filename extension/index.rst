@@ -20,5 +20,6 @@ Built-in Extensions
     feedback/index
     events/index
     learning/index
+    translation/index
     social/index
     builder/index

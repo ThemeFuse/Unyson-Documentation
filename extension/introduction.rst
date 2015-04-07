@@ -18,5 +18,6 @@ The Unyson framework comes with the following built-in extensions:
 * :doc:`feedback/index`
 * :doc:`events/index`
 * :doc:`learning/index`
+* :doc:`translation/index`
 * :doc:`social/index`
 * :doc:`builder/index`
