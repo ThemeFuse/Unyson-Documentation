@@ -89,7 +89,7 @@ That's it, the new builder was created. Use it in your post options to see what 
 
             require_once dirname(__FILE__) .'/option-types/lists-builder/class-fw-option-type-lists-builder.php';
         }
-        add_action('fw_init', '_action_include_demo_lists_builder');
+        add_action('fw_init', '_action_include_demo_lists_builder', 9);
 
 2. Add it in post options:
 
@@ -534,6 +534,7 @@ Congratulations, now you can create new builders!
 
 There are many things that can be improved in the Lists Builder, but this article will become too big.
 You can inspect `the builder code <https://github.com/ThemeFuse/Unyson-Builder-Extension/tree/master/includes/option-types/builder>`__
-and other builders like `Page Builder <https://github.com/ThemeFuse/Unyson-PageBuilder-Extension/tree/master/includes/fw-option-type-page-builder>`__
+and other builders like `Page Builder <https://github.com/ThemeFuse/Unyson-PageBuilder-Extension/tree/master/includes/fw-option-type-page-builder>`__,
+`Forms Builder <https://github.com/ThemeFuse/Unyson-Forms-Extension/tree/master/includes/option-types/form-builder>`__
 and `Learning Quiz Builder <https://github.com/ThemeFuse/Unyson-Learning-Extension/tree/master/extensions/learning-quiz/includes/option-types/quiz-builder>`__
 to find the answers for the questions that may appear while developing your own builder.
