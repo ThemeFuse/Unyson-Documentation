@@ -768,7 +768,6 @@ Popup with options.
         'button' => __('Edit', 'fw'),
         'popup-title' => null,
         'size' => 'small', // small, medium, large
-        'limit' => 0, // limit the number of popup`s that can be added
         'popup-options' => array(
             'demo_text' => array(
                 'label' => __('Text', 'fw'),
@@ -808,6 +807,7 @@ Addable popup with options.
         'template' => '{{- demo_text }}',
         'popup-title' => null,
         'size' => 'small', // small, medium, large
+        'limit' => 0, // limit the number of popup`s that can be added
         'popup-options' => array(
             'demo_text' => array(
                 'label' => __('Text', 'fw'),
