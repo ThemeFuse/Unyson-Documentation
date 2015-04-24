@@ -295,6 +295,11 @@ Select multiple choices from different sources: posts, taxonomies, users or a cu
          */
         'source' => '',
         /**
+         * Set the number of posts/users/taxonomies that multi-select will be prepopulated
+         * Or set the value to false in order to disable this functionality.
+         */
+        'prepopulation' => 10,
+        /**
          * An array with the available choices
          * Used only when 'population' => 'array'
          */
