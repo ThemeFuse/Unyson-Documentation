@@ -96,8 +96,8 @@ Option Types
 Configure
 ---------
 
-The options that appear on the customization page are located in the extension's directory ``/options/settings.php``
-and can be overwritten by copying the file to ``framework-customizations/extensions/styling/options/settings.php`` in the child theme.
+The options that appear on the customization page are located in the extension's directory ``/options/appearance-settings.php``
+and can be overwritten by copying the file to ``framework-customizations/extensions/styling/options/appearance-settings.php`` in the child theme.
 
 Helpers
 -------
