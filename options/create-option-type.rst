@@ -16,11 +16,9 @@ To define a new option type, create a class that extends the base option type cl
 
         /** @internal */
         function _action_theme_include_custom_option_types() {
-            if (is_admin()) {
-                require_once dirname(__FILE__) . '/option-types/new/class-fw-option-type-new.php';
-            }
+            require_once dirname(__FILE__) . '/option-types/new/class-fw-option-type-new.php';
         }
-        add_action('fw_init', '_action_theme_include_custom_option_types', 9);
+        add_action('fw_option_types_init', '_action_theme_include_custom_option_types');
 
 .. code-block:: php
 
