@@ -12,7 +12,7 @@ To define a new option type, create a class that extends the base option type cl
 
     .. code-block:: php
 
-        // file: {theme}/inc/includes/option-types.php
+        // file: {theme}/inc/hooks.php
 
         /** @internal */
         function _action_theme_include_custom_option_types() {
