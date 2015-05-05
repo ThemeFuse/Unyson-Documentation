@@ -7,8 +7,7 @@ To define a new option type, create a class that extends the base option type cl
 
     It doesn't matter where you place your new option type.
     If you use the `Theme Includes <https://github.com/ThemeFuse/Theme-Includes#directory-structure>`__ directory structure,
-    place it in the ``{theme}/inc/includes/option-types/my-option/`` directory.
-    Also make sure it is included only when the framework is loaded and only on the admin page
+    place it in the ``{theme}/inc/includes/option-types/my-option/`` directory and include it on ``fw_option_types_init`` action:
 
     .. code-block:: php
 
