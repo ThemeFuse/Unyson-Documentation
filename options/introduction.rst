@@ -272,7 +272,7 @@ so they follow default WordPress behavior and implementing a live preview can be
         because the customizer form is not submitted as a regular form.
         A control can store its value only inside a single input which has some special attributes (instead of ``name="..."``)
         and it is monitored for changes by the Customizer script to trigger the preview update.
-        Because of that, the framework options collect all their inputs values and store them in that input
+        Because of that, the framework options collect all their inputs values and store them in that special input
         (`here <http://bit.ly/1Fau8gg>`__ is an advanced explanation).
 
 .. include:: /links.rst.inc
