@@ -19,6 +19,14 @@ The Theme component makes the connection between the theme and the framework. Th
 
         $settings_options = fw()->theme->get_settings_options();
 
+.. _theme-get-customizer-options:
+
+* ``get_customizer_options()`` - return options array from ``framework-customizations/theme/options/customizer.php``.
+
+    .. code-block:: php
+
+        $customizer_options = fw()->theme->get_customizer_options();
+
 .. _theme-get-post-options:
 
 * ``get_post_options($post_type)`` - return options array from ``framework-customizations/theme/options/posts/{$post_type}.php``.
