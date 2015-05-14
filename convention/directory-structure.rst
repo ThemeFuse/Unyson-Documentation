@@ -16,6 +16,7 @@ We've organized the files and folders in order to be easy to understand and use.
     │     ├-config.php     # Theme specific configuration
     │     └─options/
     │       ├─settings.php # Theme settings options
+    │       ├─customizer.php # Customizer options
     │       ├─posts/       # Post types options
     │       │ ├─post.php
     │       │ ├─testimonial.php
