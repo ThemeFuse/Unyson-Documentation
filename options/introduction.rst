@@ -112,12 +112,12 @@ A better customized container option will look like this:
 .. code-block:: php
 
     $options = array(
-        array(
+        'container_id' => array(
             'type'    => 'box',
             'title'   => __('Container Title', 'fw'),
             'attr'    => array('class' => 'custom-class', 'data-foo' => 'bar'),
             'options' => array(
-                'id'  => array( 'type' => 'text' )
+                'id'  => array( 'type' => 'text' ),
             )
         )
     );
