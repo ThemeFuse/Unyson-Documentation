@@ -154,6 +154,8 @@ Here are some restrictions to keep in mind:
 Customizer
 ----------
 
+Starting with `v2.3.0 <https://github.com/ThemeFuse/Unyson-Extensions-Approval/issues/66>`__ options can be used in Customizer.
+
 **Customizer Options** ``{theme}/framework-customizations/theme/options/customizer.php``
 are turned into `Customizer <https://codex.wordpress.org/Theme_Customization_API>`__ elements (panels, sections and controls).
 
