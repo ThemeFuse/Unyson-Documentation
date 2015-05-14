@@ -10,7 +10,7 @@ The Portfolio extension allows you to create Portfolio section on your site.
 Configuration
 -------------
 
-In the :doc:`config.php </extensions/directory-structure>` file, you can set the portfolio Gallery and Featured Image sizes.
+In the :doc:`config.php </extensions/introduction>` file, you can set the portfolio Gallery and Featured Image sizes.
 
 .. code-block:: php
 
@@ -128,7 +128,7 @@ Views
 
 	<br><br>
 
-Templates are located in the :doc:`views/ </extensions/directory-structure>` directory.
+Templates are located in the :doc:`views/ </extensions/introduction>` directory.
 Here is the list of templates that you can customize:
 
 * ``single.php`` - Portfolio course single post template. By default is used ``single.php`` from the theme root directory, you can overwrite it by creating ``framework-customizations/extensions/portfolio/views/single.php``.

@@ -43,7 +43,7 @@ The slider extension directory has the following structure:
 Create a simple slider type
 ---------------------------
 
-To create simple slider type, create a :doc:`child extension </extensions/child-extensions>`. In our case the slider type is ``bx-slider``, so the child extension directory will be
+To create simple slider type, create a :doc:`child extension </extensions/introduction>`. In our case the slider type is ``bx-slider``, so the child extension directory will be
 ``framework-customizations/extensions/media/extensions/slider/extensions/bx-slider``.
 
 Configuration
