@@ -8,6 +8,23 @@ It creates a page in **Appearance > Styling** menu.
     :local:
     :backlinks: top
 
+
+.. important::
+
+    This extensions is not be visible by default in Unyson Extensions page.
+    To make it appear in that list, you have to:
+
+    * Add the extension name in :doc:`theme manifest </manifest/theme>`
+
+        .. code-block:: php
+
+            $manifest['supported_extensions'] = array(
+                'styling' => array(),
+            );
+
+    * Or set the ``WP_DEBUG`` constant to ``true``
+
+
 Option Types
 ------------
 

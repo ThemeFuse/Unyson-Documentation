@@ -7,6 +7,23 @@ The Mega Menu extension gives the end-user the ability to construct advanced nav
     :local:
     :backlinks: top
 
+
+.. important::
+
+    This extensions is not be visible by default in Unyson Extensions page.
+    To make it appear in that list, you have to:
+
+    * Add the extension name in :doc:`theme manifest </manifest/theme>`
+
+        .. code-block:: php
+
+            $manifest['supported_extensions'] = array(
+                'megamenu' => array(),
+            );
+
+    * Or set the ``WP_DEBUG`` constant to ``true``
+
+
 Overview
 --------
 
