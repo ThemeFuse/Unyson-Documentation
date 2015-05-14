@@ -207,7 +207,7 @@ Here is an example array:
 Live Preview
 ^^^^^^^^^^^^
 
-In background, customizer options are converted `customizer elements <https://codex.wordpress.org/Theme_Customization_API#Part_1:_Defining_Settings.2C_Controls.2C_Etc.>`__,
+In background, customizer options are converted into `customizer elements <https://codex.wordpress.org/Theme_Customization_API#Part_1:_Defining_Settings.2C_Controls.2C_Etc.>`__,
 so they follow default WordPress behavior and implementing a live preview can be done using `the default WordPress solution <https://codex.wordpress.org/Theme_Customization_API#Part_3:_Configure_Live_Preview_.28Optional.29>`__.
 
 1. Change the setting transport and enqueue the javascript
