@@ -512,12 +512,23 @@ Database
 
 .. _fw-get-db-settings-option:
 
-* ``fw_get_db_settings_option($option_id, $default_value = null)`` - get value from the database of an option from the framework's settings page.
+* ``fw_get_db_settings_option($option_id, $default_value = null)`` - get value from the database of an option from the theme settings page.
   Settings options are located in ``framework-customizations/theme/options/settings.php``.
 
 .. _fw-set-db-settings-option:
 
-* ``fw_set_db_settings_option($option_id, $value)`` - set a value in the database for an option from the framework's settings page.
+* ``fw_set_db_settings_option($option_id, $value)`` - set a value in the database for an option from the theme settings page.
+
+-----
+
+.. _fw-get-db-customizer-option:
+
+* ``fw_get_db_customizer_option($option_id, $default_value = null)`` - get value from the database of an option from the customizer page.
+  Customizer options are located in ``framework-customizations/theme/options/customizer.php``.
+
+.. _fw-set-db-customizer-option:
+
+* ``fw_set_db_customizer_option($option_id, $value)`` - set a value in the database for an option from the customizer page.
 
 -----
 
