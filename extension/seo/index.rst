@@ -13,8 +13,6 @@ Option placeholders
 
 In order to keep all sub-extensions options together, the SEO extension creates special options sections in:
 
-* **Settings Options** - a tab named **SEO** where all sub-extensions add their options. Also in the **SEO** tab there is a sub-tab named **General** with a box named **General Settings**.
-
 * **Post Options** - a section *(box or tab)* named **SEO**. In case the post options has the General box with id ``general``, the seo section will appear as a sub tab for that box, in other cases it creates a new box.
 
 * **Term Options** - a special section in Term Options.
