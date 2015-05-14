@@ -111,8 +111,8 @@ Extensions are loaded from the following directories and in the following order:
 3. ``{parent-theme}/framework-customizations/extensions/``
 4. ``{child-theme}/framework-customizations/extensions/``
 
-Load from Custom Location
--------------------------
+Custom Load Locations
+---------------------
 
 You can load extensions from any directory via the ``fw_extensions_locations`` filter.
 For e.g. to load extensions from your own plugin:
