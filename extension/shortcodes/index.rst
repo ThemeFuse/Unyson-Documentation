@@ -662,6 +662,13 @@ A better solution would be to assign shortcode an unique id and enqueue in head 
                             '1.3.8',
                             '>='
                         )
+                        &&
+                        version_compare(
+                            // the $data['post'] parameter was added in Shortcodes v1.2.12
+                            fw_ext('shortcodes')->manifest->get_version(),
+                            '1.2.12',
+                            '>='
+                        )
                     ) {
                         $atts = fw_ext('editor-shortcodes')->decode_shortcode_atts($atts, $shortcode, $data['post']->ID);
                     } else {
