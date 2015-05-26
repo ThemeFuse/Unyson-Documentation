@@ -1043,7 +1043,17 @@ The ``picker`` parameter holds a valid option type with choices. Supported optio
         'show_borders' => false,
     )
 
-.. _multi-picker--add-support-for-new-option-type-in-picker:
+.. _multi-picker-get-db-value:
+
+.. rubric:: Get database option value
+
+.. code-block:: php
+
+    $value = fw_get_db_..._option(
+        'option_id/'. fw_get_db_..._option('option_id/'. 'gadget')
+    );
+
+.. _multi-picker-add-support-for-new-option-type-in-picker:
 
 .. rubric:: Add support for new option type in picker
 
