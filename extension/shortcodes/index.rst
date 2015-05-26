@@ -326,7 +326,7 @@ This example will go through creating the ``[hr]`` (horizontal ruler) shortcode 
 
     .. note::
 
-        At this point the shortcode should appear in the **Demo Elements** tab of the layout builder as shown bellow:
+        At this point the shortcode should appear in the **Demo Elements** tab of the layout builder as shown below:
 
         .. class:: screenshot
 
@@ -344,7 +344,7 @@ This example will go through creating the ``[hr]`` (horizontal ruler) shortcode 
 
         <hr>
 
-The ``[hr]`` shorcode is completed! The directory structure of the shortcode is as shown bellow:
+The ``[hr]`` shorcode is completed! The directory structure of the shortcode is as shown below:
 
 .. code-block:: text
 
@@ -385,7 +385,7 @@ This example will go through creating the ``[button]`` shortcode.
 
     .. note::
 
-        At this point the shortcode should appear in the **Demo Elements** tab of the layout builder as shown bellow:
+        At this point the shortcode should appear in the **Demo Elements** tab of the layout builder as shown below:
 
         .. class:: screenshot
 
@@ -450,7 +450,7 @@ This example will go through creating the ``[button]`` shortcode.
 
         For more information about the view variables check out the :ref:`default view section <view-file>`.
 
-The ``[button]`` shorcode is completed! The directory structure of the shortcode is as shown bellow:
+The ``[button]`` shorcode is completed! The directory structure of the shortcode is as shown below:
 
 .. code-block:: text
 
@@ -487,7 +487,7 @@ This ex will go through creating a ``[table_builder]`` shortcode, it will make u
 
     .. note::
 
-        At this point the shortcode should appear in the **Demo Elements** tab of the layout builder as shown bellow:
+        At this point the shortcode should appear in the **Demo Elements** tab of the layout builder as shown below:
 
         .. class:: screenshot
 
@@ -552,7 +552,7 @@ This ex will go through creating a ``[table_builder]`` shortcode, it will make u
 
 4. Create the :ref:`view file <view-file>` and make use of the custom option type's value.
 
-The ``[table_builder]`` shorcode is completed! The directory structure of the shortcode is as shown bellow:
+The ``[table_builder]`` shorcode is completed! The directory structure of the shortcode is as shown below:
 
 .. code-block:: text
 
