@@ -571,6 +571,121 @@ The ``[table_builder]`` shorcode is completed! The directory structure of the sh
               ├─static/
               └─views/
 
+Enqueue shortcode dynamic css in page head
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When the shortcode has options that affect its css, you can populate the ``style="..."`` attribute in ``view.php``:
+
+.. code-block:: php
+
+    // file:: {theme}/framework-customizations/extensions/shortcodes/shortcodes/{name}/views/view.php
+
+    <p style="color: <?php echo esc_attr($atts['color']) ?>;" >Hello, World!</p>
+
+A better solution would be to assign shortcode an unique id and enqueue in head css for that id.
+
+1. Add a hidden option that will generate an unique id
+
+    .. code-block:: php
+
+        // file: {theme}/framework-customizations/extensions/shortcodes/shortcodes/{name}/options.php
+
+        $options = array(
+            'id'    => array( 'type' => 'unique' ),
+            'color' => array( 'type' => 'color-picker' ),
+            ...
+        );
+
+2. Output the id in view
+
+    .. code-block:: php
+
+        // file: {theme}/framework-customizations/extensions/shortcodes/shortcodes/{name}/views/view.php
+
+        <p id="shortcode-<?php echo esc_attr($atts['id']); ?>" >Hello, World!</p>
+
+3. Enqueue the main style
+
+    .. code-block:: php
+
+        // file: {theme}/framework-customizations/extensions/shortcodes/shortcodes/{name}/static.php
+
+        wp_enqueue_style(
+            'theme-shortcode-{name}',
+            fw_ext('shortcodes')->locate_URI('/shortcodes/{name}/static/css/styles.css')
+        );
+
+4. Enqueue the dynamic style
+
+    .. code-block:: php
+
+        // file: {theme}/framework-customizations/extensions/shortcodes/shortcodes/{name}/static.php
+
+        ...
+
+        if (!function_exists('_action_theme_shortcode_{name}_enqueue_dynamic_css')):
+
+        /**
+         * @internal
+         * @param array $data
+         */
+        function _action_theme_shortcode_{name}_enqueue_dynamic_css($data) {
+            $shortcode = '{name}';
+            $atts = shortcode_parse_atts( $data['atts_string'] );
+
+            /**
+             * Decode attributes
+             * ( The below weird code is because of this https://github.com/ThemeFuse/Unyson/issues/469 )
+             */
+            {
+                if (isset($atts['_made_with_builder'])) { // encoded by the 'page-builder' extension
+                    if (
+                        fw_ext('page-builder')
+                        &&
+                        version_compare(
+                            fw_ext('page-builder')->manifest->get_version(),
+                            '1.3.6',
+                            '>='
+                        )
+                    ) {
+                        $atts = fw_ext('page-builder')->get_shortcode_atts_coder()->decode_atts( $atts );
+                    } else {
+                        return;
+                    }
+                } elseif (isset($atts['fw_shortcode_id'])) { // encoded by the 'editor-shortcodes' extension
+                    if (
+                        fw_ext('editor-shortcodes')
+                        &&
+                        version_compare(
+                            // this is a sub-extension of 'page-builder' and has no own version
+                            fw_ext('page-builder')->manifest->get_version(),
+                            '1.3.8',
+                            '>='
+                        )
+                    ) {
+                        $atts = fw_ext('editor-shortcodes')->decode_shortcode_atts($atts, $shortcode, $data['post']->ID);
+                    } else {
+                        return;
+                    }
+                } else { // unknown encoding
+                    return;
+                }
+            }
+
+            wp_add_inline_style(
+                'theme-shortcode-'. $shortcode,
+                '#shortcode-'. $atts['id'] .' { '.
+                    'color: '. $atts['color'] .';'.
+                ' } '
+            );
+        }
+        add_action(
+            'fw_ext_shortcodes_enqueue_static:{name}',
+            '_action_theme_shortcode_{name}_enqueue_dynamic_css'
+        );
+
+        endif;
+
 .. |shortcodes-layout-builder-title| image:: _images/layout-builder-title.jpg
 .. |shortcodes-layout-builder-description| image:: _images/layout-builder-description.jpg
 .. |shortcodes-layout-builder-tab| image:: _images/layout-builder-tab.jpg
