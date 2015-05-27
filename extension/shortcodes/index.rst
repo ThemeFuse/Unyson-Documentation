@@ -635,7 +635,9 @@ A better solution would be to assign shortcode an unique id and enqueue in head 
 
             /**
              * Decode attributes
-             * ( The below weird code is because of this https://github.com/ThemeFuse/Unyson/issues/469 )
+             *
+             * The below code is weird because of this https://github.com/ThemeFuse/Unyson/issues/469
+             * For convenience you can move it to a helper function
              */
             {
                 if (isset($atts['_made_with_builder'])) { // encoded by the 'page-builder' extension
