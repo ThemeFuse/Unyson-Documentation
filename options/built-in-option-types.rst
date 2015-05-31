@@ -318,7 +318,17 @@ Select multiple choices from different sources: posts, taxonomies, users or a cu
 Multi
 -----
 
-Option with another options in it.
+Group any options database values under a single array key.
+This option has no design, inner options will look the same as other options (it's like the ``group`` container).
+
+.. code-block:: php
+
+    // database value structure
+
+    'option_type_multi_id' => array(
+        'inner_option_1' => ...
+        'inner_option_2' => ...
+    )
 
 .. code-block:: php
 
@@ -340,8 +350,8 @@ Option with another options in it.
         'desc'  => __('Description', 'fw'),
         'help'  => __('Help tip', 'fw'),
         'inner-options' => array(
-            'option-1' => array( 'type' => 'text' ),
-            'option-2' => array( 'type' => 'textarea' ),
+            'option_1' => array( 'type' => 'text' ),
+            'option_2' => array( 'type' => 'textarea' ),
         )
     )
 
