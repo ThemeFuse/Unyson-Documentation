@@ -128,7 +128,7 @@ This will generate a box with a title and one option in it.
 
 .. important::
 
-     Used in :doc:`Post Options </options/introduction>` on the first array level, the ``box`` container accepts additional parameters:
+     Used in Post Options on the first array level, the ``box`` container accepts additional parameters:
 
       * ``'context' => 'normal|advanced|side'``
       * ``'priority' => 'default|high|core|low'``
