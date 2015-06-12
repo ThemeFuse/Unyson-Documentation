@@ -152,7 +152,7 @@ A list of checkboxes.
         'label' => __('Label', 'fw'),
         'desc'  => __('Description', 'fw'),
         'help'  => __('Help tip', 'fw'),
-        'choices' => array(
+        'choices' => array( // Note: Avoid bool or int keys http://bit.ly/1cQgVzk
             'choice-1' => __('Choice 1', 'fw'),
             'choice-2' => __('Choice 2', 'fw'),
             'choice-3' => __('Choice 3', 'fw'),
@@ -177,7 +177,7 @@ A list of radio buttons.
         'label' => __('Label', 'fw'),
         'desc'  => __('Description', 'fw'),
         'help'  => __('Help tip', 'fw'),
-        'choices' => array(
+        'choices' => array( // Note: Avoid bool or int keys http://bit.ly/1cQgVzk
             'choice-1' => __('Choice 1', 'fw'),
             'choice-2' => __('Choice 2', 'fw'),
             'choice-3' => __('Choice 3', 'fw'),
