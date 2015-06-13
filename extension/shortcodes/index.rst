@@ -53,13 +53,13 @@ It should look something like the following:
 
     <?php if (!defined('FW')) die('Forbidden');
 
-    function disable_default_shortcodes($to_disable)
-    {
+    function _filter_theme_disable_default_shortcodes($to_disable) {
         $to_disable[] = 'accordion';
         $to_disable[] = 'button';
+
         return $to_disable;
     }
-    add_filter('fw_ext_shortcodes_disable_shortcodes', 'disable_default_shortcodes');
+    add_filter('fw_ext_shortcodes_disable_shortcodes', '_filter_theme_disable_default_shortcodes');
 
 Creating a new shortcode
 ------------------------
