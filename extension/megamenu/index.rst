@@ -58,10 +58,6 @@ The markup will be the following:
                 li.mega-menu-col
                 li.mega-menu-col
                 li.mega-menu-col
-            ul.mega-menu-row
-                li.mega-menu-col
-                li.mega-menu-col
-                li.mega-menu-col
 
 .. note::
 
@@ -74,7 +70,7 @@ Markup Example
 
     <ul>
         <li class="menu-item-has-mega-menu menu-item-has-icon">
-            <a class="fa-exclamation" href="#">Mega Menu 1</a>
+            <a class="fa fa-exclamation" href="#">Mega Menu 1</a>
             <div class="mega-menu">
                 <ul class="sub-menu mega-menu-row">
                     <li class="mega-menu-col">
@@ -83,65 +79,45 @@ Markup Example
                             <li>
                                 <a href="#">Menu Item 1</a>
                             </li>
-                            <li>
-                                <a href="#">Menu Item 2</a>
-                            </li>
-                            <li>
-                                <a href="#">Menu Item 3</a>
-                            </li>
-                            <li>
-                                <a href="#">Menu Item 4</a>
-                            </li>
-                            <li>
-                                <a href="#">Menu Item 5</a>
-                            </li>
+                            ...
                         </ul>
                     </li>
                     <li class="mega-menu-col">
                         <a href="#">Links with Icons</a>
                         <ul class="sub-menu sub-menu-has-icons">
                             <li class="menu-item-has-icon">
-                                <a class="fa-inbox" href="#">Menu Item 1</a>
+                                <a class="fa fa-inbox" href="#">Menu Item 1</a>
                                 <p>Praesent quis enim euismod, fringilla quam vitae, consectetur quam.</p>
                             </li>
                             <li class="menu-item-has-icon">
-                                <a class="fa-wrench" href="#">Menu Item 2</a>
+                                <a class="fa fa-wrench" href="#">Menu Item 2</a>
                             </li>
-                            <li class="menu-item-has-icon">
-                                <a class="fa-italic" href="#">Menu Item 3</a>
-                            </li>
-                            <li class="menu-item-has-icon">
-                                <a class="fa-ellipsis-v" href="#">Menu Item 4</a>
-                            </li>
-                            <li class="menu-item-has-icon">
-                                <a class="fa-home" href="#">Menu Item 5</a>
-                                <p>Suspendisse potenti. Morbi a elit non mauris tempor consequat. Praesent dapibus malesuada ligula, a fermentum leo euismod nec. Nunc porta ligula id velit interdum congue. In mi augue, sodales a convallis id, accumsan vitae nisi. Mauris id laoreet quam, vel hendrerit enim. Nunc ultricies diam id neque vulputate, eu egestas est convallis. Nullam sed nisi vehicula turpis pharetra rutrum. Nunc scelerisque sodales elit, nec elementum nisl varius vel. Aliquam accumsan tellus a tortor porta mollis.</p>
-                            </li>
+                            ...
                         </ul>
                     </li>
                 </ul>
             </div>
         </li>
         <li class="menu-item-has-icon">
-            <a class="fa-info-circle" href="#">Home</a>
+            <a class="fa fa-info-circle" href="#">Home</a>
             <ul class="sub-menu sub-menu-has-icons">
                 <li class="menu-item-has-icon">
-                    <a class="fa-info-circle" href="#">Page 2</a>
+                    <a class="fa fa-info-circle" href="#">Page 2</a>
                 </li>
                 <li class="menu-item-has-icon">
-                    <a class="fa-info-circle" href="#">Page 3</a>
+                    <a class="fa fa-info-circle" href="#">Page 3</a>
                     <ul class="sub-menu sub-menu-has-icons">
                         <li class="menu-item-has-icon">
-                            <a class="fa-key" href="#">Page 4</a>
+                            <a class="fa fa-key" href="#">Page 4</a>
                         </li>
                         <li class="menu-item-has-icon">
-                            <a class="fa-briefcase" href="#">Page 5</a>
+                            <a class="fa fa-briefcase" href="#">Page 5</a>
                         </li>
                         <li class="menu-item-has-icon">
-                            <a class="fa-gavel" href="#">Page 6</a>
+                            <a class="fa fa-gavel" href="#">Page 6</a>
                             <ul class="sub-menu sub-menu-has-icons">
                                 <li class="menu-item-has-icon">
-                                    <a class="fa-globe" href="#">Page 7</a>
+                                    <a class="fa fa-globe" href="#">Page 7</a>
                                 </li>
                                 <li>
                                     <a href="#">Page 8</a>
@@ -153,3 +129,51 @@ Markup Example
             </ul>
         </li>
     </ul>
+
+Changing item/icon markup
+-------------------------
+
+By default the icon is added to
+
+.. code-block:: php
+
+    <a href="..." class="fa fa-...">Menu item</a>
+
+If you want to change it to
+
+.. code-block:: php
+
+    <a href="..."><i class="fa fa-..."></i> Menu item</a>
+
+overwrite `this view <https://github.com/ThemeFuse/Unyson-MegaMenu-Extension/blob/master/views/item-link.php>`__ in your theme
+
+.. code-block:: php
+
+    <?php if (!defined('FW')) die('Forbidden');
+
+    // file: {theme}/framework-customizations/extensions/megamenu/views/item-link.php
+
+    /**
+     * @var WP_Post $item
+     * @var string $title
+     * @var array $attributes
+     * @var object $args
+     * @var int $depth
+     */
+
+    {
+        $icon_html = '';
+
+        if (
+            fw()->extensions->get('megamenu')->show_icon()
+            &&
+            ($icon = fw_ext_mega_menu_get_meta($item, 'icon'))
+        ) {
+            $icon_html = '<i class="'. $icon .'"></i> ';
+        }
+    }
+
+    // Make a menu WordPress way
+    echo $args->before;
+    echo fw_html_tag('a', $attributes, $args->link_before . $icon_html . $title . $args->link_after);
+    echo $args->after;
