@@ -613,7 +613,8 @@ A convenient way to create forms. You can create a form class instance and give 
 
 .. _fw-form-customize-errors:
 
-.. rubric:: Customize errors
+Customize errors
+^^^^^^^^^^^^^^^^
 
 By default the errors are displayed right before the ``<form>`` tag.
 You can display the errors in your own way and cancel the default display.
@@ -646,7 +647,8 @@ Before the errors are displayed, an action is fired so you can use it:
 
 .. _fw-form-ajax-submit:
 
-.. rubric:: Ajax submit
+Ajax submit
+^^^^^^^^^^^
 
 You can use `this script <https://github.com/ThemeFuse/Unyson/blob/master/framework/static/js/fw-form-helpers.js>`__ to make ``FW_Form`` ajax submittable.
 
@@ -676,6 +678,14 @@ Run the initialization script:
             // to see all options that you can overwrite/customize.
         });
     });
+
+.. _fw-form-settings-page:
+
+Create Settings Page
+^^^^^^^^^^^^^^^^^^^^
+
+If you want to create a settings page similar to Theme Settings,
+`this <http://sourcebox.io/d3fe4eed474c30ec71edef7a6a4f039c/php>`__ will help you getting started.
 
 .. _fw-flash-messages:
 
