@@ -15,7 +15,7 @@ To define a new option type, create a class that extends the base option type cl
 
         /** @internal */
         function _action_theme_include_custom_option_types() {
-            require_once dirname(__FILE__) . '/option-types/new/class-fw-option-type-new.php';
+            require_once dirname(__FILE__) . '/includes/option-types/new/class-fw-option-type-new.php';
         }
         add_action('fw_option_types_init', '_action_theme_include_custom_option_types');
 
@@ -42,7 +42,7 @@ To define a new option type, create a class that extends the base option type cl
 
             wp_enqueue_script(
                 'fw-option-'. $this->get_type(),
-                $uri .'/css/scripts.js',
+                $uri .'/js/scripts.js',
                 array('fw-events', 'jquery')
             );
         }
