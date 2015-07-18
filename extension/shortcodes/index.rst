@@ -632,54 +632,7 @@ A better solution would be to assign shortcode an unique id and enqueue in head 
         function _action_theme_shortcode_{name}_enqueue_dynamic_css($data) {
             $shortcode = '{name}';
             $atts = shortcode_parse_atts( $data['atts_string'] );
-
-            /**
-             * Decode attributes
-             *
-             * The below code is weird because of this https://github.com/ThemeFuse/Unyson/issues/469
-             * For convenience you can move it to a helper function
-             */
-            {
-                if (isset($atts['_made_with_builder'])) { // encoded by the 'page-builder' extension
-                    if (
-                        fw_ext('page-builder')
-                        &&
-                        version_compare(
-                            fw_ext('page-builder')->manifest->get_version(),
-                            '1.3.6',
-                            '>='
-                        )
-                    ) {
-                        $atts = fw_ext('page-builder')->get_shortcode_atts_coder()->decode_atts( $atts );
-                    } else {
-                        return;
-                    }
-                } elseif (isset($atts['fw_shortcode_id'])) { // encoded by the 'editor-shortcodes' extension
-                    if (
-                        fw_ext('editor-shortcodes')
-                        &&
-                        version_compare(
-                            // this is a sub-extension of 'page-builder' and has no own version
-                            fw_ext('page-builder')->manifest->get_version(),
-                            '1.3.8',
-                            '>='
-                        )
-                        &&
-                        version_compare(
-                            // the $data['post'] parameter was added in Shortcodes v1.2.12
-                            fw_ext('shortcodes')->manifest->get_version(),
-                            '1.2.12',
-                            '>='
-                        )
-                    ) {
-                        $atts = fw_ext('editor-shortcodes')->decode_shortcode_atts($atts, $shortcode, $data['post']->ID);
-                    } else {
-                        return;
-                    }
-                } else { // unknown encoding
-                    return;
-                }
-            }
+            $atts = fw_ext_shortcodes_decode_attr($atts, $shortcode, $data['post']->ID);
 
             wp_add_inline_style(
                 'theme-shortcode-'. $shortcode,
