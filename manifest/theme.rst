@@ -15,13 +15,32 @@ It supports the following parameters:
 
     $manifest = array();
 
-    $manifest['id']           = 'theme-id';
-    $manifest['name']         = __('Theme Title', 'fw');
-    $manifest['uri']          = 'http://themefuse.com/wp-themes-shop/theme-name';
-    $manifest['description']  = __('Another awesome wordpress theme', 'fw');
-    $manifest['version']      = '1.0';
-    $manifest['author']       = 'ThemeFuse';
-    $manifest['author_uri']   = 'http://themefuse.com/';
+    /**
+     * An unique id to identify your theme
+     * For e.g. this is used to store Theme Settings in wp_option 'fw_theme_settings_options:{theme_id}'
+     */
+    $manifest['id'] = get_option( 'stylesheet' );
+
+    /**
+     * Specify extensions that you customized, that will look good and work well with your theme.
+     * After plugin activation, the user will be redirected to a page to install these extensions.
+     */
+    $manifest['supported_extensions'] = array(
+        // 'extension_name' => array(),
+
+        'page-builder' => array(),
+        'breadcrumbs' => array(),
+        'slider' => array(),
+        // ...
+
+        /**
+         * These extensions are visible on Unyson Extensions page only if are specified here.
+         * Because they has no sense to be available for a theme that is not configured to support them.
+         */
+        'styling' => array(),
+        'megamenu' => array(),
+    );
+
     $manifest['requirements'] = array(
         'wordpress' => array(
             'min_version' => '4.0',
@@ -39,12 +58,11 @@ It supports the following parameters:
             ),*/
         )
     );
-    /**
-     * Extensions compatible with the theme
-     * After plugin activation, the user will be redirected to a page to install these extensions
-     */
-    $manifest['supported_extensions'] = array(
-        /*
-        'extension_name' => array(),
-        */
-    );
+
+    // These keys are automatically fetched from theme styles.css
+    //$manifest['name'] = __('Theme Title', 'fw');
+    //$manifest['description'] = __('Another awesome wordpress theme', 'fw');
+    //$manifest['uri'] = 'http://themefuse.com/wp-themes-shop/theme-name';
+    //$manifest['version'] = '1.0';
+    //$manifest['author'] = 'ThemeFuse';
+    //$manifest['author_uri'] = 'http://themefuse.com/';

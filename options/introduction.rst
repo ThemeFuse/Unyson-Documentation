@@ -85,13 +85,7 @@ Containers
 
 Options that have no value and contain other options in the ``options`` parameter are containers. If an option has the ``options`` parameter, it is considered a container.
 
-There are only three types of containers:
-
-* ``box`` - WordPress metabox.
-* ``tab`` - one tab *(Tabs from the same array level will be collected and generated as multiple tabs)*.
-* ``group`` - group options into a wrapper div.
-
-These types are built into the framework and new types of container options can't be defined. The simplest container option array looks as in the below example and will generate an empty metabox without title:
+The simplest container option array looks as in the below example and will generate an empty metabox without title:
 
 .. code-block:: php
 
@@ -102,38 +96,80 @@ These types are built into the framework and new types of container options can'
         )
     );
 
-Accepted parameters:
+.. note::
 
-* ``title`` *(string)* In ``box`` and ``tab`` this is used as title. In ``group`` it's not used
-* ``attr`` *(array)* HTML attributes
+    Like options, containers have a minimum set of required parameters: ``type`` and ``options``.
+    The ``type`` parameter in Customizer options is optional and it's not used (has no effect).
 
-A better customized container option will look like this:
+There are 4 built-in container types:
 
-.. code-block:: php
+* ``box`` - WordPress metabox
 
-    $options = array(
-        'container_id' => array(
-            'type'    => 'box',
-            'title'   => __('Container Title', 'fw'),
-            'attr'    => array('class' => 'custom-class', 'data-foo' => 'bar'),
+    .. code-block:: php
+
+        'box_id' => array(
+            'type' => 'box',
             'options' => array(
-                'id'  => array( 'type' => 'text' ),
-            )
-        )
-    );
+                'option_id'  => array( 'type' => 'text' ),
+            ),
+            'title' => __('Box Title', 'fw'),
+            'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
 
-This will generate a box with a title and one option in it.
+            /**
+             * When used in Post Options on the first array level
+             * the ``box`` container accepts additional parameters
+             */
+            //'context' => 'normal|advanced|side',
+            //'priority' => 'default|high|core|low',
+        ),
 
-.. _box-parameters-in-post-options:
+* ``tab`` - One tab *(Tabs from the same array level will be collected and rendered as multiple tabs)*
 
-.. important::
+    .. code-block:: php
 
-     Used in Post Options on the first array level, the ``box`` container accepts additional parameters:
+        'tab_id' => array(
+            'type' => 'tab',
+            'options' => array(
+                'option_id'  => array( 'type' => 'text' ),
+            ),
+            'title' => __('Tab Title', 'fw'),
+            'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
+        ),
+        'tab_id_2' => array(
+            'type' => 'tab',
+            'options' => array(
+                'option_id_2'  => array( 'type' => 'text' ),
+            ),
+            'title' => __('Tab Title #2', 'fw'),
+            'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
+        ),
 
-      * ``'context' => 'normal|advanced|side'``
-      * ``'priority' => 'default|high|core|low'``
+* ``group`` - Group options into a wrapper div. Has no design. Usually used to show/hide a group of options from javascript
 
-      These parameters are sent to `add_meta_box()`_ function.
+    .. code-block:: php
+
+        'group_id' => array(
+            'type' => 'group',
+            'options' => array(
+                'option_id'  => array( 'type' => 'text' ),
+            ),
+            'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
+        ),
+
+* ``popup`` - A button, when clicked it will open a modal with options
+
+    .. code-block:: php
+
+        'popup_id' => array(
+            'type' => 'group',
+            'options' => array(
+                'option_id'  => array( 'type' => 'text' ),
+            ),
+            'title' => __('Button and Popup Title', 'fw'),
+            'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
+            'modal-size' => 'small', // small, medium, large
+            'desc' => __('Button Description', 'fw'),
+        ),
 
 Restrictions
 ^^^^^^^^^^^^
@@ -159,50 +195,93 @@ Starting with `v2.3.0 <https://github.com/ThemeFuse/Unyson-Extensions-Approval/i
 **Customizer Options** ``{theme}/framework-customizations/theme/options/customizer.php``
 are turned into `Customizer <https://codex.wordpress.org/Theme_Customization_API>`__ elements (panels, sections and controls).
 
-* Tabs are turned into Panels.
-* Boxes are turned into Sections.
-* Options are turned into Controls.
-
 The customizer elements has a strict structure which also applies to options array structure:
 
-* Panels (tabs) can be only on first level array and must contain only Sections (boxes).
-* Sections (boxes) can be only on first level array or inside Panels (tabs).
-* Controls (options) can be only inside Sections (boxes).
+* Containers can be nested only to 2 levels
 
-Here is an example array:
+    * ``container > option`` is turned into ``section > control``
+    * ``container > container > option`` is turned into ``panel > section > control``
+    * ``container > container > container > option`` will not work ``panel > section > ERROR``
 
-.. code-block:: php
+* Containers must contain only options or only containers
 
-    // file: {theme}/framework-customizations/theme/options/customizer.php
+Examples
+^^^^^^^^
 
-    $options = array(
-        'demo_panel' => array(
-            'type' => 'tab',
-            'title' => __('Demo Panel', 'fw'),
-            'options' => array(
-                'demo_section' => array(
-                    'type' => 'box',
-                    'title' => __('Demo Section in Panel', 'fw'),
-                    'options' => array(
-                        'demo_control' => array(
-                            'type' => 'text',
-                            'label' => __('Demo Control', 'fw')
+Try the below arrays in ``{theme}/framework-customizations/theme/options/customizer.php``.
+
+* Create a Section
+
+    .. code-block:: php
+
+        $options = array(
+            'section_1' => array(
+                'title' => __('Unyson Section', 'fw'),
+                'options' => array(
+
+                    'option_1' => array(
+                        'type' => 'text',
+                        'value' => 'Default Value',
+                        'label' => __('Unyson Option', 'fw'),
+                        'desc' => __('Option Description', 'fw'),
+                    ),
+
+                ),
+            ),
+        );
+
+* Create a Panel with Sections
+
+    .. code-block:: php
+
+        $options = array(
+            'panel_1' => array(
+                'title' => __('Unyson Panel', 'fw'),
+                'options' => array(
+
+                    'section_1' => array(
+                        'title' => __('Unyson Section #1', 'fw'),
+                        'options' => array(
+
+                            'option_1' => array(
+                                'type' => 'text',
+                                'value' => 'Default Value',
+                                'label' => __('Unyson Option #1', 'fw'),
+                                'desc' => __('Option Description', 'fw'),
+                            ),
+
                         ),
                     ),
+
+                    'section_2' => array(
+                        'title' => __('Unyson Section #2', 'fw'),
+                        'options' => array(
+
+                            'option_2' => array(
+                                'type' => 'text',
+                                'value' => 'Default Value',
+                                'label' => __('Unyson Option #2', 'fw'),
+                                'desc' => __('Option Description', 'fw'),
+                            ),
+                            'option_3' => array(
+                                'type' => 'text',
+                                'value' => 'Default Value',
+                                'label' => __('Unyson Option #3', 'fw'),
+                                'desc' => __('Option Description', 'fw'),
+                            ),
+
+                        ),
+                    ),
+
                 ),
             ),
-        ),
-        'demo_section_2' => array(
-            'type' => 'box',
-            'title' => __('Demo Section', 'fw'),
-            'options' => array(
-                'demo_control_2' => array(
-                    'type' => 'text',
-                    'label' => __('Demo Control', 'fw')
-                ),
-            ),
-        ),
-    );
+        );
+
+* Get option database/saved value in template
+
+    .. code-block:: php
+
+        $value = fw_get_db_customizer_option('option_1');
 
 Live Preview
 ^^^^^^^^^^^^
