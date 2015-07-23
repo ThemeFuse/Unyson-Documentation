@@ -203,7 +203,7 @@ The customizer elements have a strict structure which also applies to options ar
     * ``container > container > option`` is turned into ``panel > section > control``
     * ``container > container > container > option`` will not work ``panel > section > ERROR``
 
-* Containers must contain only options or only containers
+* Containers must contain only options or only containers, because a panel can't contain both sections and controls.
 
 Examples
 ^^^^^^^^
