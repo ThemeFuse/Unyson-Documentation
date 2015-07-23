@@ -197,7 +197,7 @@ are turned into `Customizer <https://codex.wordpress.org/Theme_Customization_API
 
 The customizer elements have a strict structure which also applies to options array structure:
 
-* Containers can be nested only to 2 levels
+* Containers can be nested only 2 levels
 
     * ``container > option`` is turned into ``section > control``
     * ``container > container > option`` is turned into ``panel > section > control``
