@@ -195,7 +195,7 @@ Starting with `v2.3.0 <https://github.com/ThemeFuse/Unyson-Extensions-Approval/i
 **Customizer Options** ``{theme}/framework-customizations/theme/options/customizer.php``
 are turned into `Customizer <https://codex.wordpress.org/Theme_Customization_API>`__ elements (panels, sections and controls).
 
-The customizer elements has a strict structure which also applies to options array structure:
+The customizer elements have a strict structure which also applies to options array structure:
 
 * Containers can be nested only to 2 levels
 
