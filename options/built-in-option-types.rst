@@ -960,6 +960,14 @@ Textarea with the WordPress Editor like the one you use on the blog posts edit p
          * boolean
          */
         'size' => 'small', // small | large
+        /**
+         * Set editor type : 'tinymce' or 'html'
+         */
+        'editor_type' => 'tinymce',
+        /**
+         * Set the editor height, must be int
+         */
+        'editor_height' => 400
     )
 
 
