@@ -1,6 +1,6 @@
 .highlight pre .hll { background-color: #49483e }
 .highlight pre {
-    font-family: "source-code-pro", sans-serif;
+    font-family: "source-code-pro", monospace, sans-serif;
     font-size: 13px;
     font-weight: 400;
     color: #595959;
