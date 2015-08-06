@@ -7,8 +7,84 @@ This extension provides the core builder functionality that you can extend to cr
     :local:
     :backlinks: top
 
+Changing the grid
+-----------------
+
+By default the Builder uses a bootstrap like grid, with the same class names but prefixed with ``.fw-{bootstrap-class-name}``.
+The grid css is enqueued in all frontend pages from ``framework/extensions/builder/static.php``.
+Also this extension defines the grid columns for all builders (for e.g. ``page-builder`` and ``form-builder``) in ``framework/extensions/builder/config.php``.
+
+Changing the grid for all builders
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Overwrite ``framework/extensions/builder/config.php`` by creating ``{theme}/framework-customizations/extensions/builder/config.php``
+
+    .. code-block:: php
+
+        <?php if (!defined('FW')) die('Forbidden');
+
+        $cfg = array();
+
+        $cfg['default_item_widths'] = array(
+            /**
+             * Copy/Paste here default columns https://github.com/ThemeFuse/Unyson-Builder-Extension/blob/master/config.php
+             * and add, remove or change them
+             */
+        );
+
+2. Prevent default grid css enqueue and enqueue your own css.
+   Create ``{theme}/framework-customizations/extensions/builder/static.php``
+
+    .. code-block:: php
+
+        <?php if (!defined('FW')) die('Forbidden');
+
+        if (!is_admin()) {
+            wp_register_style(
+                'fw-theme-frontend-grid',
+                get_template_directory_uri() .'/framework-customizations/extensions/builder/static/frontend-grid.css',
+                array(),
+                fw()->theme->manifest->get_version()
+            );
+        }
+
+Changing the grid for one builder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Other extensions use the ``fw_ext_builder_get_item_width($builder_type, $width_id)`` function to get and output grid css class in frontend
+
+.. code-block:: php
+
+    <div class="<?php echo esc_attr(fw_ext_builder_get_item_width('page-builder', '1_2/frontend_class')) ?>" >
+
+The function loads the grid from config, but allows you to change it via `this filter <https://github.com/ThemeFuse/Unyson-Builder-Extension/blob/f57ebc5623407277f1c2d22365fe0a74cff22b36/helpers.php#L22-L24>`__.
+You can use the filter to change the grid columns for some builder type.
+
+.. code-block:: php
+
+    add_filter(
+        'fw_builder_item_widths:page-builder',
+        '_filter_theme_custom_page_builder_columns'
+    );
+    function _filter_theme_custom_page_builder_columns($columns) {
+        $columns['3_7'] = array(
+            'title' => '3/7',
+            'backend_class' => 'custom-backend-3-7-column', // you must enqueue in backend a css with this class
+            'frontend_class' => 'frontend-custom-3-7-column', // you must enqueue in frontend a css with this class
+        );
+
+        return $columns;
+    }
+
+The Builder
+-----------
+
+The builder is just an :doc:`option type </options/option-types>`.
+But you can't use it right away, because it's too abstract and doesn't have any concrete purpose.
+You can only extend it and create new builders based on it.
+
 Data Structure
---------------
+^^^^^^^^^^^^^^
 
 The javascript side of the builder is based on `backbone <http://backbonejs.org/>`__,
 so it uses collections and models to store the data:
@@ -40,12 +116,8 @@ There are no rules for other attributes, every item has whatever attributes it w
 The same data structure is used on the php side,
 this collection is simply transformed into an array with ``json_decode($collection, true)``.
 
-Create Builder
---------------
-
-The builder is just an :doc:`option type </options/option-types>`.
-But you can't use it right away, because it's too abstract and doesn't have any concrete purpose.
-You can only extend it and create new builders based on it.
+Creating a Builder
+^^^^^^^^^^^^^^^^^^
 
 This tutorial will explain you how to create a simple demo builder for html ``<ul>`` and ``<ol>`` lists.
 First, :doc:`create an option type </options/create-option-type>` that extends the builder option type:
@@ -116,8 +188,8 @@ That's it, the new builder was created. Use it in your post options to see what 
 
 As you can see, the box is empty. At least you've successfully created the builder, now you can improve it.
 
-Create Items
-------------
+Creating Items
+^^^^^^^^^^^^^^
 
 To build lists you'll need the following elements: ``<ul>``, ``<ol>`` and ``<li>``.
 In builder these elements can be created as item types.
@@ -259,8 +331,8 @@ Refresh the page and you should see three boxes that can be dragged down.
 Unfortunately you will get an error in console saying that the item type is not registered.
 This happens because you also have to register the item type in javascript and define how it works and looks in builder.
 
-Register items in javascript
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Registering items in javascript
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Registering builder items can be done via the ``builderInstance.registerItemClass(ItemTypeClass)`` method.
 Because ``builderInstance`` is created somewhere in builder scripts and it's not a global variable,
@@ -481,7 +553,7 @@ After you build a list and saved the post, the html of the list needs to be gene
 To do that, continue to the next step.
 
 Generate Custom Value
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 By default the builder saves its value as an array with one key ``json`` which stores the original value used in javascript.
 From the original value, you can generate any custom values and store them in custom keys.
