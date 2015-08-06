@@ -10,7 +10,7 @@ This extension provides the core builder functionality that you can extend to cr
 Changing the grid
 -----------------
 
-By default the Builder uses a bootstrap like grid, with the same class names but prefixed with ``.fw-{bootstrap-class-name}``.
+By default the Builder uses a `bootstrap like grid <https://github.com/ThemeFuse/Unyson-Builder-Extension/blob/master/static/css/frontend-grid.css>`__, with the same class names but prefixed with ``.fw-{bootstrap-class-name}``.
 The grid css is enqueued in all frontend pages from ``framework/extensions/builder/static.php``.
 Also this extension defines the grid columns for all builders (for e.g. ``page-builder`` and ``form-builder``) in ``framework/extensions/builder/config.php``.
 
