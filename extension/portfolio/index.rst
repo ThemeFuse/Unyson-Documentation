@@ -28,6 +28,7 @@ In the :doc:`config.php </extensions/introduction>` file, you can set the portfo
     );
 
 Also define if the portfolio custom post will support gallery or not.
+
 .. code-block:: php
 
     $cfg['has-gallery'] = true;
