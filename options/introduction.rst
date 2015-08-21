@@ -161,7 +161,7 @@ There are 4 built-in container types:
     .. code-block:: php
 
         'popup_id' => array(
-            'type' => 'group',
+            'type' => 'popup',
             'options' => array(
                 'option_id'  => array( 'type' => 'text' ),
             ),
