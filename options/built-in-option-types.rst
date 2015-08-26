@@ -723,6 +723,8 @@ Create a list of options.
         'desc'  => __('Description', 'fw'),
         'help'  => __('Help tip', 'fw'),
         'option' => array( 'type' => 'text' ),
+        'add-button-text' => __('Add', 'fw'),
+        'sortable' => true,
     )
 
 .. rubric:: Custom Events
@@ -759,6 +761,8 @@ Addable box with options.
             'control-id' => '<small class="dashicons dashicons-smiley"></small>',
         ),
         'limit' => 0, // limit the number of boxes that can be added
+        'add-button-text' => __('Add', 'fw'),
+        'sortable' => true,
     )
 
 .. rubric:: Custom Events
@@ -823,6 +827,8 @@ Addable popup with options.
         'popup-title' => null,
         'size' => 'small', // small, medium, large
         'limit' => 0, // limit the number of popup`s that can be added
+        'add-button-text' => __('Add', 'fw'),
+        'sortable' => true,
         'popup-options' => array(
             'demo_text' => array(
                 'label' => __('Text', 'fw'),
