@@ -110,11 +110,27 @@ It contains an array that must be stored in a ``$cfg`` variable and is typically
 .. code-block:: php
 
     $cfg = array(
-    	'page_builder' => array(
-    		'title'         => __('Demo Shortcode', 'fw'),
-    		'description'   => __('Demo shortcode description', 'fw'),
-    		'tab'           => __('Demo Elements', 'fw'),
-    		'popup_size'    => 'small' // can be large, medium or small
+        'page_builder' => array(
+            'title'         => __('Demo Shortcode', 'fw'),
+            'description'   => __('Demo shortcode description', 'fw'),
+            'tab'           => __('Demo Elements', 'fw'),
+            'popup_size'    => 'small', // can be large, medium or small
+
+            /*
+            // Icon examples
+            'icon' => 'dashicons dashicons-admin-site',
+            'icon' => 'unycon unycon-crown',
+            'icon' => 'fa fa-btc',
+            */
+
+            /*
+            // Title Template examples
+            // * {{- variable }} - Output with html escape
+            // * {{= variable }} - Output raw (without html escape)
+            // * {{ if (execute.any(javascript, code)) { console.log('Hi'); } }}
+            'title_template' => '{{- title }} Lorem {{- o.option_id }} ipsum {{= o["option-id"] }}',
+            'title_template' => '{{- title }}: {{- o.label }}{{ if (o.target == "_blank") { }} <span class="dashicons dashicons-external"></span>{{ } }}',
+            */
     	)
     );
 
