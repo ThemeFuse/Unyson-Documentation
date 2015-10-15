@@ -42,5 +42,5 @@ This feature is enabled only when current theme contains the ``auto-install`` di
 If it’s enabled, an **Auto Install** page will appear under the **Tools** menu. 
 That page displays a button **Import Demo Content** and
 by clicking on it, all tables from the database will be dropped and replaced by
-the ``auto-install/database.sql`` file. Also the ``uploads`` directory
+the ``auto-install/database.txt`` file. Also the ``uploads`` directory
 will be replaced with the ``auto-install/uploads`` directory.
