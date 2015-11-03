@@ -608,7 +608,7 @@ Single file upload.
         /**
          * An array with allowed files extensions what will filter the media library and the upload files.
          */
-        'files_ext' => array( 'doc', 'pdf','zip' ),
+        'files_ext' => array( 'doc', 'pdf', 'zip' ),
         /**
          * An array with extra mime types that is not in the default array with mime types from the javascript Plupload library.
          * The format is: array( '<mime-type>, <ext1> <ext2> <ext2>' ).
@@ -658,7 +658,7 @@ Upload multiple files.
         /**
          * An array with allowed files extensions what will filter the media library and the upload files.
          */
-        'files_ext' => array( 'doc', 'pdf','zip' ),
+        'files_ext' => array( 'doc', 'pdf', 'zip' ),
         /**
          * An array with extra mime types that is not in the default array with mime types from the javascript Plupload library.
          * The format is: array( '<mime-type>, <ext1> <ext2> <ext2>' ).
