@@ -605,6 +605,17 @@ Single file upload.
          * If set to `false`, the option will allow to upload any file from the media library.
          */
         'images_only' => true,
+        /**
+         * An array with allowed files extensions what will filter the media library and the upload files.
+         */
+        'files_ext' => array( 'doc', 'pdf','zip' ),
+        /**
+         * An array with extra mime types that is not in the default array with mime types from the javascript Plupload library.
+         * The format is: array( '<mime-type>, <ext1> <ext2> <ext2>' ).
+         * For example: you set rar format to filter, but the filter ignore it , than you must set
+         * the array with the next structure array( '.rar, rar' ) and it will solve the problem.
+         */
+        'extra_mime_types' => array( 'audio/x-aiff, aif aiff' )
     )
 
 .. rubric:: Custom Events
@@ -644,6 +655,17 @@ Upload multiple files.
          * If set to `false`, the option will allow to upload any file from the media library.
          */
         'images_only' => true,
+        /**
+         * An array with allowed files extensions what will filter the media library and the upload files.
+         */
+        'files_ext' => array( 'doc', 'pdf','zip' ),
+        /**
+         * An array with extra mime types that is not in the default array with mime types from the javascript Plupload library.
+         * The format is: array( '<mime-type>, <ext1> <ext2> <ext2>' ).
+         * For example: you set rar format to filter, but the filter ignore it , than you must set
+         * the array with the next structure array( '.rar, rar' ) and it will solve the problem.
+         */
+        'extra_mime_types' => array( 'audio/x-aiff, aif aiff' )
     )
 
 .. rubric:: Custom Events
