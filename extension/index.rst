@@ -12,7 +12,6 @@ Built-in Extensions
     forms/index
     breadcrumbs/index
     seo/index
-    blog/index
     portfolio/index
     feedback/index
     events/index
