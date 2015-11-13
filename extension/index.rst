@@ -9,7 +9,6 @@ Built-in Extensions
     slider/index
     megamenu/index
     sidebars/index
-    styling/index
     forms/index
     breadcrumbs/index
     seo/index

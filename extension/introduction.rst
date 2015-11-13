@@ -7,7 +7,6 @@ The Unyson framework comes with the following built-in extensions:
 * :doc:`slider/index`
 * :doc:`megamenu/index`
 * :doc:`sidebars/index`
-* :doc:`styling/index`
 * :doc:`forms/index`
 * :doc:`breadcrumbs/index`
 * :doc:`seo/index`
