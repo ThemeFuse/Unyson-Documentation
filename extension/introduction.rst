@@ -12,8 +12,6 @@ The Unyson framework comes with the following built-in extensions:
 * :doc:`breadcrumbs/index`
 * :doc:`seo/index`
 * :doc:`blog/index`
-* :doc:`backup/index`
-* :doc:`contentdemoinstall/index`
 * :doc:`portfolio/index`
 * :doc:`feedback/index`
 * :doc:`events/index`
