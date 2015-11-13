@@ -1,5 +1,5 @@
-Backups
-=======
+Backup & Demo Content
+=====================
 
 This extension lets you create an automated backup schedule,
 import demo content or even create a demo content archive for migration purposes.
