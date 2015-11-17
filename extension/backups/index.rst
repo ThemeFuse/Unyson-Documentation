@@ -26,8 +26,9 @@ It's very easy to create a Demo, just create a Content Backup.
 
     If you have contact forms added in pages in builder, please check Mailer settings and remove all private credentials.
 
-    Mailer settings are saved in a wp option which is excluded on content backup, unfortunately a copy of the same settings
-    are saved in post meta (in builder). This problem `will be fixed <https://github.com/ThemeFuse/Unyson/issues/838>`__ later,
+    Mailer settings are saved in a wp option which is excluded on content backup,
+    unfortunately a copy of the same settings are saved in other places.
+    This problem `will be fixed <https://github.com/ThemeFuse/Unyson/issues/838>`__ later,
     until then, you'll need to clear manually mailer settings for each contact form before content backup.
 
 .. tip::
