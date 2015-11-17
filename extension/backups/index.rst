@@ -21,6 +21,19 @@ Create Demos
 ^^^^^^^^^^^^
 
 It's very easy to create a Demo, just create a Content Backup.
+
+.. important::
+
+    If you have contact forms added in pages in builder, please check Mailer settings and remove all private credentials.
+
+    Mailer settings are saved in a wp option which is excluded on content backup, unfortunately a copy of the same settings
+    are saved in post meta (in builder). This problem `will be fixed <https://github.com/ThemeFuse/Unyson/issues/838>`__ later,
+    until then, you'll need to clear manually mailer settings for each contact form before content backup.
+
+.. tip::
+
+    Before creating Content Backup for Demo Install, use a plugin to exclude post revisions.
+
 The next step is to make those demos appear in a page where the user can choose which he wants to install.
 That page is created in WordPress admin menu **Tools > Demo Content Install** if the theme has at least one demo.
 The demos can be placed in theme or can be downloaded from a remote server.
