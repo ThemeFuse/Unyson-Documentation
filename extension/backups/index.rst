@@ -11,33 +11,32 @@ import demo content or even create a demo content archive for migration purposes
 Demo Content Install
 --------------------
 
-Demo Content is useful for the clients of your theme. After they installed the theme,
-instead of seeing a plain list of posts and the need to configure and create content by their own
-in order to make the site look nice, they can achieve all that just with one click,
-by installing the demo content. Their site will look exactly like your theme demo page,
-then the user will just start to adapt it for his needs.
+The demo content install might be very useful for your clients.
+After they install the theme, they won't need to configure and create content from scratch
+but instead they can install the demo content you've created.
+Their site will look exactly like your theme demo page, and they can just start to modify and adapt the existing content.
 
 Create Demos
 ^^^^^^^^^^^^
 
-It's very easy to create a Demo, just create a Content Backup.
+In order to create a demo content archive, just create a Content Backup.
 
 .. important::
 
-    If you have contact forms added in pages in builder, please check Mailer settings and remove all private credentials.
+    If you have contact forms added in pages with the visual page builder, please check the Mailer settings and remove all private credentials you might have inserted there.
 
-    Mailer settings are saved in a wp option which is excluded on content backup,
-    unfortunately a copy of the same settings are saved in other places.
-    This problem `will be fixed <https://github.com/ThemeFuse/Unyson/issues/838>`__ later,
-    until then, you'll need to clear manually mailer settings for each contact form before content backup.
+    The Mailer settings are saved in a wp option which is excluded on content backup but unfortunately
+    the same settings are saved in other places. This problem `will be fixed <https://github.com/ThemeFuse/Unyson/issues/838>`__ later but until then,
+    you’ll need to manually clear the mailer settings for each contact form before content backup.
 
 .. tip::
 
-    Before creating Content Backup for Demo Install, use a plugin to exclude post revisions.
+    Before creating a Content Backup for Demo Install use a plugin to remove post revisions.
 
-The next step is to make those demos appear in a page where the user can choose which he wants to install.
-That page is created in WordPress admin menu **Tools > Demo Content Install** if the theme has at least one demo.
-The demos can be placed in theme or can be downloaded from a remote server.
+The next step is to let your users view and select which demo content to install.
+This page is created in the WordPress admin under **Tools > Demo Content Install**
+if the theme has at least one demo content available.
+The demo content archives can be placed in theme or can be downloaded from a remote server.
 
 .. _demo-in-theme:
 
@@ -60,7 +59,7 @@ Demos bundled in theme
         $manifest['screenshot'] = $uri . '/screenshot.png';
         $manifest['preview_link'] = 'https://your-site.com/demo/awesome';
 
-4. Find in WordPress admin the **Tools > Demo Content Install** menu. The demo(s) should be listed on that page.
+4. Go to **Tools > Demo Content Install** menu in the WordPress admin. The demo(s) should be listed on that page.
 
 .. _demo-on-server:
 
@@ -71,8 +70,8 @@ Demos on remote server
 2. Upload the zip on your server (in any directory you want, for e.g. ``your-site.com/demo/``)
 3. Upload this `download script <https://raw.githubusercontent.com/ThemeFuse/Unyson-Backups-Extension/master/includes/module/tasks/type/download/type/piecemeal/server/index.php>`__,
    let's say in the same directory ``your-site.com/demo/``
-4. In the same directory with download script, create `config.php <https://raw.githubusercontent.com/ThemeFuse/Unyson-Backups-Extension/master/includes/module/tasks/type/download/type/piecemeal/server/config.php>`__,
-   and add your demos in the following format:
+4. In the same directory with the download script, create a `config.php <https://raw.githubusercontent.com/ThemeFuse/Unyson-Backups-Extension/master/includes/module/tasks/type/download/type/piecemeal/server/config.php>`__
+   file and add your demos in the following format:
 
     .. code-block:: php
 
@@ -117,7 +116,7 @@ Demos on remote server
         }
         add_filter('fw:ext:backups-demo:demos', '_filter_theme_fw_ext_backups_demos');
 
-6. Find in WordPress admin the **Tools > Demo Content Install** menu. The demo(s) should be listed on that page.
+6. Go to **Tools > Demo Content Install** menu in the WordPress admin. The demo(s) should be listed on that page.
 
 Hooks
 -----
@@ -149,7 +148,7 @@ Hooks
 
     .. note::
 
-        The current option (if exists) will be wiped out. To keep current option, use :ref:`this filter <filter-fw_ext_backups_db_restore_keep_options>`.
+        The current options (if exist) will be wiped out. To keep the current options, use :ref:`the following filter <filter-fw_ext_backups_db_restore_keep_options>`.
 
     .. code-block:: php
 
