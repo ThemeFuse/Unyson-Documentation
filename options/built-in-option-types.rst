@@ -401,6 +401,8 @@ Pick a color.
         'type'  => 'color-picker',
         'value' => '#FF0000',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+        // palette colors array
+        'palettes' => array( '#ba4e4e', '#0ce9ed', '#941940' ),
         'label' => __('Label', 'fw'),
         'desc'  => __('Description', 'fw'),
         'help'  => __('Help tip', 'fw'),
@@ -419,6 +421,8 @@ Pick a ``rgba()`` color.
         'type'  => 'rgba-color-picker',
         'value' => 'rgba(255,0,0,0.5)',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+        // palette colors array
+        'palettes' => array( '#ba4e4e', '#0ce9ed', '#941940' ),
         'label' => __('Label', 'fw'),
         'desc'  => __('Description', 'fw'),
         'help'  => __('Help tip', 'fw'),
