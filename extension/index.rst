@@ -9,17 +9,14 @@ Built-in Extensions
     slider/index
     megamenu/index
     sidebars/index
-    styling/index
+    portfolio/index
+    backups/index
     forms/index
     breadcrumbs/index
     seo/index
-    blog/index
-    backup/index
-    contentdemoinstall/index
-    portfolio/index
-    feedback/index
     events/index
-    learning/index
-    translation/index
     social/index
     builder/index
+    feedback/index
+    learning/index
+    translation/index
