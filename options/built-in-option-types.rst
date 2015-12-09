@@ -512,6 +512,69 @@ Pick a date in calendar.
 
 
 
+Datetime Picker
+---------------
+
+Pick a datetime in calendar.
+
+.. code-block:: php
+
+    array(
+        'type'  => 'datetime-picker',
+        'value' => '',
+        'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+        'label' => __('Label', 'fw'),
+        'desc'  => __('Description', 'fw'),
+        'help'  => __('Help tip', 'fw'),
+        'datetime-picker' => array(
+            'format'        => 'Y/m/d H:i', // Format datetime.
+            'maxDate'       => false,  // By default there is not maximum date , set a date in the datetime format.
+            'minDate'       => false,  // By default minimum date will be current day, set a date in the datetime format.
+            'timepicker'    => true,   // Show timepicker.
+            'datepicker'    => true,   // Show datepicker.
+            'defaultTime'   => '12:00' // If the input value is empty, timepicker will set time use defaultTime.
+        ),
+    )
+
+
+
+Datetime Range
+--------------
+
+Set a datetime range.
+
+.. code-block:: php
+
+    array(
+        'type'  => 'datetime-range',
+        'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+        'label' => __('Label', 'fw'),
+        'desc'  => __('Description', 'fw'),
+        'help'  => __('Help tip', 'fw'),
+        'datetime-pickers' => array(
+        'from' => array(
+            'minDate' => '1970/01/01', // By default minimum date will be current day, set a date in the datetime format.
+            'maxDate' => '2038/01/19', // By default there is not maximum date , set a date in the datetime format.
+            'format'  => 'Y/m/d H:i',  // Format datetime.
+            'timepicker'  => true,     // Show timepicker.
+            'datepicker'  => true,     // Show datepicker.
+            ),
+        'to' => array(
+            'minDate' => '1970/01/01', // By default minimum date will be current day, set a date in the datetime format.
+            'maxDate' => '2038/01/19', // By default there is not maximum date , set a date in the datetime format.
+            'format'  => 'Y/m/d H:i',  // Format datetime.
+            'timepicker'  => true,     // Show timepicker.
+            'datepicker'  => true,     // Show datepicker.
+            )
+        ),
+        'value' => array(
+            'from' => '',
+            'to' => ''
+        )
+    )
+
+
+
 Image Picker
 ------------
 
