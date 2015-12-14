@@ -835,7 +835,8 @@ Addable box with options.
             array(
                 'option_1' => 'value 1',
                 'option_2' => 'value 2',
-            )
+            ),
+            // ...
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
         'label' => __('Label', 'fw'),
@@ -870,6 +871,10 @@ Popup with options.
 
     array(
         'type' => 'popup',
+        'value' => array(
+            'option_1' => 'value 1',
+            'option_2' => 'value 2',
+        ),
         'label' => __('Popup', 'fw'),
         'desc'  => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
         'popup-title' => __('Popup Title', 'fw'),
@@ -877,7 +882,7 @@ Popup with options.
         'popup-title' => null,
         'size' => 'small', // small, medium, large
         'popup-options' => array(
-            'demo_text' => array(
+            'option_1' => array(
                 'label' => __('Text', 'fw'),
                 'type' => 'text',
                 'value' => 'Demo text value',
@@ -887,7 +892,7 @@ Popup with options.
                     __('Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium', 'fw')
                 ),
             ),
-            'demo_textarea' => array(
+            'option_2' => array(
                 'label' => __('Textarea', 'fw'),
                 'type' => 'textarea',
                 'value' => 'Demo textarea value',
@@ -910,6 +915,13 @@ Addable popup with options.
 
     array(
         'type' => 'addable-popup',
+        'value' => array(
+            array(
+                'option_1' => 'value 1',
+                'option_2' => 'value 2',
+            ),
+            // ...
+        ),
         'label' => __('Addable Popup', 'fw'),
         'desc'  => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
         'template' => '{{- demo_text }}',
@@ -919,7 +931,7 @@ Addable popup with options.
         'add-button-text' => __('Add', 'fw'),
         'sortable' => true,
         'popup-options' => array(
-            'demo_text' => array(
+            'option_1' => array(
                 'label' => __('Text', 'fw'),
                 'type' => 'text',
                 'value' => 'Demo text value',
@@ -929,7 +941,7 @@ Addable popup with options.
                     __('Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium', 'fw')
                 ),
             ),
-            'demo_textarea' => array(
+            'option_2' => array(
                 'label' => __('Textarea', 'fw'),
                 'type' => 'textarea',
                 'value' => 'Demo textarea value',
