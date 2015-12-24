@@ -759,7 +759,7 @@ Drag the handle to select a numeric value.
             /*
             'min' => 0,
             'max' => 100,
-            'sep' => 1,
+            'step' => 1, // Set slider step. Always > 0. Could be fractional.
             */
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
@@ -786,7 +786,7 @@ Drag the handles to set a numeric value range.
             /*
             'min' => 0,
             'max' => 100,
-            'sep' => 1,
+            'step' => 1, // Set slider step. Always > 0. Could be fractional.
             */
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
