@@ -1026,7 +1026,7 @@ Generate oembed preview of the inserted link, for more details see `Embeds <http
 .. code-block:: php
 
     array(
-        'type'  => 'oembed'
+        'type'  => 'oembed',
         'value' => 'https://vimeo.com/113078377',
         'label' => __('Label', 'fw'),
         'desc'  => __('Description', 'fw'),
