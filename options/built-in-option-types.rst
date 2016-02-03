@@ -388,6 +388,10 @@ Switch between two choices.
 
 ``fw:option-type:switch:change`` - Value was changed.
 
+.. note::
+
+        Switch value in html is json encoded to prevent issues with boolean values,
+        so before using the html value in javascript do ``value = JSON.parse(value);``
 
 
 Color Picker
