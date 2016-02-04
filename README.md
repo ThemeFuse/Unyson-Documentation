@@ -7,12 +7,4 @@ from the desire to empower developers to build outstanding WordPress themes fast
 
 ## Build
 
-To be able to build the documentation, install [Sphinx](http://sphinx-doc.org/install.html).
-
-Run the build script:
-
-```
-$ ./build.sh
-```
-
-All the html will be generated in the `build/` directory *(open in browser the `build/index.html` file)*.
+Execute `build.bash` then open in browser `build/index.html`

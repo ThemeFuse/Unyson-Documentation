@@ -83,3 +83,4 @@ The licenses for most software are designed to take away your freedom to share a
     helpers/index
     manifest/index
     extension/index
+    hooks/index
