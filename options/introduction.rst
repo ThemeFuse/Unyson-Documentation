@@ -51,10 +51,10 @@ Some options can have additional (optional) parameters. A better customized opti
         'option_id' => array(
             'type'  => 'text',
             'value' => 'Default value',
-            'label' => __('Option Label', 'fw'),
-            'desc'  => __('Option Description', 'fw'),
+            'label' => __('Option Label', '{domain}'),
+            'desc'  => __('Option Description', '{domain}'),
             'attr'  => array('class' => 'custom-class', 'data-foo' => 'bar'),
-            'help'  => __('Some html that will appear in tip popup', 'fw'),
+            'help'  => __('Some html that will appear in tip popup', '{domain}'),
         )
     );
 
@@ -112,7 +112,7 @@ There are 4 built-in container types:
             'options' => array(
                 'option_id'  => array( 'type' => 'text' ),
             ),
-            'title' => __('Box Title', 'fw'),
+            'title' => __('Box Title', '{domain}'),
             'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
 
             /**
@@ -132,7 +132,7 @@ There are 4 built-in container types:
             'options' => array(
                 'option_id'  => array( 'type' => 'text' ),
             ),
-            'title' => __('Tab Title', 'fw'),
+            'title' => __('Tab Title', '{domain}'),
             'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
         ),
         'tab_id_2' => array(
@@ -140,7 +140,7 @@ There are 4 built-in container types:
             'options' => array(
                 'option_id_2'  => array( 'type' => 'text' ),
             ),
-            'title' => __('Tab Title #2', 'fw'),
+            'title' => __('Tab Title #2', '{domain}'),
             'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
         ),
 
@@ -165,10 +165,10 @@ There are 4 built-in container types:
             'options' => array(
                 'option_id'  => array( 'type' => 'text' ),
             ),
-            'title' => __('Button and Popup Title', 'fw'),
+            'title' => __('Button and Popup Title', '{domain}'),
             'attr' => array('class' => 'custom-class', 'data-foo' => 'bar'),
             'modal-size' => 'small', // small, medium, large
-            'desc' => __('Button Description', 'fw'),
+            'desc' => __('Button Description', '{domain}'),
         ),
 
 Restrictions
@@ -216,14 +216,14 @@ Try the below arrays in ``{theme}/framework-customizations/theme/options/customi
 
         $options = array(
             'section_1' => array(
-                'title' => __('Unyson Section', 'fw'),
+                'title' => __('Unyson Section', '{domain}'),
                 'options' => array(
 
                     'option_1' => array(
                         'type' => 'text',
                         'value' => 'Default Value',
-                        'label' => __('Unyson Option', 'fw'),
-                        'desc' => __('Option Description', 'fw'),
+                        'label' => __('Unyson Option', '{domain}'),
+                        'desc' => __('Option Description', '{domain}'),
                     ),
 
                 ),
@@ -236,38 +236,38 @@ Try the below arrays in ``{theme}/framework-customizations/theme/options/customi
 
         $options = array(
             'panel_1' => array(
-                'title' => __('Unyson Panel', 'fw'),
+                'title' => __('Unyson Panel', '{domain}'),
                 'options' => array(
 
                     'section_1' => array(
-                        'title' => __('Unyson Section #1', 'fw'),
+                        'title' => __('Unyson Section #1', '{domain}'),
                         'options' => array(
 
                             'option_1' => array(
                                 'type' => 'text',
                                 'value' => 'Default Value',
-                                'label' => __('Unyson Option #1', 'fw'),
-                                'desc' => __('Option Description', 'fw'),
+                                'label' => __('Unyson Option #1', '{domain}'),
+                                'desc' => __('Option Description', '{domain}'),
                             ),
 
                         ),
                     ),
 
                     'section_2' => array(
-                        'title' => __('Unyson Section #2', 'fw'),
+                        'title' => __('Unyson Section #2', '{domain}'),
                         'options' => array(
 
                             'option_2' => array(
                                 'type' => 'text',
                                 'value' => 'Default Value',
-                                'label' => __('Unyson Option #2', 'fw'),
-                                'desc' => __('Option Description', 'fw'),
+                                'label' => __('Unyson Option #2', '{domain}'),
+                                'desc' => __('Option Description', '{domain}'),
                             ),
                             'option_3' => array(
                                 'type' => 'text',
                                 'value' => 'Default Value',
-                                'label' => __('Unyson Option #3', 'fw'),
-                                'desc' => __('Option Description', 'fw'),
+                                'label' => __('Unyson Option #3', '{domain}'),
+                                'desc' => __('Option Description', '{domain}'),
                             ),
 
                         ),

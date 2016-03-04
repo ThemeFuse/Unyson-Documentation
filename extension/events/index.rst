@@ -17,7 +17,7 @@ Hooks
         /** @internal */
         function _action_theme_render_html($post) {
             if (!empty($post) and $post === fw()->extensions->get( 'events' )->get_post_type_name() ) {
-                echo '<div>'. __('Hello world', 'fw') .'</div>';
+                echo '<div>'. __('Hello world', '{domain}') .'</div>';
             }
         }
         add_action('fw_theme_ext_events_after_content', '_action_theme_render_html');
@@ -49,8 +49,8 @@ Hooks
         /** @internal */
         function _filter_event_labels($labels) {
             $labels = array(
-                'singular' => __('Custom Event', 'fw'),
-                'plural'   => __('Custom Events', 'fw'),
+                'singular' => __('Custom Event', '{domain}'),
+                'plural'   => __('Custom Events', '{domain}'),
             );
 
             return $labels;
@@ -64,8 +64,8 @@ Hooks
         /** @internal */
         function _filter_event_tax_labels_names($labels) {
             $labels = array(
-                'singular' => __( 'Custom Category', 'fw' ),
-                'plural'   => __( 'Custom Categories', 'fw' ),
+                'singular' => __( 'Custom Category', '{domain}' ),
+                'plural'   => __( 'Custom Categories', '{domain}' ),
             );
 
             return $labels;
@@ -86,7 +86,7 @@ A sub-extension which implements ``FW_Events_Interface_Tabs`` will include optio
         public function fw_get_tabs_options() {
             return array(
                 'events_tab' => array(
-                    'title'   => __( 'New Demo Tab Options', 'fw' ),
+                    'title'   => __( 'New Demo Tab Options', '{domain}' ),
                     'type'    => 'tab',
                     'options' => array(
                         'demo_text_id' => array(
@@ -138,9 +138,9 @@ Also it can be rendered from code - the shortcode ``[map]`` has public method ``
         echo $shortcode_map->render_custom(
             array(
                 array(
-                    'title' => __('Some Title', 'fw'),
+                    'title' => __('Some Title', '{domain}'),
                     'url' => 'https://example.com',
-                    'description' => __('Some description', 'fw'),
+                    'description' => __('Some description', '{domain}'),
                     'thumb' => array('attachment_id' => get_post_thumbnail_id( $post->ID ) ),
                     'location' => array(
                         'coordinates' => array(

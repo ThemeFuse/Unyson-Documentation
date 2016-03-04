@@ -60,8 +60,8 @@ It supports the following parameters:
     );
 
     // These keys are automatically fetched from theme styles.css
-    //$manifest['name'] = __('Theme Title', 'fw');
-    //$manifest['description'] = __('Another awesome wordpress theme', 'fw');
+    //$manifest['name'] = __('Theme Title', '{domain}');
+    //$manifest['description'] = __('Another awesome wordpress theme', '{domain}');
     //$manifest['uri'] = 'http://themefuse.com/wp-themes-shop/theme-name';
     //$manifest['version'] = '1.0';
     //$manifest['author'] = 'ThemeFuse';

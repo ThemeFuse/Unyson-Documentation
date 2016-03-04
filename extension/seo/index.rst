@@ -37,18 +37,18 @@ All the filters have the same functionality, the only differences is where they 
          */
         function _filter_set_my_framework_titles_metas_tab( $options ) {
             $options['my_id_tab'] = array(
-                'title'   => __( 'My Options', 'fw' ),
+                'title'   => __( 'My Options', '{domain}' ),
                 'type'    => 'tab',
                 'options' => array(
                     'my_id_title' => array(
-                        'label' => __( 'Title', 'fw' ),
-                        'desc'  => __( 'Set title', 'fw' ),
+                        'label' => __( 'Title', '{domain}' ),
+                        'desc'  => __( 'Set title', '{domain}' ),
                         'type'  => 'text',
                         'value' => ''
                     ),
                     'my_id_description' => array(
-                        'label' => __( 'Description', 'fw' ),
-                        'desc'  => __( 'Set description', 'fw' ),
+                        'label' => __( 'Description', '{domain}' ),
+                        'desc'  => __( 'Set description', '{domain}' ),
                         'type'  => 'textarea',
                         'value' => ''
                     ),
@@ -69,7 +69,7 @@ The SEO extension has a list of built in SEO tags, but in some cases you'll want
 .. code-block:: php
 
     'tag_name' => array(
-        'desc'  => __( 'My new tag', 'fw' ),
+        'desc'  => __( 'My new tag', '{domain}' ),
         'value' => '',
     )
 
@@ -85,7 +85,7 @@ Add new tag
      */
     function _filter_add_my_seo_tag($tags) {
         $tags['mytag'] = array(
-            'desc'  => __( 'My new tag', 'fw' ),
+            'desc'  => __( 'My new tag', '{domain}' ),
             'value' => '',
         );
 
@@ -108,7 +108,7 @@ Update tag value
      */
     function _filter_update_my_seo_tag( $tags ) {
         if ( isset($tags['mytag']) && is_front_page() ) {
-            $tags['mytag']['value'] = __('Home', 'fw');
+            $tags['mytag']['value'] = __('Home', '{domain}');
         }
 
         return $tags;

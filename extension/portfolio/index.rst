@@ -95,8 +95,8 @@ Hooks
          */
         function _filter_portfolio_labels($labels) {
             $labels = array(
-                'singular' => __('Custom Project', 'fw'),
-                'plural'   => __('Custom Projects', 'fw'),
+                'singular' => __('Custom Project', '{domain}'),
+                'plural'   => __('Custom Projects', '{domain}'),
             );
 
             return $labels;
@@ -112,8 +112,8 @@ Hooks
          */
         function portfolio_tax_labels_names( $labels ) {
             $labels = array(
-                'singular' => __( 'Custom Category', 'fw' ),
-                'plural'   => __( 'Custom Categories', 'fw' ),
+                'singular' => __( 'Custom Category', '{domain}' ),
+                'plural'   => __( 'Custom Categories', '{domain}' ),
             );
 
             return $labels;

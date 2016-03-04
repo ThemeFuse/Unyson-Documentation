@@ -116,7 +116,7 @@ Filters
             $conditional_tags['is_archive_page_slug'] = array(
                 'order_option' => 2, // (optional: default is 1) position in the 'Others' lists in backend
                 'check_priority' => 'last', // (optional: default is last, can be changed to 'first') use it to change priority checking conditional tag
-                'name' => __('Portfolio archive', 'fw'), // conditional tag title
+                'name' => __('Portfolio archive', '{domain}'), // conditional tag title
                 'conditional_tag' => array(
                     'callback' => 'is_post_type_archive', // existing callback
                     'params' => array('fw-portfolio') //parameters for callback

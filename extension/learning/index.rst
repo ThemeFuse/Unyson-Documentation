@@ -95,8 +95,8 @@ If you edit the lesson template and want to make a pagination to next and previo
     $next = fw_ext_learning_get_next_lesson( $post->ID );
     ?>
     <nav class="lesson-nav">
-        <a class="prev" href="<?php get_permalink($prev->ID)?>"><?php _e( 'Previous lesson', 'fw' )?></a>
-        <a class="next" href="<?php get_permalink($next->ID)?>"><?php _e( 'Next lesson', 'fw' )?></a>
+        <a class="prev" href="<?php get_permalink($prev->ID)?>"><?php _e( 'Previous lesson', '{domain}' )?></a>
+        <a class="next" href="<?php get_permalink($next->ID)?>"><?php _e( 'Next lesson', '{domain}' )?></a>
     </nav>
 
 Filters
@@ -108,8 +108,8 @@ Filters
 
     /** @internal */
     function _filter_fw_ext_learning_rename_lesson_custom_post( $names ) {
-        $names['singular'] = __( 'Singular Name', 'fw' );
-        $names['plural'] = __( 'Plural Name', 'fw' );
+        $names['singular'] = __( 'Singular Name', '{domain}' );
+        $names['plural'] = __( 'Plural Name', '{domain}' );
 
         return $names;
     }
@@ -121,8 +121,8 @@ Filters
 
     /** @internal */
     function _filter_fw_ext_learning_rename_course_custom_post( $names ) {
-        $names['singular'] = __( 'Singular Name', 'fw' );
-        $names['plural'] = __( 'Plural Name', 'fw' );
+        $names['singular'] = __( 'Singular Name', '{domain}' );
+        $names['plural'] = __( 'Plural Name', '{domain}' );
 
         return $names;
     }
@@ -134,8 +134,8 @@ Filters
 
     /** @internal */
     function _filter_fw_ext_learning_rename_course_custom_post_category( $names ) {
-        $names['singular'] = __( 'Singular Name', 'fw' );
-        $names['plural'] = __( 'Plural Name', 'fw' );
+        $names['singular'] = __( 'Singular Name', '{domain}' );
+        $names['plural'] = __( 'Plural Name', '{domain}' );
 
         return $names;
     }

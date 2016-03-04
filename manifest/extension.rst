@@ -15,9 +15,9 @@ It supports the following parameters:
 
     $manifest = array();
 
-    $manifest['name']         = __('Extension Title', 'fw');
+    $manifest['name']         = __('Extension Title', '{domain}');
     $manifest['uri']          = 'http://extension-homepage.com/';
-    $manifest['description']  = __('Another awesome framework extension', 'fw');
+    $manifest['description']  = __('Another awesome framework extension', '{domain}');
     $manifest['version']      = '1.0';
     $manifest['author']       = 'ThemeFuse';
     $manifest['author_uri']   = 'http://themefuse.com/';

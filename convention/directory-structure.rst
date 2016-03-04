@@ -62,14 +62,14 @@ Let's take a closer look at each directory and file, and understand how it works
 
             $options = array(
                 'section_1' => array(
-                    'title' => __('Unyson Section', 'fw'),
+                    'title' => __('Unyson Section', '{domain}'),
                     'options' => array(
 
                         'option_1' => array(
                             'type' => 'text',
                             'value' => 'Default Value',
-                            'label' => __('Unyson Option', 'fw'),
-                            'desc' => __('Option Description', 'fw'),
+                            'label' => __('Unyson Option', '{domain}'),
+                            'desc' => __('Option Description', '{domain}'),
                         ),
 
                     ),

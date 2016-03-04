@@ -595,7 +595,7 @@ A convenient way to create forms. You can create a form class instance and give 
         $input_value = FW_Request::POST('demo');
 
         if (fw_strlen($input_value) > 10) {
-            $errors['demo'] = __('Value cannot be more that 10 characters long', 'fw');
+            $errors['demo'] = __('Value cannot be more that 10 characters long', '{domain}');
         }
 
         return $errors;
@@ -705,7 +705,7 @@ These types of messages are called "flash" messages.
 
     FW_Flash_Messages::add(
         'unique-id',
-        __('Test message', 'fw'),
+        __('Test message', '{domain}'),
         'success' // available types: info, warning, error, success
     );
 

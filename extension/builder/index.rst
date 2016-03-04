@@ -172,7 +172,7 @@ That's it, the new builder was created. Use it in your post options to see what 
         $options = array(
             'lists-builder-box' => array(
                 'type' => 'box',
-                'title' => __('Lists Builder', 'fw'),
+                'title' => __('Lists Builder', '{domain}'),
                 'options' => array(
                     'lists-builder' => array(
                         'type' => 'lists-builder',
@@ -253,14 +253,14 @@ To create item types for a builder type you have to:
                         'html' =>
                             '<div class="item-type-icon-title" data-sub-type="ul">'.
                             '    <div class="item-type-icon">&lt;ul&gt;</div>'.
-                            '    <div class="item-type-title">'. __('Unordered List', 'fw') .'</div>'.
+                            '    <div class="item-type-title">'. __('Unordered List', '{domain}') .'</div>'.
                             '</div>',
                     ),
                     array(
                         'html' =>
                             '<div class="item-type-icon-title" data-sub-type="ol">'.
                             '    <div class="item-type-icon">&lt;ol&gt;</div>'.
-                            '    <div class="item-type-title">'. __('Ordered List', 'fw') .'</div>'.
+                            '    <div class="item-type-title">'. __('Ordered List', '{domain}') .'</div>'.
                             '</div>',
                     ),
                 );

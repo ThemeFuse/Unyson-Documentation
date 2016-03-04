@@ -33,9 +33,9 @@ Regular text input.
         'type'  => 'text',
         'value' => 'default value',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
     )
 
 Password
@@ -49,9 +49,9 @@ Regular password input.
         'type'  => 'password',
         'value' => 'default value',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
     )
 
 Textarea
@@ -65,9 +65,9 @@ Regular textarea.
         'type'  => 'textarea',
         'value' => 'default value',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
     )
 
 Hidden
@@ -104,9 +104,9 @@ If you want to display a custom piece of html, use this option type.
         'type'  => 'html',
         'value' => 'default hidden value',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'html'  => 'My <b>custom</b> <em>HTML</em>',
     )
 
@@ -127,10 +127,10 @@ Single checkbox.
         'type'  => 'checkbox',
         'value' => true, // checked/unchecked
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
-        'text'  => __('Yes', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
+        'text'  => __('Yes', '{domain}'),
     )
 
 
@@ -149,13 +149,13 @@ A list of checkboxes.
             'choice-2' => true,
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'choices' => array( // Note: Avoid bool or int keys http://bit.ly/1cQgVzk
-            'choice-1' => __('Choice 1', 'fw'),
-            'choice-2' => __('Choice 2', 'fw'),
-            'choice-3' => __('Choice 3', 'fw'),
+            'choice-1' => __('Choice 1', '{domain}'),
+            'choice-2' => __('Choice 2', '{domain}'),
+            'choice-3' => __('Choice 3', '{domain}'),
         ),
         // Display choices inline instead of list
         'inline' => false,
@@ -174,13 +174,13 @@ A list of radio buttons.
         'type'  => 'radio',
         'value' => 'choice-3',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'choices' => array( // Note: Avoid bool or int keys http://bit.ly/1cQgVzk
-            'choice-1' => __('Choice 1', 'fw'),
-            'choice-2' => __('Choice 2', 'fw'),
-            'choice-3' => __('Choice 3', 'fw'),
+            'choice-1' => __('Choice 1', '{domain}'),
+            'choice-2' => __('Choice 2', '{domain}'),
+            'choice-3' => __('Choice 3', '{domain}'),
         ),
         // Display choices inline instead of list
         'inline' => false,
@@ -199,20 +199,20 @@ Regular select.
         'type'  => 'select',
         'value' => 'choice-3',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'choices' => array(
             '' => '---',
-            'choice-1' => __('Choice 1', 'fw'),
+            'choice-1' => __('Choice 1', '{domain}'),
             'choice-2' => array(
-                'text' => __('Choice 2', 'fw'),
+                'text' => __('Choice 2', '{domain}'),
                 'attr' => array('data-foo' => 'bar'),
             ),
             array( // optgroup
-                'attr'    => array('label' => __('Group 1', 'fw')),
+                'attr'    => array('label' => __('Group 1', '{domain}')),
                 'choices' => array(
-                    'choice-3' => __('Choice 3', 'fw'),
+                    'choice-3' => __('Choice 3', '{domain}'),
                     // ...
                 ),
             ),
@@ -237,20 +237,20 @@ Select with multiple values.
         'type'  => 'select-multiple',
         'value' => array( 'choice-1', 'choice-3' ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'choices' => array(
             '' => '---',
-            'choice-1' => __('Choice 1', 'fw'),
+            'choice-1' => __('Choice 1', '{domain}'),
             'choice-2' => array(
-                'text' => __('Choice 2', 'fw'),
+                'text' => __('Choice 2', '{domain}'),
                 'attr' => array('data-foo' => 'bar'),
             ),
             array( // optgroup
-                'attr'    => array('label' => __('Group 1', 'fw')),
+                'attr'    => array('label' => __('Group 1', '{domain}')),
                 'choices' => array(
-                    'choice-3' => __('Choice 3', 'fw'),
+                    'choice-3' => __('Choice 3', '{domain}'),
                     // ...
                 ),
             ),
@@ -270,9 +270,9 @@ Select multiple choices from different sources: posts, taxonomies, users or a cu
         'type'  => 'multi-select',
         'value' => array( 'choice-1', 'choice-3' ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         /**
          * Set population method
          * Are available: 'posts', 'taxonomy', 'users', 'array'
@@ -304,9 +304,9 @@ Select multiple choices from different sources: posts, taxonomies, users or a cu
          * Used only when 'population' => 'array'
          */
         'choices' => array(
-            'choice-1' => __('Choice 1', 'fw'),
-            'choice-2' => __('Choice 2', 'fw'),
-            'choice-3' => __('Choice 3', 'fw'),
+            'choice-1' => __('Choice 1', '{domain}'),
+            'choice-2' => __('Choice 2', '{domain}'),
+            'choice-3' => __('Choice 3', '{domain}'),
         ),
         /**
          * Set maximum items number that can be selected
@@ -346,9 +346,9 @@ This option has no design, inner options will look the same as other options (it
             'class' => 'fw-option-type-multi-show-borders',
             */
         ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'inner-options' => array(
             'option_1' => array( 'type' => 'text' ),
             'option_2' => array( 'type' => 'textarea' ),
@@ -371,16 +371,16 @@ Switch between two choices.
         'type'  => 'switch',
         'value' => 'hello',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'left-choice' => array(
             'value' => 'goodbye',
-            'label' => __('Goodbye', 'fw'),
+            'label' => __('Goodbye', '{domain}'),
         ),
         'right-choice' => array(
             'value' => 'hello',
-            'label' => __('Hello', 'fw'),
+            'label' => __('Hello', '{domain}'),
         ),
     )
 
@@ -407,9 +407,9 @@ Pick a color.
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
         // palette colors array
         'palettes' => array( '#ba4e4e', '#0ce9ed', '#941940' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
     )
 
 
@@ -427,9 +427,9 @@ Pick a ``rgba()`` color.
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
         // palette colors array
         'palettes' => array( '#ba4e4e', '#0ce9ed', '#941940' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
     )
 
 
@@ -448,9 +448,9 @@ Pick gradient colors.
             'secondary' => '#0000FF',
         )
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
     )
 
 
@@ -466,9 +466,9 @@ Choose background image.
         'type'  => 'background-image',
         'value' => 'bg-1',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'choices' => array(
             'none' => array(
                 'icon' => get_template_directory_uri() . '/images/bg/bg-0.jpg',
@@ -506,9 +506,9 @@ Pick a date in calendar.
         'type'  => 'date-picker',
         'value' => '',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'monday-first' => true, // The week will begin with Monday; for Sunday, set to false
         'min-date' => date('d-m-Y'), // By default minimum date will be current day. Set a date in format d-m-Y as a start date
         'max-date' => null, // By default there is not maximum date. Set a date in format d-m-Y as a start date
@@ -527,9 +527,9 @@ Pick a datetime in calendar.
         'type'  => 'datetime-picker',
         'value' => '',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'datetime-picker' => array(
             'format'        => 'Y/m/d H:i', // Format datetime.
             'maxDate'       => false,  // By default there is not maximum date , set a date in the datetime format.
@@ -552,9 +552,9 @@ Set a datetime range.
     array(
         'type'  => 'datetime-range',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'datetime-pickers' => array(
         'from' => array(
             'minDate' => '1970/01/01', // By default minimum date will be current day, set a date in the datetime format.
@@ -593,9 +593,9 @@ Pick an image.
             'class'    => 'custom-class',
             'data-foo' => 'bar',
         ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'choices' => array(
             'value-1' => get_template_directory_uri() .'/images/thumbnail.png',
             'value-2' => array(
@@ -643,9 +643,9 @@ Choose a `FontAwesome <http://fontawesome.io/>`_ icon.
         'type'  => 'icon',
         'value' => 'fa-smile-o',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
     )
 
 
@@ -668,9 +668,9 @@ Single file upload.
             // because there is no sense to set hardcode attachment_id
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         /**
          * If set to `true`, the option will allow to upload only images, and display a thumb of the selected one.
          * If set to `false`, the option will allow to upload any file from the media library.
@@ -718,9 +718,9 @@ Upload multiple files.
             // because there is no sense to set hardcode attachment_id
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         /**
          * If set to `true`, the option will allow to upload only images, and display a thumb of the selected one.
          * If set to `false`, the option will allow to upload any file from the media library.
@@ -767,9 +767,9 @@ Drag the handle to select a numeric value.
             */
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
     )
 
 
@@ -794,9 +794,9 @@ Drag the handles to set a numeric value range.
             */
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
     )
 
 
@@ -812,11 +812,11 @@ Create a list of options.
         'type'  => 'addable-option',
         'value' => array('Value 1', 'Value 2', 'Value 3'),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'option' => array( 'type' => 'text' ),
-        'add-button-text' => __('Add', 'fw'),
+        'add-button-text' => __('Add', '{domain}'),
         'sortable' => true,
     )
 
@@ -843,9 +843,9 @@ Addable box with options.
             // ...
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'box-options' => array(
             'option_1' => array( 'type' => 'text' ),
             'option_2' => array( 'type' => 'textarea' ),
@@ -855,7 +855,7 @@ Addable box with options.
             'control-id' => '<small class="dashicons dashicons-smiley"></small>',
         ),
         'limit' => 0, // limit the number of boxes that can be added
-        'add-button-text' => __('Add', 'fw'),
+        'add-button-text' => __('Add', '{domain}'),
         'sortable' => true,
     )
 
@@ -879,31 +879,31 @@ Popup with options.
             'option_1' => 'value 1',
             'option_2' => 'value 2',
         ),
-        'label' => __('Popup', 'fw'),
-        'desc'  => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
-        'popup-title' => __('Popup Title', 'fw'),
-        'button' => __('Edit', 'fw'),
+        'label' => __('Popup', '{domain}'),
+        'desc'  => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '{domain}'),
+        'popup-title' => __('Popup Title', '{domain}'),
+        'button' => __('Edit', '{domain}'),
         'popup-title' => null,
         'size' => 'small', // small, medium, large
         'popup-options' => array(
             'option_1' => array(
-                'label' => __('Text', 'fw'),
+                'label' => __('Text', '{domain}'),
                 'type' => 'text',
                 'value' => 'Demo text value',
-                'desc' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
+                'desc' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '{domain}'),
                 'help' => sprintf("%s \n\n'\"<br/><br/>\n\n <b>%s</b>",
-                    __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
-                    __('Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium', 'fw')
+                    __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '{domain}'),
+                    __('Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium', '{domain}')
                 ),
             ),
             'option_2' => array(
-                'label' => __('Textarea', 'fw'),
+                'label' => __('Textarea', '{domain}'),
                 'type' => 'textarea',
                 'value' => 'Demo textarea value',
-                'desc' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
+                'desc' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '{domain}'),
                 'help' => sprintf("%s \n\n'\"<br/><br/>\n\n <b>%s</b>",
-                    __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
-                    __('Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium', 'fw')
+                    __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '{domain}'),
+                    __('Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium', '{domain}')
                 ),
             ),
         ),
@@ -926,33 +926,33 @@ Addable popup with options.
             ),
             // ...
         ),
-        'label' => __('Addable Popup', 'fw'),
-        'desc'  => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
+        'label' => __('Addable Popup', '{domain}'),
+        'desc'  => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '{domain}'),
         'template' => '{{- demo_text }}',
         'popup-title' => null,
         'size' => 'small', // small, medium, large
         'limit' => 0, // limit the number of popup`s that can be added
-        'add-button-text' => __('Add', 'fw'),
+        'add-button-text' => __('Add', '{domain}'),
         'sortable' => true,
         'popup-options' => array(
             'option_1' => array(
-                'label' => __('Text', 'fw'),
+                'label' => __('Text', '{domain}'),
                 'type' => 'text',
                 'value' => 'Demo text value',
-                'desc' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
+                'desc' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '{domain}'),
                 'help' => sprintf("%s \n\n'\"<br/><br/>\n\n <b>%s</b>",
-                    __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
-                    __('Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium', 'fw')
+                    __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '{domain}'),
+                    __('Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium', '{domain}')
                 ),
             ),
             'option_2' => array(
-                'label' => __('Textarea', 'fw'),
+                'label' => __('Textarea', '{domain}'),
                 'type' => 'textarea',
                 'value' => 'Demo textarea value',
-                'desc' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
+                'desc' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '{domain}'),
                 'help' => sprintf("%s \n\n'\"<br/><br/>\n\n <b>%s</b>",
-                    __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'fw'),
-                    __('Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium', 'fw')
+                    __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '{domain}'),
+                    __('Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium', '{domain}')
                 ),
             ),
         ),
@@ -980,9 +980,9 @@ Choose font family, size, style and color.
             'color'  => true
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
     )
 
 
@@ -1016,9 +1016,9 @@ Choose font family, style, weight, size, line-height, letter-spacing and color.
             'color'          => true
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
     )
 
 
@@ -1032,9 +1032,9 @@ Generate oembed preview of the inserted link, for more details see `Embeds <http
     array(
         'type'  => 'oembed',
         'value' => 'https://vimeo.com/113078377',
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         'preview' => array(
             'width'  => 300, // optional, if you want to set the fixed width to iframe
             'height' => 300, // optional, if you want to set the fixed height to iframe
@@ -1057,9 +1057,9 @@ Textarea with the WordPress Editor like the one you use on the blog posts edit p
         'type'  => 'wp-editor',
         'value' => 'default value',
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
         /**
          * Load TinyMCE, can be used to pass settings directly to TinyMCE using an array
          * bool|array
@@ -1141,28 +1141,28 @@ The ``picker`` parameter holds a valid option type with choices. Supported optio
         'picker' => array(
             // '<custom-key>' => option
             'gadget' => array(
-                'label'   => __('Choose device', 'fw'),
+                'label'   => __('Choose device', '{domain}'),
                 'type'    => 'select', // or 'short-select'
                 'choices' => array(
-                    'phone'  => __('Phone', 'fw'),
-                    'laptop' => __('Laptop', 'fw')
+                    'phone'  => __('Phone', '{domain}'),
+                    'laptop' => __('Laptop', '{domain}')
                 ),
-                'desc'    => __('Description', 'fw'),
-                'help'    => __('Help tip', 'fw'),
+                'desc'    => __('Description', '{domain}'),
+                'help'    => __('Help tip', '{domain}'),
             )
         ),
         /*
         'picker' => array(
             // '<custom-key>' => option
             'gadget' => array(
-                'label'   => __('Choose device', 'fw'),
+                'label'   => __('Choose device', '{domain}'),
                 'type'    => 'radio',
                 'choices' => array(
-                    'phone'  => __('Phone', 'fw'),
-                    'laptop' => __('Laptop', 'fw')
+                    'phone'  => __('Phone', '{domain}'),
+                    'laptop' => __('Laptop', '{domain}')
                 ),
-                'desc'    => __('Description', 'fw'),
-                'help'    => __('Help tip', 'fw'),
+                'desc'    => __('Description', '{domain}'),
+                'help'    => __('Help tip', '{domain}'),
             )
         ),
         */
@@ -1170,14 +1170,14 @@ The ``picker`` parameter holds a valid option type with choices. Supported optio
         'picker' => array(
             // '<custom-key>' => option
             'gadget' => array(
-                'label'   => __('Choose device', 'fw'),
+                'label'   => __('Choose device', '{domain}'),
                 'type'    => 'image-picker',
                 'choices' => array(
                     'phone'  => 'http://placekitten.com/70/70',
                     'laptop' => 'http://placekitten.com/71/70'
                 ),
-                'desc'    => __('Description', 'fw'),
-                'help'    => __('Help tip', 'fw'),
+                'desc'    => __('Description', '{domain}'),
+                'help'    => __('Help tip', '{domain}'),
             )
         ),
         */
@@ -1185,18 +1185,18 @@ The ``picker`` parameter holds a valid option type with choices. Supported optio
         picker => array(
             // '<custom-key>' => option
             'gadget' => array(
-                'label' => __('Choose device', 'fw'),
+                'label' => __('Choose device', '{domain}'),
                 'type'  => 'switch',
                 'right-choice' => array(
                     'value' => 'laptop',
-                    'label' => __('Laptop', 'fw')
+                    'label' => __('Laptop', '{domain}')
                 ),
                 'left-choice' => array(
                     'value' => 'phone',
-                    'label' => __('Phone', 'fw')
+                    'label' => __('Phone', '{domain}')
                 ),
-                'desc' => __('Description', 'fw'),
-                'help' => __('Help tip', 'fw'),
+                'desc' => __('Description', '{domain}'),
+                'help' => __('Help tip', '{domain}'),
             )
         ),
         */
@@ -1204,26 +1204,26 @@ The ``picker`` parameter holds a valid option type with choices. Supported optio
             'phone' => array(
                 'price' => array(
                     'type'  => 'text',
-                    'label' => __('Price', 'fw'),
+                    'label' => __('Price', '{domain}'),
                 ),
                 'memory' => array(
                     'type'  => 'select',
-                    'label' => __('Memory', 'fw'),
+                    'label' => __('Memory', '{domain}'),
                     'choices' => array(
-                        '16' => __('16Gb', 'fw'),
-                        '32' => __('32Gb', 'fw'),
-                        '64' => __('64Gb', 'fw'),
+                        '16' => __('16Gb', '{domain}'),
+                        '32' => __('32Gb', '{domain}'),
+                        '64' => __('64Gb', '{domain}'),
                     )
                 )
             ),
             'laptop' => array(
                 'price' => array(
                     'type'  => 'text',
-                    'label' => __('Price', 'fw'),
+                    'label' => __('Price', '{domain}'),
                 ),
                 'webcam' => array(
                     'type'  => 'switch',
-                    'label' => __('Webcam', 'fw'),
+                    'label' => __('Webcam', '{domain}'),
                 )
             ),
         ),
@@ -1357,7 +1357,7 @@ Google maps location.
             )
         ),
         'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-        'label' => __('Label', 'fw'),
-        'desc'  => __('Description', 'fw'),
-        'help'  => __('Help tip', 'fw'),
+        'label' => __('Label', '{domain}'),
+        'desc'  => __('Description', '{domain}'),
+        'help'  => __('Help tip', '{domain}'),
     )

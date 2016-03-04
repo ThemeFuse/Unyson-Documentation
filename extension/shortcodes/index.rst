@@ -111,9 +111,9 @@ It contains an array that must be stored in a ``$cfg`` variable and is typically
 
     $cfg = array(
         'page_builder' => array(
-            'title'         => __('Demo Shortcode', 'fw'),
-            'description'   => __('Demo shortcode description', 'fw'),
-            'tab'           => __('Demo Elements', 'fw'),
+            'title'         => __('Demo Shortcode', '{domain}'),
+            'description'   => __('Demo shortcode description', '{domain}'),
+            'tab'           => __('Demo Elements', '{domain}'),
             'popup_size'    => 'small', // can be large, medium or small
 
             /*
@@ -193,19 +193,19 @@ The shortcode directory can contain a file named ``options.php`` with correctly 
 
     $options = array(
         'demo_text'   => array(
-            'label'   => __('Demo text label', 'fw'),
-            'desc'    => __('Demo text description', 'fw'),
-            'help'    => __('Demo text help', 'fw'),
+            'label'   => __('Demo text label', '{domain}'),
+            'desc'    => __('Demo text description', '{domain}'),
+            'help'    => __('Demo text help', '{domain}'),
             'type'    => 'text'
         ),
         'demo_select' => array(
-            'label'   => __('Demo select label', 'fw'),
-            'desc'    => __('Demo select description', 'fw'),
+            'label'   => __('Demo select label', '{domain}'),
+            'desc'    => __('Demo select description', '{domain}'),
             'type'    => 'select',
             'choices' => array(
-                'c1'  => __('Choice 1', 'fw'),
-                'c2'  => __('Choice 2', 'fw'),
-                'c3'  => __('Choice 3', 'fw')
+                'c1'  => __('Choice 1', '{domain}'),
+                'c2'  => __('Choice 2', '{domain}'),
+                'c3'  => __('Choice 3', '{domain}')
             ),
             'value'   => 'c2'
         )
@@ -342,9 +342,9 @@ This example will go through creating the ``[hr]`` (horizontal ruler) shortcode 
 
         $cfg = array(
             'page_builder' => array(
-                'title'       => __('Horizontal Ruler', 'fw'),
-                'description' => __('Creates a \'hr\' html tag', 'fw'),
-                'tab'         => __('Demo Elements', 'fw'),
+                'title'       => __('Horizontal Ruler', '{domain}'),
+                'description' => __('Creates a \'hr\' html tag', '{domain}'),
+                'tab'         => __('Demo Elements', '{domain}'),
             )
         );
 
@@ -401,9 +401,9 @@ This example will go through creating the ``[button]`` shortcode.
 
         $cfg = array(
             'page_builder' => array(
-                'title'         => __('Button', 'fw'),
-                'description'   => __('Creates a button with choosable label, size and style', 'fw'),
-                'tab'           => __('Demo Elements', 'fw'),
+                'title'         => __('Button', '{domain}'),
+                'description'   => __('Creates a button with choosable label, size and style', '{domain}'),
+                'tab'           => __('Demo Elements', '{domain}'),
             )
         );
 
@@ -427,29 +427,29 @@ This example will go through creating the ``[button]`` shortcode.
 
         $options = array(
             'label' => array(
-                'label'   => __('Label', 'fw'),
-                'desc'    => __('The button label', 'fw'),
+                'label'   => __('Label', '{domain}'),
+                'desc'    => __('The button label', '{domain}'),
                 'type'    => 'text',
-                'value'   => __('Click me!', 'fw')
+                'value'   => __('Click me!', '{domain}')
             ),
             'size' => array(
-                'label'   => __('Size', 'fw'),
-                'desc'    => __('The button size', 'fw'),
+                'label'   => __('Size', '{domain}'),
+                'desc'    => __('The button size', '{domain}'),
                 'type'    => 'select',
                 'choices' => array(
-                    'big'    => __('Big', 'fw'),
-                    'medium' => __('Medium', 'fw'),
-                    'small'  => __('Small', 'fw')
+                    'big'    => __('Big', '{domain}'),
+                    'medium' => __('Medium', '{domain}'),
+                    'small'  => __('Small', '{domain}')
                 ),
                 'value'   => 'medium'
             ),
             'style' => array(
-                'label'   => __('Style', 'fw'),
-                'desc'    => __('The button style', 'fw'),
+                'label'   => __('Style', '{domain}'),
+                'desc'    => __('The button style', '{domain}'),
                 'type'    => 'select',
                 'choices' => array(
-                    'primary'   => __('Primary', 'fw'),
-                    'secondary' => __('Secondary', 'fw')
+                    'primary'   => __('Primary', '{domain}'),
+                    'secondary' => __('Secondary', '{domain}')
                 )
             )
         );
@@ -502,9 +502,9 @@ This ex will go through creating a ``[table_builder]`` shortcode, it will make u
 
         $cfg = array(
             'page_builder' => array(
-                'title'       => __('Table Builder', 'fw'),
-                'description' => __('Creates custom tables', 'fw'),
-                'tab'         => __('Demo Elements', 'fw'),
+                'title'       => __('Table Builder', '{domain}'),
+                'description' => __('Creates custom tables', '{domain}'),
+                'tab'         => __('Demo Elements', '{domain}'),
                 'popup_size'  => 'large'
             )
         );

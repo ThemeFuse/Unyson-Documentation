@@ -31,9 +31,9 @@ Admin side functionality:
             'demo',
             array(
                 'type'  => 'text',
-                'label' => __('Demo Label', 'fw'),
-                'desc'  => __('Demo Description', 'fw'),
-                'html'  => __('Demo Help Tip', 'fw'),
+                'label' => __('Demo Label', '{domain}'),
+                'desc'  => __('Demo Description', '{domain}'),
+                'html'  => __('Demo Help Tip', '{domain}'),
                 'value' => 'default value',
             ),
             array(

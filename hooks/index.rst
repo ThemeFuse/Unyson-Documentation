@@ -35,8 +35,8 @@ General
         add_action('fw_backend_add_custom_settings_menu', '_action_theme_custom_fw_settings_menu');
         function _action_theme_custom_fw_settings_menu($data) {
             add_menu_page(
-                __( 'Awesome Settings', 'fw' ),
-                __( 'Awesome Settings', 'fw' ),
+                __( 'Awesome Settings', '{domain}' ),
+                __( 'Awesome Settings', '{domain}' ),
                 $data['capability'],
                 $data['slug'],
                 $data['content_callback']

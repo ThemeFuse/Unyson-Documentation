@@ -55,7 +55,7 @@ Demos bundled in theme
          */
 
         $manifest = array();
-        $manifest['title'] = __('Awesome Demo', 'fw');
+        $manifest['title'] = __('Awesome Demo', '{domain}');
         $manifest['screenshot'] = $uri . '/screenshot.png';
         $manifest['preview_link'] = 'https://your-site.com/demo/awesome';
 
@@ -89,7 +89,7 @@ Demos on remote server
         function _filter_theme_fw_ext_backups_demos($demos) {
             $demos_array = array(
                 'your-demo-id' => array(
-                    'title' => __('Demo Title', 'fw'),
+                    'title' => __('Demo Title', '{domain}'),
                     'screenshot' => 'https://your-site.com/.../screnshot.png',
                     'preview_link' => 'https://your-site.com/demo/your-demo-id',
                 ),
