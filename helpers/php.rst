@@ -602,7 +602,7 @@ A convenient way to create forms. You can create a form class instance and give 
     }
 
     function _my_form_save() {
-        $input_value = FW_Request('demo');
+        $input_value = FW_Request::POST('demo');
 
         // do something with value
     }
