@@ -41,7 +41,7 @@ Changing the grid for all builders
 
         if (!is_admin()) {
             wp_register_style(
-                'fw-theme-frontend-grid',
+                'fw-ext-builder-frontend-grid',
                 get_template_directory_uri() .'/framework-customizations/extensions/builder/static/frontend-grid.css',
                 array(),
                 fw()->theme->manifest->get_version()
