@@ -130,8 +130,8 @@ Markup Example
         </li>
     </ul>
 
-Changing item/icon markup
--------------------------
+Change Item/Icon Markup
+-----------------------
 
 By default the icon is added to
 
@@ -177,3 +177,42 @@ overwrite `this view <https://github.com/ThemeFuse/Unyson-MegaMenu-Extension/blo
     echo $args->before;
     echo fw_html_tag('a', $attributes, $args->link_before . $icon_html . $title . $args->link_after);
     echo $args->after;
+
+Overwrite the Walker
+--------------------
+
+1. Create the walker class
+
+.. code-block:: php
+
+   // file:: {theme}/framework-customizations/extensions/megamenu/includes/class-fw-ext-mega-menu-custom-walker.php
+
+   class FW_Ext_Mega_Menu_Custom_Walker extends FW_Ext_Mega_Menu_Walker
+    {
+        function start_lvl( &$output, $depth = 0, $args = array(), $class = 'sub-menu' ) {
+            fw_print('Hello');
+
+            return parent::start_lvl($output, $depth, $args, $class);
+        }
+
+        // other customizations ...
+    }
+
+2. Overwrite the default walker via filter
+
+.. code-block:: php
+
+    // file: {theme}/framework-customizations/extensions/megamenu/hooks.php
+
+    // replace default walker
+    {
+        remove_filter('wp_nav_menu_args', '_filter_fw_ext_mega_menu_wp_nav_menu_args');
+
+        /** @internal */
+        function _filter_theme_ext_mega_menu_wp_nav_menu_args($args) {
+            $args['walker'] = new FW_Ext_Mega_Menu_Custom_Walker();
+
+            return $args;
+        }
+        add_filter('wp_nav_menu_args', '_filter_theme_ext_mega_menu_wp_nav_menu_args');
+    }
