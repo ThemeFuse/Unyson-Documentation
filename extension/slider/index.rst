@@ -121,7 +121,6 @@ The ``$data`` variable that is available in view, has the following structure:
                 'title' => 'Slide Title',
                 'multimedia_type' => 'video|image',
                 'src'   => 'Slide src',
-                'desc'  => 'Slide Description',
                 'extra' => array(
                     /**
                      * This array can be empty, it depends on population method
