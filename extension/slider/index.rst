@@ -43,8 +43,16 @@ The slider extension directory has the following structure:
 Create a simple slider type
 ---------------------------
 
-To create simple slider type, create a :doc:`child extension </extensions/introduction>`. In our case the slider type is ``bx-slider``, so the child extension directory will be
-``framework-customizations/extensions/media/extensions/slider/extensions/bx-slider``.
+To create simple slider type, create a :doc:`child extension </extensions/introduction>`. In our case the slider type is ``demo-slider``, so the child extension directory will be
+``framework-customizations/extensions/media/extensions/slider/extensions/demo-slider``.
+
+.. important::
+
+    Make sure you have ``framework-customizations/extensions/media/extensions/slider/extensions/demo-slider/manifest.php`` with the following contents:
+
+    .. code-block:: php
+
+        <?php $manifest['standalone'] = true;
 
 Configuration
 ^^^^^^^^^^^^^
@@ -74,11 +82,45 @@ The configuration file ``config.php`` contains the following parameters:
     $cfg['multimedia_types'] = array('image');
 
 
+Static files
+^^^^^^^^^^^^
+
+Scripts, styles and images are stored in the ``static/`` directory.
+
+* ``static/images/`` - directory for images. This directory has 2 special images that you should create:
+
+    * ``thumb.jpg`` - small image with frontend preview of this slider type. Is displayed on the admin side in Slider Type choices.
+    * ``preview.jpg`` - a bigger image with frontend preview of this slider type. It is displayed when the user hovers the ``thumb.jpg`` in the WordPress admin.
+
+* ``static/css/`` - directory for styles. They will be automatically enqueued in frontend.
+* ``static/js/`` - directory for scripts. They will be automatically enqueued in frontend.
+
+.. note::
+
+    Styles and scripts are enqueued in alphabetical orders. You cannot set dependencies for them.
+    So if you want for e.g. ``c.js`` to be enqueued before ``b.js``, you must rename it, or prefix it
+    with some number or letter ``a-c.js``.
+
+For ``demo-sloder`` to work:
+
+1. Download `this script <https://raw.githubusercontent.com/idiot/unslider/master/dist/js/unslider-min.js>`_ 
+   in ``framework-customizations/extensions/media/extensions/slider/extensions/demo-slider/static/js/unslider-min.js``.
+2. Download `this style <https://raw.githubusercontent.com/idiot/unslider/master/dist/css/unslider.css>`_
+   in ``framework-customizations/extensions/media/extensions/slider/extensions/demo-slider/static/css/unslider.css``.
+
+Options
+^^^^^^^
+
+Optionally, if your slider have extra :doc:`options </options/introduction>`, you can create 2 types of option files within ``options/`` directory:
+
+* ``options.php`` - extra options shown after default options on add and edit slider page.
+* ``{population-method}.php`` - extra options for concrete population method, shown after default options on edit slider page.
+
 
 Template
 ^^^^^^^^
 
-View the file that contains the slider template for frontend, is located in ``views/{slider-type}.php``. Here is an example for our ``bx-slider``:
+View the file that contains the slider template for frontend, is located in ``views/{slider-type}.php``. Here is an example for our ``demo-slider``:
 
 .. code-block:: php
 
@@ -86,29 +128,29 @@ View the file that contains the slider template for frontend, is located in ``vi
     /**
      * @var array $data
      */
-
-    $unique_id = 'bx-slider-'. fw_unique_increment();
+    
+    $unique_id = 'demo-slider-'. fw_unique_increment();
     ?>
     <?php if (isset($data['slides'])): ?>
         <script type="text/javascript">
-            jQuery('document').ready(function () {
-                jQuery('#<?php echo $unique_id ?>').bxSlider();
-            });
+            jQuery(function($){ $('#<?php echo $unique_id ?>').unslider(); });
         </script>
-        <ul id="<?php echo $unique_id ?>" class="bxslider">
-            <?php foreach ($data['slides'] as $slide): ?>
-                <li>
-                    <?php if ($slide['multimedia_type'] === 'video') : ?>
-                        <?php echo fw_oembed_get($slide['src'], $dimensions); ?>
-                    <?php else: ?>
-                        <img src="<?php echo fw_resize($slide['src'], $dimensions['width'], $dimensions['height']); ?>"
-                             alt="<?php echo esc_attr($slide['title']) ?>"
-                             width="<?php echo esc_attr($dimensions['width']); ?>"
-                             height="<?php echo $dimensions['height']; ?>"/>
-                    <?php endif; ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+        <div id="<?php echo $unique_id ?>">
+            <ul>
+                <?php foreach ($data['slides'] as $slide): ?>
+                    <li>
+                        <?php if ($slide['multimedia_type'] === 'video') : ?>
+                            <?php echo fw_oembed_get($slide['src'], $dimensions); ?>
+                        <?php else: ?>
+                            <img src="<?php echo fw_resize($slide['src'], $dimensions['width'], $dimensions['height']); ?>"
+                                alt="<?php echo esc_attr($slide['title']) ?>"
+                                width="<?php echo esc_attr($dimensions['width']); ?>"
+                                height="<?php echo $dimensions['height']; ?>" />
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
     <?php endif; ?>
 
 The ``$data`` variable that is available in view, has the following structure:
@@ -149,36 +191,6 @@ The ``$data`` variable that is available in view, has the following structure:
         )
     );
 
-
-
-Options
-^^^^^^^
-
-Optionally, if your slider have extra :doc:`options </options/introduction>`, you can create 2 types of option files within ``options/`` directory:
-
-* ``options.php`` - extra options shown after default options on add and edit slider page.
-* ``{population-method}.php`` - extra options for concrete population method, shown after default options on edit slider page.
-
-
-
-Static files
-^^^^^^^^^^^^
-
-Scripts, styles and images are stored in ``static/`` directory.
-
-* ``static/images/`` - directory for images. This directory has 2 special images that you should create:
-
-    * ``thumb.png`` - small image with frontend preview of this slider type. Is displayed on the admin side in Slider Type choices.
-    * ``preview.png`` - a bigger image with frontend preview of this slider type. It is displayed when the user hovers the ``thumb.png`` in the WordPress admin.
-    
-* ``static/css/`` - directory for styles. They will be automatically enqueued in frontend.
-* ``static/js/`` - directory for scripts. They will be automatically enqueued in frontend.
-
-.. note::
-
-    Styles and scripts are enqueued in alphabetical orders. You cannot set dependencies for them.
-    So if you want for e.g. ``c.js`` to be enqueued before ``b.js``, you must rename it, or prefix it
-    with some number or letter ``a-c.js``.
 
 Create advanced slider type
 ---------------------------
