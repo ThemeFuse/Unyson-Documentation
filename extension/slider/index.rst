@@ -191,7 +191,6 @@ The ``$data`` variable that is available in view, has the following structure:
         )
     );
 
-
 Create advanced slider type
 ---------------------------
 
@@ -199,28 +198,21 @@ If you want to create an advanced slider with your own extra logic,
 you must create a class file named ``class-fw-extension-{slider-type}.php``
 within the slider type directory.
 
-In our case the slider type is ``bx-slider``, so the class file will be located in
-``framework-customizations/extensions/media/extensions/slider/extensions/bx-slider/class-fw-extension-bx-slider.php``
+In this case the slider type is ``demo-slider``, so the class file will be located in
+``framework-customizations/extensions/media/extensions/slider/extensions/bx-slider/class-fw-extension-demo-slider.php``
 and will contain:
 
 .. code-block:: php
 
     <?php if (!defined('FW')) die('Forbidden');
 
-    class FW_Extension_Bx_Slider extends FW_Slider
-    {
-        /**
-         * @internal
-         */
-        public function _init()
-        {
-        }
+    class FW_Extension_Demo_Slider extends FW_Slider {
+        /** @internal */
+        public function _init() {}
     }
 
 Then you can take a look at the ``FW_Slider`` methods to learn what are they doing and decide
 which one you will overwrite.
-
-
 
 Frontend render
 ---------------
@@ -233,7 +225,7 @@ There are two ways you can display a slider in frontend:
 
     .. code-block:: php
 
-        fw()->extensions->get('slider')->render_slider(10, array(
+        fw()->extensions->get('slider')->render_slider($slider_post_id, array(
             'width'  => 300,
             'height' => 200
         ));
