@@ -13,7 +13,7 @@ from the desire to empower developers to build outstanding WordPress themes fast
 Minimum Requirements
 --------------------
 
-* WordPress 4.0 or greater
+* WordPress 4.3 or greater
 * PHP version 5.2.4 or greater
 * MySQL version 5.0 or greater
 
