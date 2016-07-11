@@ -660,12 +660,12 @@ Icon V2
          * small | medium | large | sauron
          * Yes, sauron. Definitely try it. Great one.
          */
-        'preview_size' => 'small',
+        'preview_size' => 'medium',
 
         /**
          * small | medium | large
          */
-        'modal_size' => 'small',
+        'modal_size' => 'medium',
 
         /**
          * There's no point in configuring value from code here.
