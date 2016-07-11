@@ -705,7 +705,7 @@ which will work out of the box.
 .. note::
     You'll have to enable `SVG` uploads by yourself, with a hook in your theme.
 
-By default, we have just 6 icon packs enabled and server with Unyson itself.
+By default, we have just 6 icon packs enabled and served with Unyson itself.
 
 - `Font Awesome <https://github.com/FortAwesome/Font-Awesome>`_
 - `Entypo <http://www.entypo.com>`_
