@@ -649,7 +649,7 @@ Choose a `FontAwesome <http://fontawesome.io/>`_ icon.
     )
 
 Icon V2
-----
+-------
 
 .. code-block:: php
 

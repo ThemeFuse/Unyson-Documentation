@@ -20,3 +20,4 @@ Built-in Extensions
     feedback/index
     learning/index
     translation/index
+    wp-shortcodes/index
