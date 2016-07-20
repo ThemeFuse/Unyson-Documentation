@@ -113,6 +113,83 @@ Modal with :doc:`options </options/introduction>`. Display html generated from a
 
         fw()->backend->enqueue_options_static($modal_options);
 
+Confirmation
+------------
+
+General purpose confirmation mechanism that operates with ``jQuery.Deferred``.
+
+.. code-block:: javascript
+
+    var confirm = fw.soleConfirm.create({
+      severity: 'info', // warning | info
+      message: 'Some message to display', // or null, if you don't want any
+      backdrop: null // null | false | true
+    });
+
+    confirm.result; // Instance of jQuery.Deferred factory
+
+    confirm.result.then(function (confirm_instance) {
+      // confirm_instance is same as confirm
+
+      // Handle success branch
+    });
+
+    confirm.result.fail(function (confirm_instance) {
+      // Handle fail branch
+    });
+
+    confirm.show();
+
+Queueing confirms
+^^^^^^^^^^^^^^^^^
+
+Confirm is actually using ``fw.soleModal`` under the hood, which is queued
+one after the other.
+
+.. code-block:: javascript
+
+    var confirm1 = fw.soleConfirm.create();
+    var confirm2 = fw.soleConfirm.create();
+
+    confirm1.show();
+    confirm2.show();
+
+    confirm1.hide(); // That's when the confirm2 will actually pop in, results are buffered
+
+Same confirm multiple times
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Because of the way ``jQuery.Deferred`` works, one single confirm instance
+will resolve it's promise exactly one time. If you really need to use the same
+confirm once again - just reset it.
+
+.. code-block:: javascript
+
+    var confirm = fw.soleConfirm.create();
+
+    confirm.result.then(function () {
+      // handle success
+      // will be triggered just once
+    });
+
+    confirm.show();
+
+    // ...
+    // after the user takes his choice
+    // ...
+
+    confirm.show(); // will throw an error!
+    confirm.reset();
+
+    // you'll have to attach your listeners once again, the old one
+    // will already not be around
+    confirm.result.then(function () {
+      // one more handler
+    });
+
+    confirm.show(); // will work just fine
+
+
 Events
 ------
 
