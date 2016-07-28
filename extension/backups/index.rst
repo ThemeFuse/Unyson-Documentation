@@ -44,7 +44,7 @@ Demos bundled in theme
 ######################
 
 1. Create Content Backup
-2. Extract the zip in ``{theme}/demo-content/{demo-name}/``
+2. **Extract** the zip in ``{theme}/demo-content/{demo-name}/``
 3. Create ``{theme}/demo-content/{demo-name}/manifest.php`` with the following contents:
 
     .. code-block:: php
