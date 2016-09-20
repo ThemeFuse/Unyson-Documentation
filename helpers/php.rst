@@ -686,7 +686,7 @@ Create Settings Page
 ^^^^^^^^^^^^^^^^^^^^
 
 If you want to create a settings page similar to Theme Settings,
-`this <http://sourcebox.io/d3fe4eed474c30ec71edef7a6a4f039c/php>`__ will help you getting started.
+`this <https://gist.github.com/moldcraft/9fb7b4d2b1cb49df2afe21f31adac253>`__ will help you getting started.
 
 .. _fw-flash-messages:
 
