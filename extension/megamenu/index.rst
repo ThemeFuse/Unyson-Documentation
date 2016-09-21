@@ -216,3 +216,15 @@ Overwrite the Walker
         }
         add_filter('wp_nav_menu_args', '_filter_theme_ext_mega_menu_wp_nav_menu_args');
     }
+
+Item Custom Options
+-------------------
+
+1. :ref:`Overwrite <extension-directory-structure>` these `options <https://github.com/ThemeFuse/Unyson-MegaMenu-Extension/tree/master/options>`__ in your theme.
+2. Get the saved db value (it has the :ref:`same structure <multi-picker-get-db-value>` as ``multi-picker`` option-type value)
+
+    .. code-block:: php
+
+        if ($item_type = fw_ext_mega_menu_get_db_item_option($item_id, 'type')) {
+            $values    = fw_ext_mega_menu_get_db_item_option($item_id, $item_type);
+        }

@@ -8,6 +8,8 @@ They can be installed via Extensions page, bundled with a theme or loaded from a
     :local:
     :backlinks: top
 
+.. _extension-directory-structure:
+
 Directory Structure
 -------------------
 
