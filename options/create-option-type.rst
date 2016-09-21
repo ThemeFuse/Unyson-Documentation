@@ -177,6 +177,8 @@ To define a new option type, create a class that extends the base option type cl
         });
     });
 
+.. _option-type-width:
+
 Option Width
 ------------
 

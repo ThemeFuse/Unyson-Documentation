@@ -8,5 +8,5 @@ Options
     integrate
     customizer
     option-types
-    built-in-option-types
+    built-in/introduction
     create-option-type
