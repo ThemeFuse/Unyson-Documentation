@@ -228,3 +228,5 @@ Item Custom Options
         if ($item_type = fw_ext_mega_menu_get_db_item_option($item_id, 'type')) {
             $values    = fw_ext_mega_menu_get_db_item_option($item_id, $item_type);
         }
+
+3. Adapt options popup sizes by overwriting these `config keys <https://github.com/ThemeFuse/Unyson-MegaMenu-Extension/blob/v1.1.0/config.php#L5-L7>`__.
