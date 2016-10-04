@@ -21,14 +21,6 @@ Create Demos
 
 In order to create a demo content archive, just create a Content Backup.
 
-.. important::
-
-    If you have contact forms added in pages with the visual page builder, please check the Mailer settings and remove all private credentials you might have inserted there.
-
-    The Mailer settings are saved in a wp option which is excluded on content backup but unfortunately
-    the same settings are saved in other places. This problem `will be fixed <https://github.com/ThemeFuse/Unyson/issues/838>`__ later but until then,
-    you’ll need to manually clear the mailer settings for each contact form before content backup.
-
 .. tip::
 
     Before creating a Content Backup for Demo Install use a plugin to remove post revisions.
