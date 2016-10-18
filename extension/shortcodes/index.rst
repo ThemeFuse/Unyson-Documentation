@@ -373,12 +373,13 @@ The ``[hr]`` shorcode is completed! The directory structure of the shortcode is 
 .. code-block:: text
 
     framework-customizations/
-    └─theme/
+    └─extensions/
       └─shortcodes/
-        └─hr/
-          ├─config.php
-          └─views/
-            └─view.php
+        └─shortcodes/
+          └─hr/
+            ├─config.php
+            └─views/
+              └─view.php
 
 Creating a shortcode with options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
