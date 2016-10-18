@@ -161,7 +161,7 @@ That's it, the new builder was created. Use it in your post options to see what 
 
             require_once dirname(__FILE__) .'/option-types/lists-builder/class-fw-option-type-lists-builder.php';
         }
-        add_action('fw_init', '_action_include_demo_lists_builder', 9);
+        add_action('fw_option_types_init', '_action_include_demo_lists_builder');
 
 2. Add it in post options:
 
