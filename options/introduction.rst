@@ -176,11 +176,8 @@ Restrictions
 
 Here are some restrictions to keep in mind:
 
-* **Post Options** array ``{theme}/framework-customizations/theme/options/posts/{$post_type}.php``
-  on first level can have only ``box`` containers.
 * ``attr`` parameter from **Post Options** first level ``box`` containers, is not used.
   Because boxes are added with `add_meta_box()`_ which has no parameter for specifying attributes.
-* **Taxonomy Options** array ``{theme}/framework-customizations/theme/options/taxonomies/{$taxonomy}.php`` on first level cannot have containers.
 
 .. note::
 
