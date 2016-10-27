@@ -14,65 +14,65 @@ General PHP helpers:
 
 .. _fw-print:
 
-* ``fw_print($value, $die = false)`` - styled version of ``print_r()``.
+* ``fw_print($value)`` - styled version of ``print_r()``.
 
 .. _fw-html-tag:
 
-* ``fw_html_tag($tag, $attr = null, $end = null)`` - generate html tag.
+* ``fw_html_tag($tag, array $attr, $end = null)`` - generate html tag.
 
-        .. code-block:: php
+    .. code-block:: php
 
-            echo fw_html_tag('script', array('src' => '/demo.js'), true);
+        echo fw_html_tag('script', array('src' => '/demo.js'), true);
 
-            // <script src="/demo.js"></script>
+        // <script src="/demo.js"></script>
 
 .. _fw-attr-to-html:
 
 * ``fw_attr_to_html(array $attr_array)`` - generate html attributes from array.
 
-        .. code-block:: php
+    .. code-block:: php
 
-            echo '<div '. fw_attr_to_html(array('id' => 'foo', 'class' => 'bar')) .'></div>';
+        echo '<div '. fw_attr_to_html(array('id' => 'foo', 'class' => 'bar')) .'></div>';
 
-            // <div id="foo" class="bar" ></div>
+        // <div id="foo" class="bar" ></div>
 
 .. _fw-akg:
 
 * ``fw_akg($keys, &$array_or_object, $default_value = null, $keys_delimiter = '/')`` - get array multikey value.
 
-        .. _multikey:
+    .. _multikey:
 
-        .. note::
+    .. note::
 
-            **MultiKey** is a string composed from multiple array keys, separated by a delimiter character, that represents an array structure. For example
+        **MultiKey** is a string composed from multiple array keys, separated by a delimiter character, that represents an array structure. For example
 
-            .. code-block:: text
+        .. code-block:: text
 
-                'a/b/c'
+            'a/b/c'
 
-            represents
-
-            .. code-block:: php
-
-                array(
-                    'a' => array(
-                        'b' => array(
-                            'c' => null
-                        )
-                    )
-                )
+        represents
 
         .. code-block:: php
 
-            $demo = array(
+            array(
                 'a' => array(
-                    'b' => 'hello'
+                    'b' => array(
+                        'c' => null
+                    )
                 )
-             );
+            )
 
-            echo fw_akg('a/b', $demo);
+    .. code-block:: php
 
-            // 'hello'
+        $demo = array(
+            'a' => array(
+                'b' => 'hello'
+            )
+         );
+
+        echo fw_akg('a/b', $demo);
+
+        // 'hello'
 
 .. _fw-aks:
 
@@ -295,10 +295,6 @@ General PHP helpers:
 
         // 'a/b/c'
 
-.. _fw-is-real-post-save:
-
-* ``fw_is_real_post_save()`` - used in 'save_post' action to detect if it's a real post save, not a revision, auto save or something else.
-
 .. _fw-current-url:
 
 * ``fw_current_url()`` - generate current page url from ``$_SERVER`` data.
@@ -325,6 +321,16 @@ General PHP helpers:
 
         // '3 hours'
 
+.. _fw-human-bytes:
+
+* ``fw_human_bytes($bytes)`` - convert bytes to human readable size.
+
+    .. code-block:: php
+
+        echo fw_human_bytes(12345);
+
+        // '2.06 KB'
+
 .. _fw-strlen:
 
 * ``fw_strlen($string)`` - UTF-8 version of php's ``strlen()``.
@@ -336,20 +342,6 @@ General PHP helpers:
 
         // 13
         // 7
-
-.. _fw-is-post-edit:
-
-* ``fw_is_post_edit()`` - check if you are currently on a post edit page. It also detects if form submit was made from the post edit page.
-
-.. _fw-dirname-to-classname:
-
-* ``fw_dirname_to_classname($dirname)`` - convert directory name to string to be used as/in class name.
-
-    .. code-block:: php
-
-        echo 'FW_'. fw_dirname_to_classname('hello-world');
-
-        // FW_Hello_World
 
 .. _fw-fix-path:
 
@@ -378,47 +370,6 @@ General PHP helpers:
 .. _fw-get-framework-directory-uri:
 
 * ``fw_get_framework_directory_uri()`` - URI to the parent-theme/framework directory
-
-.. _cache:
-
-Cache
------
-
-Use cache to store frequently accessed data. Cache is just a big array and has one useful feature: it will automatically begin to unset array keys if the php memory is close to full. So it is safe to store in it as much data as you want (of course the maximum allowed by php, by default is ~100Mb).
-
-.. code-block:: php
-
-    function get_foo_bar() {
-        $cache_key = 'foo/bar';
-
-        try {
-            /**
-             * This will throw an exception if the key was not found
-             */
-            return FW_Cache::get($cache_key);
-        } catch (FW_Cache_Not_Found_Exception $e) {
-            $data = _generate_foo_bar_data();
-
-            FW_Cache::set($cache_key, $data);
-
-            return $data;
-        }
-    }
-
-.. attention::
-
-    Don't do this:
-
-    .. code-block:: php
-
-            ...
-        } catch (FW_Cache_Not_Found_Exception $e) {
-            FW_Cache::set($cache_key, _generate_foo_bar_data());
-
-            return FW_Cache::get($cache_key);
-        }
-
-    because ``FW_Cache::set(...)`` can fail or the data that was set can be removed after automatically memory free.
 
 .. _options:
 
@@ -570,159 +521,11 @@ Database
 
 * ``fw_set_db_extension_data($extension_name, $key, $value)`` - extensions uses this function to store private values in the database.
 
-.. _fw-form:
-
-FW_Form
--------
-
-A convenient way to create forms. You can create a form class instance and give it three callbacks that control the render, validate and save process.
-
-.. code-block:: php
-
-    $my_form = new FW_Form('<unique-id>', array(
-        'render'   => '_my_form_render',
-        'validate' => '_my_form_validate',
-        'save'     => '_my_form_save',
-    ));
-
-    function _my_form_render() {
-        $input_value = FW_Request::POST('demo');
-
-        echo '<input type="text" name="demo" maxlength="10" value="'. esc_attr($input_value) .'">';
-    }
-
-    function _my_form_validate($errors) {
-        $input_value = FW_Request::POST('demo');
-
-        if (fw_strlen($input_value) > 10) {
-            $errors['demo'] = __('Value cannot be more that 10 characters long', '{domain}');
-        }
-
-        return $errors;
-    }
-
-    function _my_form_save() {
-        $input_value = FW_Request::POST('demo');
-
-        // do something with value
-    }
-
-    echo $my_form->render();
-    // this will output:
-    // <form ... ><input type="text" name="demo" maxlength="10" value=""></form>
-
-.. _fw-form-customize-errors:
-
-Customize errors
-^^^^^^^^^^^^^^^^
-
-By default the errors are displayed right before the ``<form>`` tag.
-You can display the errors in your own way and cancel the default display.
-Before the errors are displayed, an action is fired so you can use it:
-
-.. code-block:: php
-
-    /**
-     * @param FW_Form $form
-     * @internal
-     */
-    function _action_theme_fw_form_errors_display($form) {
-        /**
-         * Once the errors was accessed/requested
-         * the form will cancel/abort the default errors display
-         */
-        $errors = $form->get_errors();
-
-        echo '<ul class="your-custom-errors-class">';
-        foreach ($errors as $input_name => $error_message) {
-            echo fw_html_tag(
-                'li',
-                array('data-input-name' => $input_name),
-                $error_message
-            );
-        }
-        echo '</ul>';
-    }
-    add_action('fw_form_display_errors_frontend', '_action_theme_fw_form_errors_display');
-
-.. _fw-form-ajax-submit:
-
-Ajax submit
-^^^^^^^^^^^
-
-You can use `this script <https://github.com/ThemeFuse/Unyson/blob/master/framework/static/js/fw-form-helpers.js>`__ to make ``FW_Form`` ajax submittable.
-
-Enqueue the script in frontend:
-
-.. code-block:: php
-
-    // file: {theme}/inc/static.php
-    // https://github.com/ThemeFuse/Theme-Includes
-
-    if (!is_admin()) {
-        wp_enqueue_script(
-            'fw-form-helpers',
-            fw_get_framework_directory_uri('/static/js/fw-form-helpers.js')
-        );
-        wp_localize_script('fw-form-helpers', 'fwAjaxUrl', admin_url( 'admin-ajax.php', 'relative' ));
-    }
-
-Run the initialization script:
-
-.. code-block:: javascript
-
-    jQuery(function(){
-        fwForm.initAjaxSubmit({
-            //selector: 'form[some-custom-attribute].or-some-class'
-
-            // Open the script code and check the `opts` variable
-            // to see all options that you can overwrite/customize.
-        });
-    });
-
-.. _fw-form-settings-page:
-
-Create Settings Page
-^^^^^^^^^^^^^^^^^^^^
-
-If you want to create a settings page similar to Theme Settings,
-`this <https://gist.github.com/moldcraft/9fb7b4d2b1cb49df2afe21f31adac253>`__ will help you getting started.
-
-.. _fw-flash-messages:
-
-FW_Flash_Messages
------------------
-
-You can display small messages that will be stored on the user's session for exactly one additional request.
-This is useful when processing a form: you want to redirect and have a special message shown on the next page.
-These types of messages are called "flash" messages.
-
-.. _fw-flash-messages-add:
-
-.. rubric:: Adding a flash message
-
-.. code-block:: php
-
-    FW_Flash_Messages::add(
-        'unique-id',
-        __('Test message', '{domain}'),
-        'success' // available types: info, warning, error, success
-    );
-
-.. _fw-flash-messages-display:
-
-.. rubric:: Displaying flash messages
-
-In admin the messages are displayed as `admin notices <https://codex.wordpress.org/Plugin_API/Action_Reference/admin_notices>`__.
-
-In frontend the messages are printed in footer,
-then a javascript tries to find on the page the content container and move the messages in it.
-This position guessing sometimes fails when the page has some special html structure
-and the messages may not be visible or will be displayed in an inappropriate place.
-You can choose a place in your template and display the messages manually:
-
-.. code-block:: php
-
-    <?php if (defined('FW')) { FW_Flash_Messages::_print_frontend(); } ?>
-
 .. include:: /links.rst.inc
+
+.. toctree::
+
+    cache
+    form
+    settings-form
+    flash-messages
