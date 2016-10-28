@@ -172,7 +172,7 @@ There are 4 built-in container types:
         ),
 
 Restrictions
-^^^^^^^^^^^^
+------------
 
 Here are some restrictions to keep in mind:
 
