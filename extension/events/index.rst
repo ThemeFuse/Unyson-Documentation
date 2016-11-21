@@ -15,39 +15,39 @@ Hooks
     .. code-block:: php
 
         /** @internal */
-        function _action_theme_render_html($post) {
+        function _action_theme_fw_ext_events_render_html($post) {
             if (!empty($post) and $post === fw()->extensions->get( 'events' )->get_post_type_name() ) {
                 echo '<div>'. __('Hello world', '{domain}') .'</div>';
             }
         }
-        add_action('fw_theme_ext_events_after_content', '_action_theme_render_html');
+        add_action('fw_theme_ext_events_after_content', '_action_theme_fw_ext_events_render_html');
 
 * ``fw_ext_events_post_slug`` - event custom post slug
 
     .. code-block:: php
 
         /** @internal */
-        function _filter_custom_events_post_slug($slug) {
+        function _filter_theme_fw_ext_events_custom_events_post_slug($slug) {
             return 'event';
         }
-        add_filter('fw_ext_events_post_slug', '_filter_custom_events_post_slug');
+        add_filter('fw_ext_events_post_slug', '_filter_theme_fw_ext_events_custom_events_post_slug');
 
 * ``fw_ext_events_taxonomy_slug`` - event taxonomy slug
 
     .. code-block:: php
 
         /** @internal */
-        function _filter_custom_events_taxonomy_slug($slug) {
+        function _filter_theme_fw_ext_events_custom_events_taxonomy_slug($slug) {
             return 'events';
         }
-        add_filter('fw_ext_events_taxonomy_slug', '_filter_custom_events_taxonomy_slug');
+        add_filter('fw_ext_events_taxonomy_slug', '_filter_theme_fw_ext_events_custom_events_taxonomy_slug');
 
 * ``fw_ext_events_post_type_name`` - event custom post labels (plural and singular)
 
     .. code-block:: php
 
         /** @internal */
-        function _filter_event_labels($labels) {
+        function _filter_theme_fw_ext_events_event_labels($labels) {
             $labels = array(
                 'singular' => __('Custom Event', '{domain}'),
                 'plural'   => __('Custom Events', '{domain}'),
@@ -55,14 +55,14 @@ Hooks
 
             return $labels;
         }
-        add_filter('fw_ext_events_post_type_name', '_filter_event_labels');
+        add_filter('fw_ext_events_post_type_name', '_filter_theme_fw_ext_events_event_labels');
 
 * ``fw_ext_events_category_name`` - event taxonomy labels (plural and singular)
 
     .. code-block:: php
 
         /** @internal */
-        function _filter_event_tax_labels_names($labels) {
+        function _filter_theme_fw_ext_events_event_tax_labels_names($labels) {
             $labels = array(
                 'singular' => __( 'Custom Category', '{domain}' ),
                 'plural'   => __( 'Custom Categories', '{domain}' ),
@@ -70,35 +70,29 @@ Hooks
 
             return $labels;
         }
-        add_filter( 'fw_ext_events_category_name', '_filter_event_tax_labels_names' );
+        add_filter( 'fw_ext_events_category_name', '_filter_theme_fw_ext_events_event_tax_labels_names' );
 
-New options on the Event edit page
-----------------------------------
+* ``fw_ext_events_post_options`` - custom options for event
 
-A sub-extension which implements ``FW_Events_Interface_Tabs`` will include options announced in ``fw_get_tabs_options()`` method.
+    .. code-block:: php
 
-.. code-block:: php
-
-    <?php if (!defined('FW')) die('Forbidden');
-
-    class FW_Extension_Event_Tickets extends FW_Extension implements FW_Events_Interface_Tabs {
-
-        public function fw_get_tabs_options() {
-            return array(
-                'events_tab' => array(
-                    'title'   => __( 'New Demo Tab Options', '{domain}' ),
+        /** @internal */
+        function _filter_theme_fw_ext_events_custom_options($options) {
+            return array_merge($options, array(
+                'events_tab_1' => array(
+                    'title'   => __('Test title', '{domain}'),
                     'type'    => 'tab',
                     'options' => array(
                         'demo_text_id' => array(
                             'type'  => 'text',
-                            'desc'  => 'Demo text description',
-                            'label' => 'Demo Text Label',
+                            'label' => __('Demo Text label', '{domain}'),
+                            'desc'  => __('Demo text description', '{domain}'),
                         )
                     )
-                )
-            );
+               )
+            ));
         }
-    }
+        add_filter('fw_ext_events_post_options', '_filter_theme_fw_ext_events_custom_options');
 
 Views
 -----
