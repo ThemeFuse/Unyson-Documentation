@@ -56,12 +56,6 @@ The only thing you will have to configure is the framework directory uri, for th
     if (defined('FW')):
         // the framework was already included in another place, so this version will be inactive/ignored
     else:
-        /** @internal */
-        function _filter_fw_framework_plugin_directory_uri() {
-            return 'https://.../uri/to/this/directory' . '/framework';
-        }
-        add_filter('fw_framework_directory_uri', '_filter_fw_framework_plugin_directory_uri');
-
         require dirname(__FILE__) .'/framework/bootstrap.php';
     endif;
 
