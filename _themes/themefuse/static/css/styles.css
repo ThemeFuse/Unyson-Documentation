@@ -977,7 +977,7 @@ li > a.reference.internal em {
 /* Lists */
 .section ul,
 .section ol {
-    list-style: inside disc;
+    list-style-type: disc;
     padding-left: 20px;
     line-height: 21px;
     margin: 27px 0;
@@ -995,6 +995,10 @@ li > a.reference.internal em {
 
 .section li p {
     margin-bottom: 10px;
+}
+
+.section li > p.first {
+    display: inline;
 }
 
 .section ol {
