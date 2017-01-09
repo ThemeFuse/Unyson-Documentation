@@ -1,9 +1,14 @@
 Customizer
 ==========
 
-Starting with `v2.3.0 <https://github.com/ThemeFuse/Unyson-Extensions-Approval/issues/66>`__ options can be used in Customizer.
+.. contents::
+    :local:
+    :backlinks: top
 
-**Customizer Options** ``{theme}/framework-customizations/theme/options/customizer.php``
+Introduction
+------------
+
+Customizer Options ``{theme}/framework-customizations/theme/options/customizer.php``
 are turned into `Customizer <https://codex.wordpress.org/Theme_Customization_API>`__ elements (panels, sections and controls).
 
 The customizer elements have a strict structure which also applies to options array structure:
@@ -93,6 +98,60 @@ Try the below arrays in ``{theme}/framework-customizations/theme/options/customi
     .. code-block:: php
 
         $value = fw_get_db_customizer_option('option_1');
+
+.. _customizer-options-additional-args:
+
+Additional Arguments
+--------------------
+
+* `Control arguments <https://codex.wordpress.org/Class_Reference/WP_Customize_Manager/add_control#Arguments>`__ can be set in ``wp-customizer-args`` option parameter.
+
+    .. code-block:: php
+
+        $options = array(
+            'section_1' => array(
+                'title' => __('Unyson Section', '{domain}'),
+                'options' => array(
+
+                    'option_1' => array(
+                        'type' => 'text',
+                        'value' => 'Default Value',
+                        'label' => __('Unyson Option', '{domain}'),
+                        'desc' => __('Option Description', '{domain}'),
+
+                        'wp-customizer-args' => array(
+                            'priority' => 3,
+                        ),
+                    ),
+
+                ),
+            ),
+        );
+
+* `Setting arguments <https://codex.wordpress.org/Class_Reference/WP_Customize_Manager/add_setting#Arguments>`__ can be set in ``wp-customizer-setting-args`` option parameter.
+
+    .. code-block:: php
+
+        $options = array(
+            'section_1' => array(
+                'title' => __('Unyson Section', '{domain}'),
+                'options' => array(
+
+                    'option_1' => array(
+                        'type' => 'text',
+                        'value' => 'Default Value',
+                        'label' => __('Unyson Option', '{domain}'),
+                        'desc' => __('Option Description', '{domain}'),
+
+                        'wp-customizer-setting-args' => array(
+                            'capability' => 'edit_posts',
+                        ),
+                    ),
+
+                ),
+            ),
+        );
+
 
 .. _customizer-options-live-preview:
 
