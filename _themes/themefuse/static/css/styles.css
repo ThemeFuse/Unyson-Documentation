@@ -1080,7 +1080,8 @@ table.docutils {
     border-collapse: collapse;
     margin: 27px 0;
 }
-table.docutils td {
+table.docutils td,
+table.docutils th {
     border: 1px solid #eaeaea;
     padding: 15px 10px;
 }
