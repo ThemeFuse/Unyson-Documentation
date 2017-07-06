@@ -201,34 +201,165 @@ In this example, is added support for ``icon`` option type *(it is not practical
 
         $options = array(
 
-        'demo_multi_picker_icon' => array(
-            'type'         => 'multi-picker',
-            'label'        => false,
-            'desc'         => false,
-            'picker'       => array(
-                'gadget' => array(
-                    'label'   => __( 'Multi Picker: Icon', 'unyson' ),
-                    'type'    => 'icon',
-                )
-            ),
-            'choices' => array(
-                'fa fa-btc'  => array(
-                    'price'  => array(
-                        'label' => __( 'Price', 'unyson' ),
-                        'type'  => 'slider',
-                        'value' => 70,
+            'demo_multi_picker_icon' => array(
+                'type'         => 'multi-picker',
+                'label'        => false,
+                'desc'         => false,
+                'picker'       => array(
+                    'gadget' => array(
+                        'label'   => __( 'Multi Picker: Icon', 'unyson' ),
+                        'type'    => 'icon',
+                    )
+                ),
+                'choices' => array(
+                    'fa fa-btc'  => array(
+                        'price'  => array(
+                            'label' => __( 'Price', 'unyson' ),
+                            'type'  => 'slider',
+                            'value' => 70,
+                        ),
+                    ),
+                    'fa fa-viacoin' => array(
+                        'price'  => array(
+                            'label' => __( 'Price', 'unyson' ),
+                            'type'  => 'slider',
+                            'value' => 30
+                        ),
                     ),
                 ),
-                'fa fa-viacoin' => array(
-                    'price'  => array(
-                        'label' => __( 'Price', 'unyson' ),
-                        'type'  => 'slider',
-                        'value' => 30
-                    ),
-                ),
             ),
-        ),
 
         );
 
 4. Open **Theme Settings** page and pick the Bitcoin or Viacoin icon.
+
+Dynamic Multi Picker
+====================
+
+While basic set of pre-defined pickers is enough in most of the cases, you may
+want to move it somewhere up or down from the main multi picker block. You
+may even want to move the picker in another tab so that your options looks
+more clean. In this case, the possibility of **detaching** the picker for the
+multi picker will help you a lot.
+
+The first step is to define your picker somewhere in the same **form** (we name
+that a **context**) Please note that the ``select`` here is not nested under
+a ``multi`` or other option. Also, it is important to note that the ID for
+the ``select`` here is ``gadget``.
+
+    .. code-blocK:: php
+
+        $options = array(
+            'gadget' => array(
+                'type'    => 'select',
+                'choices' => array(
+                    'phone'  => __('Phone', '{domain}'),
+                    'laptop' => __('Laptop', '{domain}')
+                ),
+            ),
+        );
+
+        // In view.php
+        $current_value = fw_akg('gadget', $atts);
+
+Next, you would add the ``multi-picker`` body and **connect** it to that
+particular ``select`` with ``gadget`` ID.
+
+    .. code-blocK:: php
+
+        $options = array(
+            'gadget' => array(
+                'type'    => 'select',
+                'choices' => array(
+                    'phone'  => __('Phone', '{domain}'),
+                    'laptop' => __('Laptop', '{domain}')
+                ),
+            ),
+
+            'multi-picker' => array(
+                'type' => 'multi-picker',
+
+                // Here is the ID of our select
+                'picker' => 'gadget',
+
+                'choices' => array(
+                    'phone' => array(
+                        'text' => array(
+                            'type' => 'text'
+                        )
+                    ),
+
+                    'laptop' => array(
+                        'text' => array(
+                            'type' => 'icon-v2'
+                        )
+                    )
+                )
+            ),
+
+
+        );
+
+
+        // In view.php
+        $current_value = fw_akg('gadget', $atts);
+
+        $current_picker_value = fw_akg(
+            'multi-picker/' . $current_value . '/text',
+            $atts
+        );
+
+        fw_print($current_picker_value);
+
+
+You would notice that the multi picker updates when that select changes.
+
+You can even connect two (or three) multi pickers to the same picker.
+
+    .. code-blocK:: php
+
+        $options = array(
+            'gadget' => array(
+                'type'    => 'select',
+                'choices' => array(
+                    'phone'  => __('Phone', '{domain}'),
+                    'laptop' => __('Laptop', '{domain}')
+                ),
+            ),
+
+            'first-multi-picker' => array(
+                'type' => 'multi-picker',
+
+                // Here is the ID of our select
+                'picker' => 'gadget',
+
+                'choices' => array(
+                    'phone' => array(
+                        // options for the first choice
+                    ),
+
+                    'laptop' => array(
+                        // options for the second choice
+                    )
+                )
+            ),
+
+            'second-multi-picker' => array(
+                'type' => 'multi-picker',
+
+                // Here is the ID of our select
+                'picker' => 'gadget',
+
+                'choices' => array(
+                    'phone' => array(
+                        // options for the first choice
+                    ),
+
+                    'laptop' => array(
+                        // options for the second choice
+                    )
+                )
+            ),
+        );
+
+Enjoy!
