@@ -208,3 +208,39 @@ Events
     fwEvents.trigger('script-2:message', {message: 'Hello World!'});
 
 .. include:: /links.rst.inc
+
+Reactive Options and Fetch Html helper
+--------------------------------------
+
+This section is a draft for an upcoming documentation for reactive option types.
+
+For now, it documents only `fw.options.fetchHtml() <https://github.com/ThemeFuse/Unyson/pull/2723>`_
+helper.
+
+.. code-block:: javascript
+
+    fw.options.fetchHtml(
+        // An array of options
+        {
+            a: {
+                type: 'text',
+                label: 'My Option'
+            },
+
+            b: {
+                type: 'password'
+            }
+        }, 
+
+
+        // The array of default values
+        {
+            a: 'Hello'
+        }
+    ).then(function (html) {
+        console.log(html);
+    });
+
+* ``fw.options.fetchHtml(options, values)`` - fetch the HTML representation for every option, returns a Promise
+* ``fw.options.fetchHtml.getCacheEntryFor(options, values)`` - get current cached HTML string or false
+* ``fw.options.fetchHtml.emptyCache()`` - empty cache and force each option type to be re-downloaded
