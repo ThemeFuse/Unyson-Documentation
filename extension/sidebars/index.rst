@@ -93,7 +93,7 @@ Filters
 
             return $post_types_list;
         }
-        add_filter('fw_ext_sidebars_get_post_types', '_filter_remove_post_type_from_sidebars' );
+        add_filter('fw_ext_sidebars_post_types', '_filter_remove_post_type_from_sidebars' );
 
 * ``fw_ext_sidebars_taxonomies`` - use this filter to change/remove taxonomies that are used in extension.
 
@@ -105,7 +105,7 @@ Filters
 
             return $taxonomy_list;
         }
-        add_filter('fw_ext_sidebars_get_taxonomies', '_filter_remove_taxonomy_from_sidebars');
+        add_filter('fw_ext_sidebars_taxonomies', '_filter_remove_taxonomy_from_sidebars');
 
 * ``fw_ext_sidebars_conditional_tags`` - use this filter to change/remove/add conditional tags that are used in extension.
 
