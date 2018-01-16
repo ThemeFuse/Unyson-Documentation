@@ -219,7 +219,7 @@ LiteSpeed appears to have problems with all WordPress scheduled tasks that last 
 
     .. code-block:: php
 
-    RewriteRule .* - [E=noabort:1]
+        RewriteRule .* - [E=noabort:1]
 
 Adding the above line does not mean that the problem is definitely fixed, you will only know that via testing. If the above does not help, then you can try to add a line to your wp-config.php(WordPress’s alternative scheduling system):
 
