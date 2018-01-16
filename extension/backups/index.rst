@@ -191,3 +191,42 @@ Hooks
             return $dirs;
         }
         add_filter('fw_ext_backups_demo_dirs', '_filter_theme_fw_ext_backups_demo_dirs');
+
+Troubleshooting
+--------------------
+
+Requirements
+^^^^^^^^^^^^
+
+If you have trouble with install demo content or backup content please make sure you have these recommended php values:
+
+     .. code-block:: php
+
+        upload_max_filesize = 128M
+        max_input_time = -1
+        post_max_size = 128M
+        max_input_vars = 8000
+        max_execution_time = 200
+
+Make sure you have enough disk space. The full backup backups the entire wp-content folder and sometimes users have there a lot of "trash" like backups from other plugins, cache ... Some times other plugins backups are really huge 2-4GB. You have to make sure that you do not have the same problem.
+
+
+LiteSpeed webserver
+^^^^^^^^^^^^
+
+The admin notice "Unyson: Your website is hosted using the LiteSpeed web server. Please consult this article if you have problems backing up." means that your web hosting company uses the LiteSpeed webserver.
+LiteSpeed appears to have problems with all WordPress scheduled tasks that last more than a very short time – including all backup plugins. Adding this in an early position in the .htaccess file in your WordPress root folder may fix the problem:
+
+    .. code-block:: php
+
+    RewriteRule .* - [E=noabort:1]
+
+Adding the above line does not mean that the problem is definitely fixed, you will only know that via testing. If the above does not help, then you can try to add a line to your wp-config.php(WordPress’s alternative scheduling system):
+
+ .. code-block:: php
+
+    define( 'ALTERNATE_WP_CRON', true );
+
+If that does not help you, then you’ll need the help of your web hosting company to see why WordPress’s scheduler isn’t working on their setup, or is terminating it prematurely. Or failing that, you’ll need a different web hosting company. This problem is a generic one affecting all backup plugins on WordPress that run via the scheduler (which is all of them, as far as we know).
+
+
