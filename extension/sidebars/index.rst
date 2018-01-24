@@ -66,7 +66,7 @@ Helpers
 
         <?php if (!defined('FW')) die('Forbidden');
 
-        $current_position = fw_ext_sidebars_current_position_get();
+        $current_position = fw_ext_sidebars_get_current_position();
 
         if ($current_position !== 'position-id') {
             echo fw_ext_sidebars_show('green');
