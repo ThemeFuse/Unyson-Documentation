@@ -8,6 +8,18 @@ import demo content or even create a demo content archive for migration purposes
     :local:
     :backlinks: top
 
+Migration
+--------------------
+
+Migration is a term representing moving a WordPress website from one location (e.g. http://localhost/site) to another (e.g. http://site.com).
+
+This is achieved by:
+
+1. Making a full backup copy of the old site(http://localhost/site).
+2. Moving it in the ``wp-content/uploads/fw-backup`` directory on the new site(http://site.com).
+
+After opening the Backup page a new archive will be displayed in the Backup Archive list.
+
 Demo Content Install
 --------------------
 
