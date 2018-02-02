@@ -219,3 +219,30 @@ Options
 
             return $options;
         }
+
+* ``fw_shortcode_get_options`` - **Page builder shortcodes options**, can be loaded from anywhere functions.php, your php file but before wordpress hook ``add_meta_boxes``
+
+    .. code-block:: php
+
+        add_action( 'fw_shortcode_get_options', '_filter_theme_fw_shortcode_get_options', 10, 2 );
+        function _filter_theme_fw_shortcode_get_options( $options, $shortcode ) {
+
+            $options = array(
+                'default_options' => array(
+                    'type'    => 'tab',
+                    'options' => $options, // Add default options to the first tab.
+                    'title'   => __( 'Tab with default shortcode options', '{domain}' ),
+                    'attr'    => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+                ),
+                'new_tab_options'          => array(
+                    'type'    => 'tab',
+                    'options' => array(
+                        'option_id' => array( 'type' => 'text' ),
+                    ),
+                    'title'   => __( 'Tab with our custom options', '{domain}' ),
+                    'attr'    => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+                )
+            );
+
+            return $options;
+        }
