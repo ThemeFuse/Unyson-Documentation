@@ -18,6 +18,7 @@ Set a datetime range.
             'format'  => 'Y/m/d H:i',  // Format datetime.
             'timepicker'  => true,     // Show timepicker.
             'datepicker'  => true,     // Show datepicker.
+            'step'        => 15        // Minutes step
             ),
         'to' => array(
             'minDate' => '1970/01/01', // By default minimum date will be current day, set a date in the datetime format.
@@ -25,6 +26,7 @@ Set a datetime range.
             'format'  => 'Y/m/d H:i',  // Format datetime.
             'timepicker'  => true,     // Show timepicker.
             'datepicker'  => true,     // Show datepicker.
+            'step'        => 15        // Minutes step
             )
         ),
         'value' => array(
