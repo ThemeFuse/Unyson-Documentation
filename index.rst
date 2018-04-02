@@ -20,9 +20,6 @@ Minimum Requirements
 Installation
 ------------
 
-Install as plugin
-^^^^^^^^^^^^^^^^^
-
 .. raw:: html
 
 	<iframe src="https://player.vimeo.com/video/113078377?title=0&amp;byline=0&amp;portrait=0" width="100%" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -37,27 +34,6 @@ Or you can install `the plugin <https://wordpress.org/plugins/unyson/>`__ manual
 1. Upload the ``unyson`` folder to the ``/wp-content/plugins/`` directory
 2. Activate the Unyson plugin through the 'Plugins' menu
 3. Configure the plugin by going to the Unyson menu
-
-Install anywhere
-^^^^^^^^^^^^^^^^
-
-The framework can be placed in any directory you want, just include the ``bootstrap.php`` file.
-
-.. note::
-
-    You can include the ``bootstrap.php`` file multiple times,
-    however only the first included version will be active,
-    all other includes will be ignored/inactive.
-
-The only thing you will have to configure is the framework directory uri, for the static files to be enqueued properly:
-
-.. code-block:: php
-
-    if (defined('FW')):
-        // the framework was already included in another place, so this version will be inactive/ignored
-    else:
-        require dirname(__FILE__) .'/framework/bootstrap.php';
-    endif;
 
 
 License
