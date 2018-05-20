@@ -1851,16 +1851,16 @@ p.screenshot img {
     margin: 0 auto;
 }
 
-a#banner-bitblox {
+a#banner-brizy {
     display: none;
     background-color: #45C2D4;
 }
 @media (min-width: 768px) {
-    a#banner-bitblox {
+    a#banner-brizy {
         display: block;
     }
 }
-a#banner-bitblox > img {
+a#banner-brizy > img {
     display: block;
     max-width: 100%;
     margin: 0 auto;
