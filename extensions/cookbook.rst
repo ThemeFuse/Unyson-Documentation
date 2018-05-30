@@ -78,7 +78,7 @@ Let's say you want to add some extensions available for your theme. To install e
                     'download'    => array(
                         'source' => 'github',
                         'opts'   => array(
-                            'user_repo' => 'https://github.com/yourUsername/yourRepositoryExtension',
+                            'user_repo' => 'yourUsername/yourRepositoryExtension'
                         ),
                     ),
                 ),
